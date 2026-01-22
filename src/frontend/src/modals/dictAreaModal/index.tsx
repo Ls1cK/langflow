@@ -44,8 +44,8 @@ export default function DictAreaModal({
       } catch (error) {
         console.error("Error getting JSON:", error);
         setErrorData({
-          title: t('dictArea.errorGettingDictionary'),
-          list: [t('dictArea.checkDictionaryFormat')],
+          title: t("dictArea.errorGettingDictionary"),
+          list: [t("dictArea.checkDictionaryFormat")],
         });
       }
     }
@@ -71,19 +71,19 @@ export default function DictAreaModal({
   const IteractiveReader = () => {
     return (
       <span>
-        {t('dictArea.customizeDescription')}{" "}
+        {t("dictArea.customizeDescription")}{" "}
         <span
           onClick={() => handleChangeType("object")}
           className="cursor-pointer underline"
         >
-          {t('dictArea.objects')}
+          {t("dictArea.objects")}
         </span>{" "}
         or{" "}
         <span
           onClick={() => handleChangeType("array")}
           className="cursor-pointer underline"
         >
-          {t('dictArea.arrays')}
+          {t("dictArea.arrays")}
         </span>
       </span>
     );
@@ -92,7 +92,7 @@ export default function DictAreaModal({
   const renderHeader = () => (
     <BaseModal.Header description={onChange ? IteractiveReader() : null}>
       <span className="pr-2">
-        {onChange ? t('dictArea.editDictionary') : t('dictArea.viewDictionary')}
+        {onChange ? t("dictArea.editDictionary") : t("dictArea.viewDictionary")}
       </span>
       <IconComponent
         name="BookMarked"
@@ -131,7 +131,9 @@ export default function DictAreaModal({
       </BaseModal.Trigger>
       {renderHeader()}
       {renderContent()}
-      <BaseModal.Footer submit={onChange ? { label: t('dictArea.save') } : undefined} />
+      <BaseModal.Footer
+        submit={onChange ? { label: t("dictArea.save") } : undefined}
+      />
     </BaseModal>
   );
 }

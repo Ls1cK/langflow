@@ -95,7 +95,7 @@ export default function TemplateContentComponent({
         />
         <Input
           type="search"
-          placeholder={t('templates.searchPlaceholder')}
+          placeholder={t("templates.searchPlaceholder")}
           icon={"SearchIcon"}
           data-testid="search-input-template"
           value={searchQuery}
@@ -116,14 +116,14 @@ export default function TemplateContentComponent({
         ) : (
           <div className="flex flex-col items-center justify-center px-4 py-12 text-center">
             <p className="text-sm text-secondary-foreground">
-              {t('templates.noTemplatesFound')}{" "}
+              {t("templates.noTemplatesFound")}{" "}
               <a
                 className="cursor-pointer underline underline-offset-4"
                 onClick={handleClearSearch}
               >
-                {t('templates.clearSearch')}
+                {t("templates.clearSearch")}
               </a>{" "}
-              {t('templates.tryDifferentQuery')}
+              {t("templates.tryDifferentQuery")}
             </p>
           </div>
         )}

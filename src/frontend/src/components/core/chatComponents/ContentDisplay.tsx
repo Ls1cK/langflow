@@ -134,8 +134,16 @@ export default function ContentDisplay({
     case "error":
       contentData = (
         <div className="text-red-500">
-          {content.reason && <div>{t('components.errors.reason')}: {content.reason}</div>}
-          {content.solution && <div>{t('components.errors.solution')}: {content.solution}</div>}
+          {content.reason && (
+            <div>
+              {t("components.errors.reason")}: {content.reason}
+            </div>
+          )}
+          {content.solution && (
+            <div>
+              {t("components.errors.solution")}: {content.solution}
+            </div>
+          )}
           {content.traceback && (
             <SimplifiedCodeTabComponent
               language="text"
@@ -207,7 +215,7 @@ export default function ContentDisplay({
             rehypePlugins={[rehypeMathjax]}
             className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
           >
-            **{t('chat.input')}:**
+            **{t("chat.input")}:**
           </Markdown>
           <SimplifiedCodeTabComponent
             language="json"
@@ -220,7 +228,7 @@ export default function ContentDisplay({
                 rehypePlugins={[rehypeMathjax]}
                 className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
               >
-                **{t('chat.output')}:**
+                **{t("chat.output")}:**
               </Markdown>
               <div className="mt-1">{formatToolOutput(content.output)}</div>
             </>
@@ -232,7 +240,7 @@ export default function ContentDisplay({
                 rehypePlugins={[rehypeMathjax]}
                 className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
               >
-                **{t('common.error')}:**
+                **{t("common.error")}:**
               </Markdown>
               <SimplifiedCodeTabComponent
                 language="json"
@@ -252,7 +260,7 @@ export default function ContentDisplay({
             <img
               key={index}
               src={url}
-              alt={content.caption || t('chat.media', { index })}
+              alt={content.caption || t("chat.media", { index })}
             />
           ))}
           {content.caption && <div>{content.caption}</div>}

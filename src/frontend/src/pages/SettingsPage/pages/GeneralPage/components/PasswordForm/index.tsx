@@ -38,10 +38,8 @@ const PasswordFormComponent = ({
       >
         <Card x-chunk="dashboard-04-chunk-2">
           <CardHeader>
-            <CardTitle>{t('pages.password.title')}</CardTitle>
-            <CardDescription>
-              {t('pages.password.description')}
-            </CardDescription>
+            <CardTitle>{t("pages.password.title")}</CardTitle>
+            <CardDescription>{t("pages.password.description")}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex w-full gap-4">
@@ -54,11 +52,11 @@ const PasswordFormComponent = ({
                   value={password}
                   isForm
                   password={true}
-                  placeholder={t('pages.password.password')}
+                  placeholder={t("pages.password.password")}
                   className="w-full"
                 />
                 <Form.Message match="valueMissing" className="field-invalid">
-                  {t('pages.password.enterPassword')}
+                  {t("pages.password.enterPassword")}
                 </Form.Message>
               </Form.Field>
               <Form.Field name="cnfPassword" className="w-full">
@@ -72,19 +70,19 @@ const PasswordFormComponent = ({
                   value={cnfPassword}
                   isForm
                   password={true}
-                  placeholder={t('pages.password.confirmPassword')}
+                  placeholder={t("pages.password.confirmPassword")}
                   className="w-full"
                 />
 
                 <Form.Message className="field-invalid" match="valueMissing">
-                  {t('pages.password.confirmPasswordMessage')}
+                  {t("pages.password.confirmPasswordMessage")}
                 </Form.Message>
               </Form.Field>
             </div>
           </CardContent>
           <CardFooter className="border-t px-6 py-4">
             <Form.Submit asChild>
-              <Button type="submit">{t('pages.password.save')}</Button>
+              <Button type="submit">{t("pages.password.save")}</Button>
             </Form.Submit>
           </CardFooter>
         </Card>

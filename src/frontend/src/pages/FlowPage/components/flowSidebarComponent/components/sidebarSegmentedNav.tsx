@@ -26,42 +26,41 @@ export const getNavItems = (t: (key: string) => string): NavItem[] => [
   {
     id: "search" as SidebarSection,
     icon: "search",
-    label: t('sidebarNav.search'),
-    tooltip: t('sidebarNav.search'),
+    label: t("sidebarNav.search"),
+    tooltip: t("sidebarNav.search"),
   },
   {
     id: "components" as SidebarSection,
     icon: "component",
-    label: t('sidebarNav.components'),
-    tooltip: t('sidebarNav.components'),
+    label: t("sidebarNav.components"),
+    tooltip: t("sidebarNav.components"),
   },
   {
     id: "mcp" as SidebarSection,
     icon: "Mcp",
-    label: t('sidebarNav.mcp'),
-    tooltip: t('sidebarNav.mcp'),
+    label: t("sidebarNav.mcp"),
+    tooltip: t("sidebarNav.mcp"),
   },
   {
     id: "bundles" as SidebarSection,
     icon: "blocks",
-    label: t('sidebarNav.bundles'),
-    tooltip: t('sidebarNav.bundles'),
+    label: t("sidebarNav.bundles"),
+    tooltip: t("sidebarNav.bundles"),
   },
   {
     id: "add_note" as SidebarSection,
     icon: "sticky-note",
-    label: t('sidebarNav.stickyNotes'),
-    tooltip: t('sidebarNav.addStickyNotes'),
+    label: t("sidebarNav.stickyNotes"),
+    tooltip: t("sidebarNav.addStickyNotes"),
   },
 ];
-
 
 const SidebarSegmentedNav = () => {
   const { t } = useTranslation();
   const { activeSection, setActiveSection, toggleSidebar, open } = useSidebar();
   const { focusSearch, setSearch } = useSearchContext();
   const [isAddNoteActive, setIsAddNoteActive] = useState(false);
-  
+
   const navItems = getNavItems(t);
   const handleAddNote = () => {
     window.dispatchEvent(new Event("lf:start-add-note"));

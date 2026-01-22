@@ -1,17 +1,17 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '../ui/button';
+import { Globe } from "lucide-react";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
-import { Globe } from 'lucide-react';
+} from "../ui/dropdown-menu";
 
 const languages = [
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: "zh", name: "中文", flag: "🇨🇳" },
+  { code: "en", name: "English", flag: "🇺🇸" },
 ];
 
 const LanguageSwitcher: React.FC = () => {
@@ -21,7 +21,8 @@ const LanguageSwitcher: React.FC = () => {
     i18n.changeLanguage(languageCode);
   };
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage =
+    languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   return (
     <DropdownMenu>

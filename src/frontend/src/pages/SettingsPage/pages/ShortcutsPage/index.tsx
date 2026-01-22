@@ -19,14 +19,14 @@ export default function ShortcutsPage() {
   // Column Definitions: Defines the columns to be displayed.
   const colDefs: ColDef[] = [
     {
-      headerName: t('pages.shortcuts.functionality'),
+      headerName: t("pages.shortcuts.functionality"),
       field: "display_name",
       flex: 1,
       editable: false,
       resizable: false,
     }, //This column will be twice as wide as the others
     {
-      headerName: t('pages.shortcuts.keyboardShortcut'),
+      headerName: t("pages.shortcuts.keyboardShortcut"),
       field: "shortcut",
       flex: 2,
       editable: false,
@@ -65,14 +65,14 @@ export default function ShortcutsPage() {
             className="flex items-center text-lg font-semibold tracking-tight"
             data-testid="settings_menu_header"
           >
-            {t('pages.shortcuts.title')}
+            {t("pages.shortcuts.title")}
             <ForwardedIconComponent
               name="Keyboard"
               className="ml-2 h-5 w-5 text-primary"
             />
           </h2>
           <p className="text-sm text-muted-foreground">
-            {t('pages.shortcuts.description')}
+            {t("pages.shortcuts.description")}
           </p>
         </div>
         <div>
@@ -96,7 +96,7 @@ export default function ShortcutsPage() {
                 onClick={handleRestore}
               >
                 <ForwardedIconComponent name="RotateCcw" className="w-4" />
-                {t('pages.shortcuts.restore')}
+                {t("pages.shortcuts.restore")}
               </Button>
             </div>
           </div>

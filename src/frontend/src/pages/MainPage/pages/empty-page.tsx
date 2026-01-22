@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
-import { FaDiscord, FaGithub } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 import { useShallow } from "zustand/react/shallow";
 import logoDarkPng from "@/assets/logo_dark.png";
 import logoLightPng from "@/assets/logo_light.png";
@@ -15,7 +15,6 @@ import { useDarkStore } from "@/stores/darkStore";
 import { useFolderStore } from "@/stores/foldersStore";
 import { formatNumber } from "@/utils/utils";
 import useFileDrop from "../hooks/use-on-file-drop";
-
 
 const EXTERNAL_LINK_ICON_CLASS =
   "absolute right-6 top-[35px] h-4 w-4 shrink-0 translate-x-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100";
@@ -53,7 +52,7 @@ export const EmptyPageCommunity = ({
   return (
     <DotBackgroundDemo>
       <CardsWrapComponent
-        dragMessage={t('pages.emptyPage.dropMessage')}
+        dragMessage={t("pages.emptyPage.dropMessage")}
         onFileDrop={handleFileDrop}
       >
         <div className="m-0 h-full w-full bg-background p-0">
@@ -79,7 +78,7 @@ export const EmptyPageCommunity = ({
                 data-testid="mainpage_title"
                 className="z-50 text-center font-chivo text-2xl font-medium text-foreground"
               >
-                {t('pages.emptyPage.welcomeTitle')}
+                {t("pages.emptyPage.welcomeTitle")}
               </span>
 
               <span
@@ -87,8 +86,8 @@ export const EmptyPageCommunity = ({
                 className="z-50 text-center text-base text-secondary-foreground"
               >
                 {folders?.length > 1
-                  ? t('pages.emptyPage.emptyFolder')
-                  : t('pages.emptyPage.description')}
+                  ? t("pages.emptyPage.emptyFolder")
+                  : t("pages.emptyPage.description")}
               </span>
             </div>
 
@@ -115,7 +114,7 @@ export const EmptyPageCommunity = ({
                     </div>
                     <div>
                       <span className="text-base text-secondary-foreground">
-                        {t('pages.emptyPage.githubDescription')}
+                        {t("pages.emptyPage.githubDescription")}
                       </span>
                     </div>
                   </div>
@@ -145,7 +144,7 @@ export const EmptyPageCommunity = ({
                     </div>
                     <div>
                       <span className="text-base text-secondary-foreground">
-                        {t('pages.emptyPage.discordDescription')}
+                        {t("pages.emptyPage.discordDescription")}
                       </span>
                     </div>
                   </div>
@@ -165,7 +164,7 @@ export const EmptyPageCommunity = ({
                   aria-hidden="true"
                   className="h-4 w-4"
                 />
-                <span>{t('pages.emptyPage.createFirstFlow')}</span>
+                <span>{t("pages.emptyPage.createFirstFlow")}</span>
               </Button>
             </div>
           </div>
@@ -174,7 +173,7 @@ export const EmptyPageCommunity = ({
           data-testid="empty_page_drag_and_drop_text"
           className="absolute bottom-5 left-0 right-0 mt-4 cursor-default text-center text-xxs text-muted-foreground"
         >
-          {t('pages.emptyPage.dragAndDropText')}
+          {t("pages.emptyPage.dragAndDropText")}
         </p>
       </CardsWrapComponent>
     </DotBackgroundDemo>

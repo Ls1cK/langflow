@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useBlocker, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useBlocker, useParams } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useGetFlow } from "@/controllers/API/queries/flows/use-get-flow";
 import { useGetTypes } from "@/controllers/API/queries/flows/use-get-types";
@@ -63,7 +63,7 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
       if (proceed) {
         blocker.proceed && blocker.proceed();
         setSuccessData({
-          title: t('alerts.success.flowSaved'),
+          title: t("alerts.success.flowSaved"),
         });
       }
     }, 1200);
@@ -71,7 +71,7 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
       if (!autoSaving || saving === false) {
         blocker.proceed && blocker.proceed();
         setSuccessData({
-          title: t('alerts.success.flowSaved'),
+          title: t("alerts.success.flowSaved"),
         });
       }
       proceed = true;

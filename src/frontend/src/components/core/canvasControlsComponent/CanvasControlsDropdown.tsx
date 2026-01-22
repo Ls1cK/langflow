@@ -88,7 +88,7 @@ const CanvasControlsDropdown = () => {
           data-testid="canvas_controls_dropdown"
           className="group rounded-none px-2 py-2 hover:bg-muted"
           unstyled
-          title={t('flow.editor.controls')}
+          title={t("flow.editor.controls")}
         >
           <div className="flex items-center justify-center ">
             <div className="text-sm pr-1 text-muted-foreground">
@@ -108,34 +108,34 @@ const CanvasControlsDropdown = () => {
         className="flex flex-col w-full"
       >
         <DropdownControlButton
-          tooltipText={t('flow.editor.zoomIn')}
+          tooltipText={t("flow.editor.zoomIn")}
           onClick={handleZoomIn}
           disabled={maxZoomReached}
           testId="zoom_in"
-          label={t('flow.editor.zoomIn')}
+          label={t("flow.editor.zoomIn")}
           shortcut={KEYBOARD_SHORTCUTS.ZOOM_IN.key}
         />
         <DropdownControlButton
-          tooltipText={t('flow.editor.zoomOut')}
+          tooltipText={t("flow.editor.zoomOut")}
           onClick={handleZoomOut}
           disabled={minZoomReached}
           testId="zoom_out"
-          label={t('flow.editor.zoomOut')}
+          label={t("flow.editor.zoomOut")}
           shortcut={KEYBOARD_SHORTCUTS.ZOOM_OUT.key}
         />
         <Separator />
         <DropdownControlButton
-          tooltipText={t('flow.editor.resetZoom')}
+          tooltipText={t("flow.editor.resetZoom")}
           onClick={handleResetZoom}
           testId="reset_zoom"
-          label={t('flow.editor.zoomTo100')}
+          label={t("flow.editor.zoomTo100")}
           shortcut={KEYBOARD_SHORTCUTS.RESET_ZOOM.key}
         />
         <DropdownControlButton
-          tooltipText={t('flow.editor.fitView')}
+          tooltipText={t("flow.editor.fitView")}
           onClick={handleFitView}
           testId="fit_view"
-          label={t('flow.editor.zoomToFit')}
+          label={t("flow.editor.zoomToFit")}
           shortcut={KEYBOARD_SHORTCUTS.FIT_VIEW.key}
         />
       </DropdownMenuContent>

@@ -15,7 +15,7 @@ export const SearchConfigTrigger = ({
   const { t } = useTranslation();
   return (
     <div className="flex items-center justify-center">
-      <ShadTooltip content={t('flow.sidebar.settings')} styleClasses="z-50">
+      <ShadTooltip content={t("flow.sidebar.settings")} styleClasses="z-50">
         <Button
           variant={showConfig ? "ghostActive" : "ghost"}
           size="iconMd"

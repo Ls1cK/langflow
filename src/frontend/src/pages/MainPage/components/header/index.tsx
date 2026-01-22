@@ -79,7 +79,7 @@ const HeaderComponent = ({
 
   const handleDownload = () => {
     downloadFlows({ ids: selectedFlows });
-    setSuccessData({ title: t('ui:flowsDownloadedSuccessfully') });
+    setSuccessData({ title: t("ui:flowsDownloadedSuccessfully") });
   };
 
   const handleDelete = () => {
@@ -87,7 +87,7 @@ const HeaderComponent = ({
       { flow_ids: selectedFlows },
       {
         onSuccess: () => {
-          setSuccessData({ title: t('ui:flowsDeletedSuccessfully') });
+          setSuccessData({ title: t("ui:flowsDeletedSuccessfully") });
         },
       },
     );
@@ -133,10 +133,10 @@ const HeaderComponent = ({
               >
                 <div className={flowType === type ? "-mb-px" : ""}>
                   {type === "mcp"
-                    ? t('ui:mcpServer')
+                    ? t("ui:mcpServer")
                     : type === "flows"
-                    ? t('ui:flows')
-                    : t('ui:components')}
+                      ? t("ui:flows")
+                      : t("ui:components")}
                 </div>
               </Button>
             ))}
@@ -226,7 +226,7 @@ const HeaderComponent = ({
                     </Button>
                   </DeleteConfirmationModal>
                 </div>
-                <ShadTooltip content={t('flow:create')} side="bottom">
+                <ShadTooltip content={t("flow:create")} side="bottom">
                   <Button
                     variant="default"
                     size="iconMd"
@@ -241,7 +241,7 @@ const HeaderComponent = ({
                       className="h-4 w-4"
                     />
                     <span className="hidden whitespace-nowrap font-semibold md:inline">
-                      {t('flow:create')}
+                      {t("flow:create")}
                     </span>
                   </Button>
                 </ShadTooltip>

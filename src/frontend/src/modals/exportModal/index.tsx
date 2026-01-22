@@ -95,7 +95,7 @@ const ExportModal = forwardRef(
               );
 
               setSuccessData({
-                title: t('alerts.success.flowExported'),
+                title: t("alerts.success.flowExported"),
               });
               setOpen(false);
               track("Flow Exported", { flowId: currentFlow!.id });
@@ -106,8 +106,8 @@ const ExportModal = forwardRef(
         }}
       >
         <BaseModal.Trigger asChild>{props.children ?? <></>}</BaseModal.Trigger>
-        <BaseModal.Header description={t('modal:export.description')}>
-          <span className="pr-2">{t('modal:export.title')}</span>
+        <BaseModal.Header description={t("modal:export.description")}>
+          <span className="pr-2">{t("modal:export.title")}</span>
           <IconComponent
             name="Download"
             className="h-6 w-6 pl-1 text-foreground"
@@ -130,17 +130,17 @@ const ExportModal = forwardRef(
               }}
             />
             <label htmlFor="terms" className="export-modal-save-api text-sm">
-              {t('modal:export.saveWithApiKeys')}
+              {t("modal:export.saveWithApiKeys")}
             </label>
           </div>
           <span className="mt-1 text-xs text-destructive">
-            {t('modal:export.apiKeysWarning')}
+            {t("modal:export.apiKeysWarning")}
           </span>
         </BaseModal.Content>
 
         <BaseModal.Footer
           submit={{
-            label: t('modal:export.title'),
+            label: t("modal:export.title"),
             loading: isBuilding,
             dataTestId: "modal-export-button",
           }}

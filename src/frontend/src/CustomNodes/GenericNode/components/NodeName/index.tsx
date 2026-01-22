@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Input } from "@/components/ui/input";
 import useFlowStore from "@/stores/flowStore";
 import useFlowsManagerStore from "@/stores/flowsManagerStore";
-import { useTranslation } from "react-i18next";
 import { cn } from "@/utils/utils";
 
 export default function NodeName({
@@ -105,7 +105,7 @@ export default function NodeName({
           {legacy && (
             <div className="shrink-0">
               <div className="flex items-center text-xxs justify-center rounded-sm border border-accent-amber text-accent-amber-foreground px-1">
-                {t('customNodes.legacy')}
+                {t("customNodes.legacy")}
               </div>
             </div>
           )}
@@ -113,7 +113,7 @@ export default function NodeName({
       </div>
       {beta && (
         <div className="shrink-0">
-          <ShadTooltip content={t('customNodes.betaComponent')}>
+          <ShadTooltip content={t("customNodes.betaComponent")}>
             <div className="flex h-4 w-4 items-center justify-center rounded-sm border border-accent-purple-foreground p-0.5">
               <ForwardedIconComponent
                 name="FlaskConical"

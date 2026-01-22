@@ -241,7 +241,7 @@ export default function PromptModal({
               aria-hidden="true"
             />
             <span className="pl-2" data-testid="modal-title">
-              {t('modals.prompt.title')}
+              {t("modals.prompt.title")}
             </span>
           </div>
         </div>

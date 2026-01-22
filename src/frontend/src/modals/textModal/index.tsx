@@ -40,7 +40,7 @@ export default function TextModal({
     >
       <BaseModal.Trigger className="h-full">{children}</BaseModal.Trigger>
       <BaseModal.Header description={""}>
-        <span className="pr-2">{t('modal:textArea.title')}</span>
+        <span className="pr-2">{t("modal:textArea.title")}</span>
         <IconComponent
           name="Type"
           className="h-6 w-6 pl-1 text-primary"
@@ -70,7 +70,7 @@ export default function TextModal({
                 setOpen(false);
               }}
             >
-{t('modal:textArea.save')}
+              {t("modal:textArea.save")}
             </Button>
           )}
         </div>

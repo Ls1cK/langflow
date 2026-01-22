@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import PaginatorComponent from "@/components/common/paginatorComponent";
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
 import { IS_MAC } from "@/constants/constants";
@@ -246,7 +246,9 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
   return (
     <CardsWrapComponent
       onFileDrop={flowType === "mcp" ? undefined : handleFileDrop}
-      dragMessage={t('pages.homePage.dropMessage', { type: isEmptyFolder ? t('pages.homePage.flowsOrComponents') : flowType })}
+      dragMessage={t("pages.homePage.dropMessage", {
+        type: isEmptyFolder ? t("pages.homePage.flowsOrComponents") : flowType,
+      })}
     >
       <div
         className="flex h-full w-full flex-col overflow-y-auto"
@@ -319,27 +321,27 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
                     )
                   ) : flowType === "flows" ? (
                     <div className="pt-24 text-center text-sm text-secondary-foreground">
-                      {t('pages.homePage.noFlowsInProject')}{" "}
+                      {t("pages.homePage.noFlowsInProject")}{" "}
                       <a
                         onClick={() => setNewProjectModal(true)}
                         className="cursor-pointer underline"
                       >
-                        {t('pages.homePage.createNewFlow')}
+                        {t("pages.homePage.createNewFlow")}
                       </a>
-                      {t('pages.homePage.orBrowseStore')}
+                      {t("pages.homePage.orBrowseStore")}
                     </div>
                   ) : (
                     <div className="pt-24 text-center text-sm text-secondary-foreground">
-                      {t('pages.homePage.noCustomComponents')}{" "}
+                      {t("pages.homePage.noCustomComponents")}{" "}
                       <a
                         href="https://docs.langflow.org/components-custom-components"
                         target="_blank"
                         rel="noreferrer"
                         className="underline"
                       >
-                        {t('pages.homePage.creatingCustomComponents')}
+                        {t("pages.homePage.creatingCustomComponents")}
                       </a>
-                      {t('pages.homePage.orBrowseStore')}
+                      {t("pages.homePage.orBrowseStore")}
                     </div>
                   )}
                 </div>

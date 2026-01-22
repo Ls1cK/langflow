@@ -1,8 +1,8 @@
-import { useIsFetching, useIsMutating } from '@tanstack/react-query';
-import { useEffect, useRef, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import ForwardedIconComponent from '@/components/common/genericIconComponent';
+import { useIsFetching, useIsMutating } from "@tanstack/react-query";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useLocation, useParams } from "react-router-dom";
+import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import {
   Sidebar,
   SidebarContent,
@@ -12,44 +12,44 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
-} from '@/components/ui/sidebar';
-import { useUpdateUser } from '@/controllers/API/queries/auth';
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { useUpdateUser } from "@/controllers/API/queries/auth";
 import {
   usePatchFolders,
   usePostFolders,
-  usePostUploadFolders
-} from '@/controllers/API/queries/folders';
-import { useGetDownloadFolders } from '@/controllers/API/queries/folders/use-get-download-folders';
-import { CustomStoreButton } from '@/customization/components/custom-store-button';
+  usePostUploadFolders,
+} from "@/controllers/API/queries/folders";
+import { useGetDownloadFolders } from "@/controllers/API/queries/folders/use-get-download-folders";
+import { CustomStoreButton } from "@/customization/components/custom-store-button";
 import {
   ENABLE_CUSTOM_PARAM,
   ENABLE_DATASTAX_LANGFLOW,
   ENABLE_FILE_MANAGEMENT,
   ENABLE_KNOWLEDGE_BASES,
-  ENABLE_MCP_NOTICE
-} from '@/customization/feature-flags';
-import { useCustomNavigate } from '@/customization/hooks/use-custom-navigate';
-import { track } from '@/customization/utils/analytics';
-import { customGetDownloadFolderBlob } from '@/customization/utils/custom-get-download-folders';
-import { createFileUpload } from '@/helpers/create-file-upload';
-import { getObjectsFromFilelist } from '@/helpers/get-objects-from-filelist';
-import useUploadFlow from '@/hooks/flows/use-upload-flow';
-import { useIsMobile } from '@/hooks/use-mobile';
-import useAuthStore from '@/stores/authStore';
-import type { FolderType } from '../../../../../pages/MainPage/entities';
-import useAlertStore from '../../../../../stores/alertStore';
-import useFlowsManagerStore from '../../../../../stores/flowsManagerStore';
-import { useFolderStore } from '../../../../../stores/foldersStore';
-import { useUtilityStore } from '../../../../../stores/utilityStore';
-import { handleKeyDown } from '../../../../../utils/reactflowUtils';
-import { cn } from '../../../../../utils/utils';
-import useFileDrop from '../../hooks/use-on-file-drop';
-import { SidebarFolderSkeleton } from '../sidebarFolderSkeleton';
-import { HeaderButtons } from './components/header-buttons';
-import { InputEditFolderName } from './components/input-edit-folder-name';
-import { MCPServerNotice } from './components/mcp-server-notice';
-import { SelectOptions } from './components/select-options';
+  ENABLE_MCP_NOTICE,
+} from "@/customization/feature-flags";
+import { useCustomNavigate } from "@/customization/hooks/use-custom-navigate";
+import { track } from "@/customization/utils/analytics";
+import { customGetDownloadFolderBlob } from "@/customization/utils/custom-get-download-folders";
+import { createFileUpload } from "@/helpers/create-file-upload";
+import { getObjectsFromFilelist } from "@/helpers/get-objects-from-filelist";
+import useUploadFlow from "@/hooks/flows/use-upload-flow";
+import { useIsMobile } from "@/hooks/use-mobile";
+import useAuthStore from "@/stores/authStore";
+import type { FolderType } from "../../../../../pages/MainPage/entities";
+import useAlertStore from "../../../../../stores/alertStore";
+import useFlowsManagerStore from "../../../../../stores/flowsManagerStore";
+import { useFolderStore } from "../../../../../stores/foldersStore";
+import { useUtilityStore } from "../../../../../stores/utilityStore";
+import { handleKeyDown } from "../../../../../utils/reactflowUtils";
+import { cn } from "../../../../../utils/utils";
+import useFileDrop from "../../hooks/use-on-file-drop";
+import { SidebarFolderSkeleton } from "../sidebarFolderSkeleton";
+import { HeaderButtons } from "./components/header-buttons";
+import { InputEditFolderName } from "./components/input-edit-folder-name";
+import { MCPServerNotice } from "./components/mcp-server-notice";
+import { SelectOptions } from "./components/select-options";
 
 type SideBarFoldersButtonsComponentProps = {
   handleChangeFolder?: (id: string) => void;
@@ -59,7 +59,7 @@ type SideBarFoldersButtonsComponentProps = {
 const SideBarFoldersButtonsComponent = ({
   handleChangeFolder,
   handleDeleteFolder,
-  handleFilesClick
+  handleFilesClick,
 }: SideBarFoldersButtonsComponentProps) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -70,9 +70,10 @@ const SideBarFoldersButtonsComponent = ({
 
   const _navigate = useCustomNavigate();
 
-  const currentFolder = pathname.split('/');
-  const urlWithoutPath = pathname.split('/').length < (ENABLE_CUSTOM_PARAM ? 5 : 4);
-  const checkPathFiles = pathname.includes('assets');
+  const currentFolder = pathname.split("/");
+  const urlWithoutPath =
+    pathname.split("/").length < (ENABLE_CUSTOM_PARAM ? 5 : 4);
+  const checkPathFiles = pathname.includes("assets");
 
   const checkPathName = (itemId: string) => {
     if (urlWithoutPath && itemId === myCollectionId && !checkPathFiles) {
@@ -89,18 +90,18 @@ const SideBarFoldersButtonsComponent = ({
   const takeSnapshot = useFlowsManagerStore((state) => state.takeSnapshot);
   const defaultFolderName = useUtilityStore((state) => state.defaultFolderName);
 
-  const folderId = useParams().folderId ?? myCollectionId ?? '';
+  const folderId = useParams().folderId ?? myCollectionId ?? "";
 
   const { dragOver, dragEnter, dragLeave, onDrop } = useFileDrop(folderId);
   const uploadFlow = useUploadFlow();
   const [foldersNames, setFoldersNames] = useState({});
   const [editFolders, setEditFolderName] = useState(
-    folders.map((obj) => ({ name: obj.name, edit: false })) ?? []
+    folders.map((obj) => ({ name: obj.name, edit: false })) ?? [],
   );
 
   const isFetchingFolders = !!useIsFetching({
-    queryKey: ['useGetFolders'],
-    exact: false
+    queryKey: ["useGetFolders"],
+    exact: false,
   });
 
   const { mutate: mutateDownloadFolder } = useGetDownloadFolders({});
@@ -110,21 +111,25 @@ const SideBarFoldersButtonsComponent = ({
 
   const checkHoveringFolder = (folderId: string) => {
     if (folderId === folderIdDragging) {
-      return 'bg-accent text-accent-foreground';
+      return "bg-accent text-accent-foreground";
     }
   };
 
   const isFetchingFolder = !!useIsFetching({
-    queryKey: ['useGetFolder'],
-    exact: false
+    queryKey: ["useGetFolder"],
+    exact: false,
   });
 
   const isDeletingFolder = !!useIsMutating({
-    mutationKey: ['useDeleteFolders']
+    mutationKey: ["useDeleteFolders"],
   });
 
   const isUpdatingFolder =
-    isFetchingFolders || isFetchingFolder || isPending || loading || isDeletingFolder;
+    isFetchingFolders ||
+    isFetchingFolder ||
+    isPending ||
+    loading ||
+    isDeletingFolder;
 
   const handleUploadFlowsToFolder = () => {
     createFileUpload().then((files: File[]) => {
@@ -136,29 +141,29 @@ const SideBarFoldersButtonsComponent = ({
         if (objects.every((flow) => flow.data?.nodes)) {
           uploadFlow({ files }).then(() => {
             setSuccessData({
-              title: 'Uploaded successfully'
+              title: "Uploaded successfully",
             });
           });
         } else {
           files.forEach((folder) => {
             const formData = new FormData();
-            formData.append('file', folder);
+            formData.append("file", folder);
             mutate(
               { formData },
               {
                 onSuccess: () => {
                   setSuccessData({
-                    title: 'Project uploaded successfully.'
+                    title: "Project uploaded successfully.",
                   });
                 },
                 onError: (err) => {
                   console.error(err);
                   setErrorData({
                     title: `Error on uploading your project, try dragging it into an existing project.`,
-                    list: [err['response']['data']['message']]
+                    list: [err["response"]["data"]["message"]],
                   });
-                }
-              }
+                },
+              },
             );
           });
         }
@@ -169,7 +174,7 @@ const SideBarFoldersButtonsComponent = ({
   const handleDownloadFolder = (id: string, folderName: string) => {
     mutateDownloadFolder(
       {
-        folderId: id
+        folderId: id,
       },
       {
         onSuccess: (response) => {
@@ -177,10 +182,10 @@ const SideBarFoldersButtonsComponent = ({
         },
         onError: (e) => {
           setErrorData({
-            title: `An error occurred while downloading your project.`
+            title: `An error occurred while downloading your project.`,
           });
-        }
-      }
+        },
+      },
     );
   };
 
@@ -188,33 +193,35 @@ const SideBarFoldersButtonsComponent = ({
     mutateAddFolder(
       {
         data: {
-          name: 'New Project',
+          name: "New Project",
           parent_id: null,
-          description: ''
-        }
+          description: "",
+        },
       },
       {
         onSuccess: (folder) => {
-          track('Create New Project');
+          track("Create New Project");
           handleChangeFolder!(folder.id);
-        }
-      }
+        },
+      },
     );
   }
 
   function handleEditFolderName(e, name): void {
     const {
-      target: { value }
+      target: { value },
     } = e;
     setFoldersNames((old) => ({
       ...old,
-      [name]: value
+      [name]: value,
     }));
   }
 
   useEffect(() => {
     if (folders && folders.length > 0) {
-      setEditFolderName(folders.map((obj) => ({ name: obj.name, edit: false })));
+      setEditFolderName(
+        folders.map((obj) => ({ name: obj.name, edit: false })),
+      );
     }
   }, [folders]);
 
@@ -226,26 +233,28 @@ const SideBarFoldersButtonsComponent = ({
       return { name: obj.name, edit: false };
     });
     setEditFolderName(newEditFolders);
-    if (foldersNames[item.name].trim() !== '') {
+    if (foldersNames[item.name].trim() !== "") {
       setFoldersNames((old) => ({
         ...old,
-        [item.name]: foldersNames[item.name]
+        [item.name]: foldersNames[item.name],
       }));
       const body = {
         ...item,
         name: foldersNames[item.name],
         flows: item.flows?.length > 0 ? item.flows : [],
-        components: item.components?.length > 0 ? item.components : []
+        components: item.components?.length > 0 ? item.components : [],
       };
 
       mutateUpdateFolder(
         {
           data: body,
-          folderId: item.id!
+          folderId: item.id!,
         },
         {
           onSuccess: (updatedFolder) => {
-            const updatedFolderIndex = folders.findIndex((f) => f.id === updatedFolder.id);
+            const updatedFolderIndex = folders.findIndex(
+              (f) => f.id === updatedFolder.id,
+            );
 
             const updateFolders = [...folders];
             updateFolders[updatedFolderIndex] = updatedFolder;
@@ -254,16 +263,16 @@ const SideBarFoldersButtonsComponent = ({
             setEditFolderName(
               folders.map((obj) => ({
                 name: obj.name,
-                edit: false
-              }))
+                edit: false,
+              })),
             );
-          }
-        }
+          },
+        },
       );
     } else {
       setFoldersNames((old) => ({
         ...old,
-        [item.name]: item.name
+        [item.name]: item.name,
       }));
     }
   };
@@ -299,13 +308,13 @@ const SideBarFoldersButtonsComponent = ({
     setEditFolderName((old) => [...old, { name: item.name, edit: true }]);
     setFoldersNames((oldFolder) => ({
       ...oldFolder,
-      [item.name]: item.name
+      [item.name]: item.name,
     }));
     takeSnapshot();
   };
 
   const handleKeyDownFn = (e, item) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       const newEditFolders = editFolders.map((obj) => {
         if (obj.name === item.name) {
           return { name: item.name, edit: false };
@@ -317,11 +326,11 @@ const SideBarFoldersButtonsComponent = ({
       setEditFolderName(
         folders.map((obj) => ({
           name: obj.name,
-          edit: false
-        }))
+          edit: false,
+        })),
       );
     }
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       refInput.current?.blur();
     }
   };
@@ -332,7 +341,9 @@ const SideBarFoldersButtonsComponent = ({
   const { mutate: updateUser } = useUpdateUser();
   const userDismissedMcpDialog = userData?.optins?.mcp_dialog_dismissed;
 
-  const [isDismissedMcpDialog, setIsDismissedMcpDialog] = useState(userDismissedMcpDialog);
+  const [isDismissedMcpDialog, setIsDismissedMcpDialog] = useState(
+    userDismissedMcpDialog,
+  );
 
   const handleDismissMcpDialog = () => {
     setIsDismissedMcpDialog(true);
@@ -341,22 +352,25 @@ const SideBarFoldersButtonsComponent = ({
       user: {
         optins: {
           ...userData?.optins,
-          mcp_dialog_dismissed: true
-        }
-      }
+          mcp_dialog_dismissed: true,
+        },
+      },
     });
   };
 
   const handleFilesNavigation = () => {
-    _navigate('/assets/files');
+    _navigate("/assets/files");
   };
 
   const handleKnowledgeNavigation = () => {
-    _navigate('/assets/knowledge-bases');
+    _navigate("/assets/knowledge-bases");
   };
 
   return (
-    <Sidebar collapsible={isMobile ? 'offcanvas' : 'none'} data-testid="project-sidebar">
+    <Sidebar
+      collapsible={isMobile ? "offcanvas" : "none"}
+      data-testid="project-sidebar"
+    >
       <SidebarHeader className="px-4 py-1">
         <HeaderButtons
           handleUploadFlowsToFolder={handleUploadFlowsToFolder}
@@ -372,7 +386,7 @@ const SideBarFoldersButtonsComponent = ({
               {!loading ? (
                 folders.map((item, index) => {
                   const editFolderName = editFolders?.filter(
-                    (folder) => folder.name === item.name
+                    (folder) => folder.name === item.name,
                   )[0];
                   return (
                     <SidebarMenuItem
@@ -394,9 +408,9 @@ const SideBarFoldersButtonsComponent = ({
                           isActive={checkPathName(item.id!)}
                           onClick={() => handleChangeFolder!(item.id!)}
                           className={cn(
-                            'flex-grow pr-8',
-                            hoveredFolderId === item.id && 'bg-accent',
-                            checkHoveringFolder(item.id!)
+                            "flex-grow pr-8",
+                            hoveredFolderId === item.id && "bg-accent",
+                            checkHoveringFolder(item.id!),
                           )}
                         >
                           <div
@@ -433,8 +447,12 @@ const SideBarFoldersButtonsComponent = ({
                             item={item}
                             index={index}
                             handleDeleteFolder={handleDeleteFolder}
-                            handleDownloadFolder={() => handleDownloadFolder(item.id!, item.name)}
-                            handleSelectFolderToRename={handleSelectFolderToRename}
+                            handleDownloadFolder={() =>
+                              handleDownloadFolder(item.id!, item.name)
+                            }
+                            handleSelectFolderToRename={
+                              handleSelectFolderToRename
+                            }
                             checkPathName={checkPathName}
                           />
                         </div>
@@ -463,16 +481,24 @@ const SideBarFoldersButtonsComponent = ({
         <SidebarFooter className="border-t">
           <div className="grid w-full items-center gap-2 p-2">
             {/* TODO: Remove this on cleanup */}
-            {ENABLE_DATASTAX_LANGFLOW && <CustomStoreButton />}{' '}
+            {ENABLE_DATASTAX_LANGFLOW && <CustomStoreButton />}{" "}
             {ENABLE_KNOWLEDGE_BASES && (
-              <SidebarMenuButton onClick={handleKnowledgeNavigation} size="md" className="text-sm">
+              <SidebarMenuButton
+                onClick={handleKnowledgeNavigation}
+                size="md"
+                className="text-sm"
+              >
                 <ForwardedIconComponent name="Library" className="h-4 w-4" />
-                {t('ui.knowledge')}
+                {t("ui.knowledge")}
               </SidebarMenuButton>
             )}
-            <SidebarMenuButton onClick={handleFilesNavigation} size="md" className="text-sm">
+            <SidebarMenuButton
+              onClick={handleFilesNavigation}
+              size="md"
+              className="text-sm"
+            >
               <ForwardedIconComponent name="File" className="h-4 w-4" />
-              {t('ui.myFiles')}
+              {t("ui.myFiles")}
             </SidebarMenuButton>
           </div>
         </SidebarFooter>

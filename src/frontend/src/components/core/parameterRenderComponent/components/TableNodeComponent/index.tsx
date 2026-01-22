@@ -305,7 +305,9 @@ export default function TableNodeComponent({
               name={trigger_icon}
               className="mt-px h-4 w-4"
             />
-            <span className="font-normal">{trigger_text || t('table.openTable')}</span>
+            <span className="font-normal">
+              {trigger_text || t("table.openTable")}
+            </span>
           </Button>
         </TableModal>
       </div>

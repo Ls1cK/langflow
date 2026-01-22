@@ -38,7 +38,10 @@ export default function MCPServersPage() {
       setEditInitialData(data);
       setEditOpen(true);
     } catch (e: any) {
-      setErrorData({ title: t('pages.mcpServers.errorFetchingServer'), list: [e.message] });
+      setErrorData({
+        title: t("pages.mcpServers.errorFetchingServer"),
+        list: [e.message],
+      });
     } finally {
     }
   };
@@ -48,7 +51,10 @@ export default function MCPServersPage() {
       { name: server.name },
       {
         onError: (e: any) =>
-          setErrorData({ title: t('pages.mcpServers.errorDeletingServer'), list: [e.message] }),
+          setErrorData({
+            title: t("pages.mcpServers.errorDeletingServer"),
+            list: [e.message],
+          }),
       },
     );
   };
@@ -66,14 +72,14 @@ export default function MCPServersPage() {
             className="flex items-center text-lg font-semibold tracking-tight"
             data-testid="settings_menu_header"
           >
-            {t('pages.mcpServers.title')}
+            {t("pages.mcpServers.title")}
             <ForwardedIconComponent
               name="Mcp"
               className="ml-2 h-5 w-5 text-primary"
             />
           </h2>
           <p className="text-sm text-muted-foreground">
-            {t('pages.mcpServers.description')}
+            {t("pages.mcpServers.description")}
           </p>
         </div>
         <div className="flex flex-shrink-0 items-center gap-2">
@@ -83,7 +89,7 @@ export default function MCPServersPage() {
             data-testid="add-mcp-server-button-page"
           >
             <ForwardedIconComponent name="Plus" className="w-4" />
-            <span>{t('pages.mcpServers.addServer')}</span>
+            <span>{t("pages.mcpServers.addServer")}</span>
           </Button>
           <AddMcpServerModal open={addOpen} setOpen={setAddOpen} />
         </div>
@@ -93,11 +99,11 @@ export default function MCPServersPage() {
           <>
             {servers.length === 0 ? (
               <div className="w-full pt-8 text-center text-sm text-muted-foreground">
-                {t('pages.mcpServers.noServers')}
+                {t("pages.mcpServers.noServers")}
               </div>
             ) : (
               <div className="text-sm font-medium text-muted-foreground">
-                {t('pages.mcpServers.addedServers')}
+                {t("pages.mcpServers.addedServers")}
               </div>
             )}
             <div className="flex flex-col gap-1">

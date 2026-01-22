@@ -14,7 +14,7 @@ const useColumnDefs = (
   const columnDefs: ColDef[] = useMemo(() => {
     const colDefs: ColDef[] = [
       {
-        headerName: t('modals.editNode.fieldName'),
+        headerName: t("modals.editNode.fieldName"),
         field: "display_name",
         valueGetter: (params) => {
           const templateParam = params.data;
@@ -31,7 +31,7 @@ const useColumnDefs = (
         cellClass: "no-border cursor-default text-muted-foreground !py-1",
       },
       {
-        headerName: t('common.description'),
+        headerName: t("common.description"),
         field: "info",
         tooltipField: "info",
         wrapText: true,
@@ -41,7 +41,9 @@ const useColumnDefs = (
         cellClass: "no-border cursor-default text-muted-foreground !py-1",
       },
       {
-        headerName: isTweaks ? t('modals.editNode.currentValue') : t('modals.editNode.value'),
+        headerName: isTweaks
+          ? t("modals.editNode.currentValue")
+          : t("modals.editNode.value"),
         field: "value",
         cellRenderer: TableNodeCellRender,
         cellStyle: {

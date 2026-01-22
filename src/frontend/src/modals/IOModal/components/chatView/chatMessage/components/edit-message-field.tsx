@@ -53,7 +53,7 @@ export default function EditMessageField({
               }}
               className="mt-2 bg-primary text-background hover:bg-primary-hover hover:text-secondary"
             >
-              {t('common.save')}
+              {t("common.save")}
             </Button>
             <Button
               variant={"secondary"}
@@ -65,11 +65,11 @@ export default function EditMessageField({
               }}
               className="mt-2 !bg-transparent text-foreground hover:!bg-secondary-hover"
             >
-              {t('common.cancel')}
+              {t("common.cancel")}
             </Button>
           </div>
           <div className="text-mmd font-medium text-muted-foreground word-break-break-word">
-            {t('modals.editMessage.description')}
+            {t("modals.editMessage.description")}
           </div>
         </div>
         <div></div>

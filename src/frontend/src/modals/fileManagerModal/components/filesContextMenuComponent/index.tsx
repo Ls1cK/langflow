@@ -82,7 +82,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            {t('fileManager.rename')}
+            {t("fileManager.rename")}
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={(e) => {
@@ -97,7 +97,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            {t('fileManager.download')}
+            {t("fileManager.download")}
           </DropdownMenuItem>
           {!simplified && (
             <DropdownMenuItem
@@ -113,7 +113,7 @@ export default function FilesContextMenuComponent({
                 aria-hidden="true"
                 className="mr-2 h-4 w-4"
               />
-              {t('fileManager.duplicate')}
+              {t("fileManager.duplicate")}
             </DropdownMenuItem>
           )}
           <DropdownMenuItem
@@ -129,7 +129,7 @@ export default function FilesContextMenuComponent({
               aria-hidden="true"
               className="mr-2 h-4 w-4"
             />
-            {isLocal ? t('fileManager.delete') : t('fileManager.remove')}
+            {isLocal ? t("fileManager.delete") : t("fileManager.remove")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -137,17 +137,25 @@ export default function FilesContextMenuComponent({
         open={showDeleteConfirmation}
         onClose={() => setShowDeleteConfirmation(false)}
         onCancel={() => setShowDeleteConfirmation(false)}
-        title={isLocal ? t('fileManager.deleteFile') : t('fileManager.removeFile')}
-        titleHeader={isLocal ? t('fileManager.deleteFileConfirm', { fileName: file.name }) : t('fileManager.removeFileConfirm', { fileName: file.name })}
-        cancelText={t('common.cancel')}
+        title={
+          isLocal ? t("fileManager.deleteFile") : t("fileManager.removeFile")
+        }
+        titleHeader={
+          isLocal
+            ? t("fileManager.deleteFileConfirm", { fileName: file.name })
+            : t("fileManager.removeFileConfirm", { fileName: file.name })
+        }
+        cancelText={t("common.cancel")}
         size="x-small"
-        confirmationText={isLocal ? t('fileManager.delete') : t('fileManager.remove')}
+        confirmationText={
+          isLocal ? t("fileManager.delete") : t("fileManager.remove")
+        }
         icon={isLocal ? "Trash2" : "ListX"}
         destructive
         onConfirm={() => {
           deleteFile();
           setSuccessData({
-            title: t('fileManager.fileDeletedSuccess'),
+            title: t("fileManager.fileDeletedSuccess"),
           });
           setShowDeleteConfirmation(false);
         }}
@@ -155,8 +163,8 @@ export default function FilesContextMenuComponent({
         <ConfirmationModal.Content>
           <div className="text-sm text-muted-foreground">
             {isLocal
-              ? t('fileManager.deleteFileDescription')
-              : t('fileManager.removeFileDescription')}
+              ? t("fileManager.deleteFileDescription")
+              : t("fileManager.removeFileDescription")}
           </div>
         </ConfirmationModal.Content>
       </ConfirmationModal>

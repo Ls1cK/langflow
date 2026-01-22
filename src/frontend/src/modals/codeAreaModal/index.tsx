@@ -8,9 +8,9 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-twilight";
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
 import AceEditor from "react-ace";
 import type ReactAce from "react-ace/lib/ace";
+import { useTranslation } from "react-i18next";
 import IconComponent from "../../components/common/genericIconComponent";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
@@ -194,8 +194,8 @@ export default function CodeAreaModal({
       size="x-large"
     >
       <BaseModal.Trigger>{children}</BaseModal.Trigger>
-      <BaseModal.Header description={t('modal:codeArea.description')}>
-        <span className="pr-2"> {t('modal:codeArea.title')} </span>
+      <BaseModal.Header description={t("modal:codeArea.description")}>
+        <span className="pr-2"> {t("modal:codeArea.title")} </span>
         <IconComponent
           name="prompts"
           className="h-6 w-6 pl-1 text-primary"
@@ -260,7 +260,7 @@ export default function CodeAreaModal({
               disabled={readonly}
               data-testid="checkAndSaveBtn"
             >
-{t('modal:codeArea.checkAndSave')}
+              {t("modal:codeArea.checkAndSave")}
             </Button>
           </div>
         </div>
@@ -274,18 +274,18 @@ export default function CodeAreaModal({
           }}
           size="x-small"
           icon="AlertTriangle"
-          confirmationText={t('modal:codeArea.checkAndSave')}
-          cancelText={t('modal:codeArea.discardChanges')}
+          confirmationText={t("modal:codeArea.checkAndSave")}
+          cancelText={t("modal:codeArea.discardChanges")}
           open={openConfirmation}
           onCancel={() => setOpen(false)}
           onConfirm={() => {
             processCode();
             setOpenConfirmation(false);
           }}
-          title={t('modal:codeArea.caution')}
+          title={t("modal:codeArea.caution")}
         >
           <ConfirmationModal.Content>
-            <p>{t('modal:codeArea.exitWithoutSaving')}</p>
+            <p>{t("modal:codeArea.exitWithoutSaving")}</p>
           </ConfirmationModal.Content>
         </ConfirmationModal>
       </BaseModal.Content>

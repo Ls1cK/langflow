@@ -20,7 +20,7 @@ export default function TableDropdownCellEditor({
         value={value}
         options={values}
         password={false}
-        placeholder={t('validation.selectOption')}
+        placeholder={t("validation.selectOption")}
         id="apply-to-fields"
       />
     </div>

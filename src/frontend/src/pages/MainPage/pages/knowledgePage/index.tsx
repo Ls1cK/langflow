@@ -116,7 +116,7 @@ export const KnowledgePage = () => {
                     </SidebarTrigger>
                   </div>
                 </div>
-                {t('ui.knowledge')}
+                {t("ui.knowledge")}
               </div>
               <div className="flex h-full flex-col">
                 <KnowledgeBasesTab {...tabProps} />

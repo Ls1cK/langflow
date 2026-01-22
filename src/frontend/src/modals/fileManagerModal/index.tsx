@@ -63,7 +63,7 @@ export default function FileManagerModal({
         onSubmit={() => {
           if (internalSelectedFiles.length === 0) {
             setErrorData({
-              title: t('modal:fileManager.selectAtLeastOneFile'),
+              title: t("modal:fileManager.selectAtLeastOneFile"),
             });
             return;
           }
@@ -79,7 +79,7 @@ export default function FileManagerModal({
             <div className="rounded-md bg-muted p-1.5">
               <ForwardedIconComponent name="File" className="h-5 w-5" />
             </div>
-            {t('modal:fileManager.myFiles')}
+            {t("modal:fileManager.myFiles")}
           </span>
         </BaseModal.Header>
         <BaseModal.Content overflowHidden>
@@ -105,7 +105,7 @@ export default function FileManagerModal({
 
         <BaseModal.Footer
           submit={{
-            label: t('modal:fileManager.selectFiles'),
+            label: t("modal:fileManager.selectFiles"),
             dataTestId: "select-files-modal-button",
           }}
         ></BaseModal.Footer>

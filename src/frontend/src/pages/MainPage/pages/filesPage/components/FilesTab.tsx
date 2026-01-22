@@ -82,12 +82,12 @@ const FilesTab = ({
         files: files,
       });
       setSuccessData({
-        title: t('alerts.success.filesUploaded', { count: filesIds.length }),
+        title: t("alerts.success.filesUploaded", { count: filesIds.length }),
       });
     } catch (error: any) {
       setErrorData({
-        title: t('alerts.error.uploadError'),
-        list: [error.message || t('alerts.error.uploadError')],
+        title: t("alerts.error.uploadError"),
+        list: [error.message || t("alerts.error.uploadError")],
       });
     }
   };
@@ -271,10 +271,8 @@ const FilesTab = ({
         },
         onError: (error) => {
           setErrorData({
-            title: t('alerts.error.deleteFilesError'),
-            list: [
-              error.message || t('alerts.error.deleteFilesError'),
-            ],
+            title: t("alerts.error.deleteFilesError"),
+            list: [error.message || t("alerts.error.deleteFilesError")],
           });
         },
       },
@@ -283,7 +281,7 @@ const FilesTab = ({
 
   const UploadButtonComponent = useMemo(() => {
     return (
-      <ShadTooltip content={t('file.upload')} side="bottom">
+      <ShadTooltip content={t("file.upload")} side="bottom">
         <Button
           className="!px-3 md:!px-4 md:!pl-3.5"
           onClick={async () => {
@@ -298,7 +296,7 @@ const FilesTab = ({
             className="h-4 w-4"
           />
           <span className="hidden whitespace-nowrap font-semibold md:inline">
-            {t('file.upload')}
+            {t("file.upload")}
           </span>
         </Button>
       </ShadTooltip>

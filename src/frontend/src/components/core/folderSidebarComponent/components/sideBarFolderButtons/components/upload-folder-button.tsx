@@ -6,17 +6,17 @@ import { Button } from "@/components/ui/button";
 export const UploadFolderButton = ({ onClick, disabled }) => {
   const { t } = useTranslation();
   return (
-    <ShadTooltip content={t('folderButtons.uploadFlow')} styleClasses="z-50">
-    <Button
-      variant="ghost"
-      size="icon"
-      className="h-7 w-7 border-0 text-zinc-500 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
-      onClick={onClick}
-      data-testid="upload-project-button"
-      disabled={disabled}
-    >
-      <IconComponent name="Upload" className="h-4 w-4" />
-    </Button>
-  </ShadTooltip>
+    <ShadTooltip content={t("folderButtons.uploadFlow")} styleClasses="z-50">
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-7 w-7 border-0 text-zinc-500 hover:bg-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
+        onClick={onClick}
+        data-testid="upload-project-button"
+        disabled={disabled}
+      >
+        <IconComponent name="Upload" className="h-4 w-4" />
+      </Button>
+    </ShadTooltip>
   );
 };

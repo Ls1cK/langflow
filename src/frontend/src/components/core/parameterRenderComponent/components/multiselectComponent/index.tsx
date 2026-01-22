@@ -126,7 +126,7 @@ export default function MultiselectComponent({
           {treatedValue.length > 0 &&
           options.find((option) => treatedValue.includes(option))
             ? treatedValue.join(", ")
-            : t('validation.chooseOption')}
+            : t("validation.chooseOption")}
         </span>
         <ForwardedIconComponent
           name="ChevronsUpDown"
@@ -146,7 +146,7 @@ export default function MultiselectComponent({
         onChange={(event) => {
           setSearchValue(event.target.value);
         }}
-        placeholder={t('validation.searchOptions')}
+        placeholder={t("validation.searchOptions")}
         className="flex h-9 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
       />
       <Button

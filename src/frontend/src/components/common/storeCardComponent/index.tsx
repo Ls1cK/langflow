@@ -44,7 +44,7 @@ export default function StoreCardComponent({
     data?.downloads_count ?? 0,
   );
 
-  const name = data.is_component ? t('flow.component') : t('flow.name');
+  const name = data.is_component ? t("flow.component") : t("flow.name");
 
   async function _getFlowData() {
     const res = await getComponent(data.id);
@@ -233,8 +233,8 @@ export default function StoreCardComponent({
                 <ShadTooltip
                   content={
                     authorized
-                      ? t('components.storeCard.installLocally')
-                      : t('components.storeCard.reviewApiKey')
+                      ? t("components.storeCard.installLocally")
+                      : t("components.storeCard.reviewApiKey")
                   }
                 >
                   <Button

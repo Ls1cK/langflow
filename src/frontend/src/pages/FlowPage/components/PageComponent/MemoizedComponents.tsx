@@ -45,7 +45,7 @@ export const MemoizedCanvasControls = memo(
           size="icon"
           data-testid="lock-status"
           className="flex items-center justify-center px-2 rounded-none gap-1 cursor-default"
-          title={`${t('flow.lockStatus')}: ${isLocked ? t('flow.locked') : t('flow.unlocked')}`}
+          title={`${t("flow.lockStatus")}: ${isLocked ? t("flow.locked") : t("flow.unlocked")}`}
         >
           <ForwardedIconComponent
             name={isLocked ? "Lock" : "Unlock"}
@@ -55,7 +55,9 @@ export const MemoizedCanvasControls = memo(
             )}
           />
           {isLocked && (
-            <span className="text-xs text-destructive">{t('flow.flowLocked')}</span>
+            <span className="text-xs text-destructive">
+              {t("flow.flowLocked")}
+            </span>
           )}
         </Button>
       </CanvasControls>
@@ -110,7 +112,7 @@ export const MemoizedSidebarTrigger = memo(() => {
     >
       <SidebarTrigger className="h-fit w-fit px-3 py-1.5">
         <ForwardedIconComponent name="PanelRightClose" className="h-4 w-4" />
-        <span className="text-foreground">{t('sidebarNav.components')}</span>
+        <span className="text-foreground">{t("sidebarNav.components")}</span>
       </SidebarTrigger>
     </Panel>
   );

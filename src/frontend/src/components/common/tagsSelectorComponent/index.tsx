@@ -1,5 +1,5 @@
-import { cn } from "../../../utils/utils";
 import { useTranslation } from "react-i18next";
+import { cn } from "../../../utils/utils";
 import { Badge } from "../../ui/badge";
 import HorizontalScrollFadeComponent from "../horizontalScrollFadeComponent";
 

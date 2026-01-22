@@ -36,7 +36,7 @@ const SidebarMenuButtons = ({
             className="h-4 w-4 text-muted-foreground"
           />
           <span className="group-data-[state=open]/collapsible:font-semibold">
-            {t('mcp.addServer')}
+            {t("mcp.addServer")}
           </span>
         </Button>
       </SidebarMenuButton>
@@ -55,7 +55,7 @@ const SidebarMenuButtons = ({
             className="h-4 w-4 text-muted-foreground"
           />
           <span className="group-data-[state=open]/collapsible:font-semibold">
-            {t('mcp.manageServers')}
+            {t("mcp.manageServers")}
           </span>
         </Button>
       </SidebarMenuButton>
@@ -79,7 +79,7 @@ const SidebarMenuButtons = ({
           className="h-4 w-4 text-muted-foreground"
         />
         <span className="group-data-[state=open]/collapsible:font-semibold">
-          {t('mcp.newCustomComponent')}
+          {t("mcp.newCustomComponent")}
         </span>
       </Button>
     </SidebarMenuButton>

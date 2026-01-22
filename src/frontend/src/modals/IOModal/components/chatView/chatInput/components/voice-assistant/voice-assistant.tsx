@@ -394,7 +394,11 @@ export function VoiceAssistant({
           )}
         >
           <ShadTooltip
-            content={isRecording ? t('voiceAssistant.mute') : t('voiceAssistant.unmute')}
+            content={
+              isRecording
+                ? t("voiceAssistant.mute")
+                : t("voiceAssistant.unmute")
+            }
             delayDuration={500}
           >
             <Button unstyled onClick={handleToggleRecording}>

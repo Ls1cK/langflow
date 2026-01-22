@@ -48,7 +48,9 @@ export function ContentBlockDisplay({
     state === "partial" ? lastContent?.header?.icon || "Bot" : "Check";
 
   const headerTitle =
-    state === "partial" ? (lastContent?.header?.title ?? t('chat.steps')) : t('chat.finished');
+    state === "partial"
+      ? (lastContent?.header?.title ?? t("chat.steps"))
+      : t("chat.finished");
   // show the block title only if state === "partial"
   const showBlockTitle = state === "partial";
 

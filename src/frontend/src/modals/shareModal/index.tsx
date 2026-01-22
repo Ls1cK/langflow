@@ -109,7 +109,9 @@ export default function ShareModal({
         saveFlow(flow);
       }
       setSuccessData({
-        title: t('alerts.success.shared', { type: is_component ? t('flow.component') : t('flow.name') }),
+        title: t("alerts.success.shared", {
+          type: is_component ? t("flow.component") : t("flow.name"),
+        }),
       });
     }
 
@@ -120,7 +122,9 @@ export default function ShareModal({
         sharePublic,
       ).then(successShare, (err) => {
         setErrorData({
-          title: t('alerts.error.sharingError', { type: is_component ? t('flow.component') : t('flow.name') }),
+          title: t("alerts.error.sharingError", {
+            type: is_component ? t("flow.component") : t("flow.name"),
+          }),
           list: [err["response"]["data"]["detail"]],
         });
       });
@@ -132,7 +136,9 @@ export default function ShareModal({
         unavaliableNames.find((e) => e.name === name)!.id,
       ).then(successShare, (err) => {
         setErrorData({
-          title: t('alerts.error.sharingError', { type: is_component ? t('flow.component') : t('flow.name') }),
+          title: t("alerts.error.sharingError", {
+            type: is_component ? t("flow.component") : t("flow.name"),
+          }),
           list: [err["response"]["data"]["detail"]],
         });
       });
@@ -211,11 +217,13 @@ export default function ShareModal({
           {children ? children : <></>}
         </BaseModal.Trigger>
         <BaseModal.Header
-          description={t('modal:share.publishDescription', {
-            type: is_component ? t('modal:share.component') : t('modal:share.workflow')
+          description={t("modal:share.publishDescription", {
+            type: is_component
+              ? t("modal:share.component")
+              : t("modal:share.workflow"),
           })}
         >
-          <span className="pr-2">{t('modal:share.title')}</span>
+          <span className="pr-2">{t("modal:share.title")}</span>
           <IconComponent
             name="Share3"
             className="-m-0.5 h-6 w-6 text-foreground"
@@ -250,11 +258,12 @@ export default function ShareModal({
                   htmlFor="public"
                   className="export-modal-save-api text-sm"
                 >
-                  {t('modal:share.setPublicStatus', { type: nameComponent })}
+                  {t("modal:share.setPublicStatus", { type: nameComponent })}
                 </label>
               </div>
               <span className="text-xs text-destructive">
-                <b>{t('modal:share.attention')}:</b> {t('modal:share.apiKeysRemoved')}
+                <b>{t("modal:share.attention")}:</b>{" "}
+                {t("modal:share.apiKeysRemoved")}
               </span>
             </>
           )}
@@ -262,8 +271,10 @@ export default function ShareModal({
 
         <BaseModal.Footer
           submit={{
-            label: t('modal:share.shareButton', {
-              type: is_component ? t('modal:share.component') : t('modal:share.flow')
+            label: t("modal:share.shareButton", {
+              type: is_component
+                ? t("modal:share.component")
+                : t("modal:share.flow"),
             }),
             loading: loadingNames,
             dataTestId: "share-modal-button-flow",
@@ -281,7 +292,7 @@ export default function ShareModal({
                   }}
                 >
                   <IconComponent name="Download" className="h-4 w-4" />
-                  {t('modal:export.title')}
+                  {t("modal:export.title")}
                 </Button>
               </ExportModal>
             )}
@@ -296,7 +307,7 @@ export default function ShareModal({
                 }}
               >
                 <IconComponent name="Download" className="h-4 w-4" />
-                {t('modal:export.title')}
+                {t("modal:export.title")}
               </Button>
             )}
           </>

@@ -114,15 +114,15 @@ export default function ApiModal({
         <BaseModal.Header
           description={
             <span className="pr-2">
-              {t('modals.api.description')}{" "}
+              {t("modals.api.description")}{" "}
               <CustomLink
                 to="/settings/api-keys"
                 className="text-accent-pink-foreground"
               >
                 {" "}
-                {t('modals.api.createApiKey')}
+                {t("modals.api.createApiKey")}
               </CustomLink>{" "}
-              {t('modals.api.inSettings')}.
+              {t("modals.api.inSettings")}.
             </span>
           }
         >
@@ -131,7 +131,7 @@ export default function ApiModal({
             className="h-6 w-6 text-gray-800 dark:text-white"
             aria-hidden="true"
           />
-          <span className="pl-2">{t('modals.api.title')}</span>
+          <span className="pl-2">{t("modals.api.title")}</span>
           {nodes.length > 0 && (
             <div className="border-r-1 absolute right-12 flex items-center text-mmd font-medium leading-[16px]">
               <Button
@@ -145,7 +145,9 @@ export default function ApiModal({
                   name="SlidersHorizontal"
                   className="h-3.5 w-3.5"
                 />
-                <span>{t('modals.api.inputSchema')} ({Object.keys(tweaks)?.length}) </span>
+                <span>
+                  {t("modals.api.inputSchema")} ({Object.keys(tweaks)?.length}){" "}
+                </span>
               </Button>
               <Separator orientation="vertical" className="ml-2 h-8" />
             </div>
@@ -168,18 +170,20 @@ export default function ApiModal({
       >
         <BaseModal.Header>
           <IconComponent name="SlidersHorizontal" className="text-f h-6 w-6" />
-          <span className="pl-2">{t('modals.api.inputSchema')}</span>
+          <span className="pl-2">{t("modals.api.inputSchema")}</span>
         </BaseModal.Header>
         <BaseModal.Content overflowHidden className="flex flex-col gap-4">
           {true && (
             <Label>
               <div className="edit-flow-arrangement mt-2">
                 <span className="shrink-0 text-mmd font-medium">
-                  {t('modals.api.endpointName')}
+                  {t("modals.api.endpointName")}
                 </span>
                 {!validEndpointName && (
                   <span className="edit-flow-span">
-                    {t('modals.api.endpointNameValidation', { maxLength: MAX_LENGTH })}
+                    {t("modals.api.endpointNameValidation", {
+                      maxLength: MAX_LENGTH,
+                    })}
                   </span>
                 )}
               </div>
@@ -189,7 +193,7 @@ export default function ApiModal({
                 type="text"
                 name="endpoint_name"
                 value={endpointName ?? ""}
-                placeholder={t('modals.api.endpointNamePlaceholder')}
+                placeholder={t("modals.api.endpointNamePlaceholder")}
                 maxLength={MAX_LENGTH}
                 minLength={MIN_LENGTH}
                 id="endpoint_name"
@@ -198,9 +202,11 @@ export default function ApiModal({
           )}
           <div className="flex flex-1 flex-col gap-2 overflow-hidden">
             <div className="flex flex-col gap-1">
-              <span className="shrink-0 text-sm font-medium">{t('modals.api.exposeApi')}</span>
+              <span className="shrink-0 text-sm font-medium">
+                {t("modals.api.exposeApi")}
+              </span>
               <span className="text-mmd text-muted-foreground">
-                {t('modals.api.exposeApiDescription')}
+                {t("modals.api.exposeApiDescription")}
               </span>
             </div>
             <div className="min-h-0 w-full flex-1 flex-col overflow-y-auto overflow-x-hidden rounded-lg bg-muted custom-scroll">

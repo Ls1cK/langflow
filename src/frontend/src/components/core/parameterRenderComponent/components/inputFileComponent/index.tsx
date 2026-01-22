@@ -270,7 +270,11 @@ export default function InputFileComponent({
                             strokeWidth={ICON_STROKE_WIDTH}
                           />
                         ) : (
-                          <div>{isList ? t('inputFile.selectFiles') : t('inputFile.selectFile')}</div>
+                          <div>
+                            {isList
+                              ? t("inputFile.selectFiles")
+                              : t("inputFile.selectFile")}
+                          </div>
                         )}
                       </Button>
                     </div>
@@ -289,7 +293,7 @@ export default function InputFileComponent({
                     !value && "text-placeholder-foreground",
                     editNode && "h-6",
                   )}
-                  value={value || t('inputFile.uploadFile')}
+                  value={value || t("inputFile.uploadFile")}
                   readOnly
                   disabled={isDisabled}
                   onClick={handleButtonClick}

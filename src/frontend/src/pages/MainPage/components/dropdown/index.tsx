@@ -27,8 +27,8 @@ const DropdownComponent = ({
   const duplicateFlow = () => {
     handleDuplicate().then(() =>
       setSuccessData({
-        title: t('alerts.success.duplicated', {
-          type: flowData.is_component ? t('flow.component') : t('flow.name')
+        title: t("alerts.success.duplicated", {
+          type: flowData.is_component ? t("flow.component") : t("flow.name"),
         }),
       }),
     );
@@ -58,7 +58,7 @@ const DropdownComponent = ({
           aria-hidden="true"
           className="mr-2 h-4 w-4"
         />
-        {t('flow.node.edit')}
+        {t("flow.node.edit")}
       </DropdownMenuItem>
       <DropdownMenuItem
         onClick={(e) => {
@@ -73,7 +73,7 @@ const DropdownComponent = ({
           aria-hidden="true"
           className="mr-2 h-4 w-4"
         />
-        {t('common.export')}
+        {t("common.export")}
       </DropdownMenuItem>
       <DropdownMenuItem
         onClick={(e) => {
@@ -88,7 +88,7 @@ const DropdownComponent = ({
           aria-hidden="true"
           className="mr-2 h-4 w-4"
         />
-        {t('flow.node.duplicate')}
+        {t("flow.node.duplicate")}
       </DropdownMenuItem>
       <DropdownMenuItem
         onClick={(e) => {
@@ -103,7 +103,7 @@ const DropdownComponent = ({
           aria-hidden="true"
           className="mr-2 h-4 w-4"
         />
-        {t('common.delete')}
+        {t("common.delete")}
       </DropdownMenuItem>
     </>
   );

@@ -284,7 +284,7 @@ export default function ToolsTable({
         <div className="flex-none px-4">
           <Input
             icon="Search"
-            placeholder={t('tools.searchPlaceholder')}
+            placeholder={t("tools.searchPlaceholder")}
             inputClassName="h-8"
             value={searchQuery}
             onChange={handleSearchChange}
@@ -322,7 +322,7 @@ export default function ToolsTable({
                     className="text-mmd font-medium"
                     htmlFor="sidebar-name-input"
                   >
-                    {isAction ? t('tools.toolName') : t('tools.slug')}
+                    {isAction ? t("tools.toolName") : t("tools.slug")}
                   </label>
 
                   <Input
@@ -330,13 +330,13 @@ export default function ToolsTable({
                     value={sidebarName}
                     onChange={handleNameChange}
                     maxLength={46}
-                    placeholder={t('tools.editNamePlaceholder')}
+                    placeholder={t("tools.editNamePlaceholder")}
                     data-testid="input_update_name"
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? t('tools.toolNameDescription')
-                      : t('tools.slugDescription')}
+                      ? t("tools.toolNameDescription")
+                      : t("tools.slugDescription")}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -344,21 +344,23 @@ export default function ToolsTable({
                     className="text-mmd font-medium"
                     htmlFor="sidebar-desc-input"
                   >
-                    {isAction ? t('tools.toolDescription') : t('tools.description')}
+                    {isAction
+                      ? t("tools.toolDescription")
+                      : t("tools.description")}
                   </label>
 
                   <Textarea
                     id="sidebar-desc-input"
                     value={sidebarDescription}
                     onChange={handleDescriptionChange}
-                    placeholder={t('tools.editDescriptionPlaceholder')}
+                    placeholder={t("tools.editDescriptionPlaceholder")}
                     className="h-24"
                     data-testid="input_update_description"
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? t('tools.toolDescriptionText')
-                      : t('tools.agentDescriptionText')}
+                      ? t("tools.toolDescriptionText")
+                      : t("tools.agentDescriptionText")}
                   </div>
                 </div>
               </div>
@@ -389,9 +391,11 @@ export default function ToolsTable({
                   <div className="flex h-full flex-col gap-4">
                     {actionArgs.length > 0 && (
                       <div className="flex flex-col gap-1.5">
-                        <h3 className="text-base font-medium">{t('tools.parameters')}</h3>
+                        <h3 className="text-base font-medium">
+                          {t("tools.parameters")}
+                        </h3>
                         <p className="text-mmd text-muted-foreground">
-                          {t('tools.manageInputs')}
+                          {t("tools.manageInputs")}
                         </p>
                       </div>
                     )}

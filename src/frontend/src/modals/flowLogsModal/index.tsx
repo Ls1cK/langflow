@@ -1,7 +1,7 @@
 import type { ColDef, ColGroupDef } from "ag-grid-community";
 import { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import IconComponent from "@/components/common/genericIconComponent";
 import PaginatorComponent from "@/components/common/paginatorComponent";
 import TableComponent from "@/components/core/parameterRenderComponent/components/tableComponent";
@@ -64,10 +64,10 @@ export default function FlowLogsModal({
   return (
     <BaseModal open={open} setOpen={setOpen} size="x-large">
       <BaseModal.Trigger asChild>{children}</BaseModal.Trigger>
-      <BaseModal.Header description={t('modal:flowLogs.description')}>
+      <BaseModal.Header description={t("modal:flowLogs.description")}>
         <div className="flex w-full justify-between">
           <div className="flex h-fit w-32 items-center">
-            <span className="pr-2">{t('modal:flowLogs.title')}</span>
+            <span className="pr-2">{t("modal:flowLogs.title")}</span>
             <IconComponent name="ScrollText" className="mr-2 h-4 w-4" />
           </div>
           <div className="flex h-fit w-32 items-center"></div>

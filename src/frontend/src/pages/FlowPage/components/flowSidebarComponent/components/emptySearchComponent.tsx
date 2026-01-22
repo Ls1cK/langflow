@@ -32,14 +32,14 @@ const NoResultsMessage = ({
       )}
       <div className="flex h-full flex-col items-center justify-center p-3 text-center">
         <p className="text-sm text-secondary-foreground">
-          {message || t('flow.sidebar.emptySearch')}{" "}
+          {message || t("flow.sidebar.emptySearch")}{" "}
           <a
             className="cursor-pointer underline underline-offset-4"
             onClick={onClearSearch}
           >
-            {clearSearchText || t('common.clear')}
+            {clearSearchText || t("common.clear")}
           </a>{" "}
-          {additionalText || t('flow.sidebar.emptySearchDescription')}
+          {additionalText || t("flow.sidebar.emptySearchDescription")}
         </p>
       </div>
     </div>

@@ -80,8 +80,8 @@ export default function FlowBuildingComponent() {
     return (
       <TextShimmer duration={1}>
         {statusBuilding.length > 0
-          ? t('flow.toolbar.runningNode', { nodeId: statusBuilding[0]?.id })
-          : t('flow.toolbar.runningFlow')}
+          ? t("flow.toolbar.runningNode", { nodeId: statusBuilding[0]?.id })
+          : t("flow.toolbar.runningFlow")}
       </TextShimmer>
     );
   }, [isBuilding, statusBuilding]);

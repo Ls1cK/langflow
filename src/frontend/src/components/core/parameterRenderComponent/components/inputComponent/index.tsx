@@ -21,7 +21,7 @@ export default function InputComponent({
   isForm = false,
   password,
   editNode = false,
-  placeholder = t('validation.placeholder'),
+  placeholder = t("validation.placeholder"),
   className,
   id = "",
   blurOnEnter = false,
@@ -31,7 +31,7 @@ export default function InputComponent({
   selectedOptions = [],
   setSelectedOptions,
   options = [],
-  optionsPlaceholder = t('validation.searchOptions'),
+  optionsPlaceholder = t("validation.searchOptions"),
   optionsButton,
   optionButton,
   objectOptions,
@@ -92,7 +92,9 @@ export default function InputComponent({
               password && !editNode ? "pr-10" : "",
               className!,
             )}
-            placeholder={password && editNode ? t('validation.key') : placeholder}
+            placeholder={
+              password && editNode ? t("validation.key") : placeholder
+            }
             onChange={(e) => {
               setCursor(e.target.selectionStart);
               if (onChangeFolderName) {

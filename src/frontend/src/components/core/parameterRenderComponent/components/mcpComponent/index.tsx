@@ -30,12 +30,12 @@ export default function McpComponent({
           server.toolsCount === null
             ? server.error
               ? server.error.startsWith("Timeout")
-                ? t('mcp.timeout')
-                : t('mcp.error')
-              : t('mcp.loading')
+                ? t("mcp.timeout")
+                : t("mcp.error")
+              : t("mcp.loading")
             : !server.toolsCount
-              ? t('mcp.noToolsFound')
-              : `${server.toolsCount} ${server.toolsCount === 1 ? t('mcp.tool') : t('mcp.tools')}`,
+              ? t("mcp.noToolsFound")
+              : `${server.toolsCount} ${server.toolsCount === 1 ? t("mcp.tool") : t("mcp.tools")}`,
       })),
     [mcpServers],
   );
@@ -103,7 +103,7 @@ export default function McpComponent({
         },
         onError: (error) => {
           setErrorData({
-            title: t('mcp.errorAddingServer'),
+            title: t("mcp.errorAddingServer"),
             list: [error.message],
           });
         },
@@ -162,10 +162,10 @@ export default function McpComponent({
             >
               <span className="truncate">
                 {!options
-                  ? t('mcp.loadingServers')
+                  ? t("mcp.loadingServers")
                   : selectedItem[0]?.name
                     ? selectedItem[0]?.name
-                    : t('mcp.selectServer')}
+                    : t("mcp.selectServer")}
               </span>
               <ForwardedIconComponent
                 name={!showSaveButton ? "ChevronsUpDown" : "X"}
@@ -190,7 +190,7 @@ export default function McpComponent({
         </div>
       ) : (
         <Button size="sm" onClick={handleAddButtonClick}>
-          <span>{t('mcp.addMcpServer')}</span>
+          <span>{t("mcp.addMcpServer")}</span>
         </Button>
       )}
       {options && (

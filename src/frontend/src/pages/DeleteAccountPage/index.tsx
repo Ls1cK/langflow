@@ -25,17 +25,22 @@ export default function DeleteAccountPage() {
           className="mb-4 h-10 w-10 scale-[1.5]"
         />
         <span className="mb-4 text-center text-2xl font-semibold text-primary">
-          {t('pages.deleteAccount.title')}
+          {t("pages.deleteAccount.title")}
         </span>
-        <Input className="bg-background" placeholder={t('pages.deleteAccount.confirmPassword')} />
+        <Input
+          className="bg-background"
+          placeholder={t("pages.deleteAccount.confirmPassword")}
+        />
 
         <BaseModal
           open={showConfirmation}
           setOpen={setShowConfirmation}
           size="x-small"
         >
-          <BaseModal.Header description={t('pages.deleteAccount.warningMessage')}>
-            <h3>{t('pages.deleteAccount.confirmTitle')}</h3>
+          <BaseModal.Header
+            description={t("pages.deleteAccount.warningMessage")}
+          >
+            <h3>{t("pages.deleteAccount.confirmTitle")}</h3>
           </BaseModal.Header>
           <BaseModal.Trigger>
             <Button
@@ -43,7 +48,7 @@ export default function DeleteAccountPage() {
               className="w-full hover:bg-status-red"
               onClick={() => setShowConfirmation(true)}
             >
-              {t('pages.deleteAccount.deleteButton')}
+              {t("pages.deleteAccount.deleteButton")}
             </Button>
           </BaseModal.Trigger>
           <BaseModal.Content>
@@ -53,7 +58,7 @@ export default function DeleteAccountPage() {
                 className="w-full hover:bg-status-red"
                 onClick={() => handleDeleteAccount()}
               >
-                {t('pages.deleteAccount.deleteButton')}
+                {t("pages.deleteAccount.deleteButton")}
               </Button>
             </div>
           </BaseModal.Content>

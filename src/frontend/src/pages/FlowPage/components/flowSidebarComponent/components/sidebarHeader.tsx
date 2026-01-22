@@ -43,11 +43,14 @@ export const SidebarHeaderComponent = memo(function SidebarHeaderComponent({
               <ForwardedIconComponent name="PanelLeftClose" />
             </SidebarTrigger>
             <h3 className="flex-1 cursor-default text-sm font-semibold">
-              {t('flow.sidebar.components')}
+              {t("flow.sidebar.components")}
             </h3>
             <DisclosureTrigger>
               <div>
-                <ShadTooltip content={t('flow.sidebar.settings')} styleClasses="z-50">
+                <ShadTooltip
+                  content={t("flow.sidebar.settings")}
+                  styleClasses="z-50"
+                >
                   <Button
                     variant={showConfig ? "ghostActive" : "ghost"}
                     size="iconMd"

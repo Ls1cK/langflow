@@ -20,7 +20,7 @@ export default function CrashErrorComponent({
               </div>
               <div>
                 <p className="mb-4 text-xl text-foreground">
-                  {t('components.errors.crash.title')}
+                  {t("components.errors.crash.title")}
                 </p>
               </div>
             </CardHeader>
@@ -28,7 +28,7 @@ export default function CrashErrorComponent({
             <CardContent className="grid">
               <div>
                 <p>
-                  {t('components.errors.crash.message')}{" "}
+                  {t("components.errors.crash.message")}{" "}
                   <a
                     href="https://github.com/langflow-ai/langflow/issues"
                     target="_blank"
@@ -37,16 +37,17 @@ export default function CrashErrorComponent({
                   >
                     GitHub Issues
                   </a>{" "}
-                  {t('components.errors.crash.page')}.
-                  <br></br>
-                  {t('components.errors.crash.thankYou')}!
+                  {t("components.errors.crash.page")}.<br></br>
+                  {t("components.errors.crash.thankYou")}!
                 </p>
               </div>
             </CardContent>
 
             <CardFooter>
               <div className="m-auto mt-4 flex justify-center">
-                <Button onClick={resetErrorBoundary}>{t('components.errors.crash.reload')}</Button>
+                <Button onClick={resetErrorBoundary}>
+                  {t("components.errors.crash.reload")}
+                </Button>
 
                 <a
                   href="https://github.com/langflow-ai/langflow/issues/new"
@@ -54,7 +55,7 @@ export default function CrashErrorComponent({
                   rel="noopener noreferrer"
                 >
                   <Button className="ml-3" ignoreTitleCase variant={"outline"}>
-                    {t('components.errors.crash.reportOnGitHub')}
+                    {t("components.errors.crash.reportOnGitHub")}
                   </Button>
                 </a>
               </div>

@@ -56,7 +56,7 @@ export default function ComponentTextModal({
               aria-hidden="true"
             />
             <span className="pl-2" data-testid="modal-title">
-              {t('modals.textArea.title')}
+              {t("modals.textArea.title")}
             </span>
           </div>
           {password !== undefined && (

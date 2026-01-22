@@ -55,13 +55,15 @@ export default function LoginAdminPage() {
     <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
       <div className="flex w-72 flex-col items-center justify-center gap-2">
         <LangflowLogo title="Langflow logo" className="h-10 w-10 scale-[1.5]" />
-        <span className="mb-6 text-2xl font-semibold text-primary">{t('auth.admin')}</span>
+        <span className="mb-6 text-2xl font-semibold text-primary">
+          {t("auth.admin")}
+        </span>
         <Input
           onChange={({ target: { value } }) => {
             handleInput({ target: { name: "username", value } });
           }}
           className="bg-background"
-          placeholder={t('auth.username')}
+          placeholder={t("auth.username")}
         />
         <Input
           type="password"
@@ -69,7 +71,7 @@ export default function LoginAdminPage() {
             handleInput({ target: { name: "password", value } });
           }}
           className="bg-background"
-          placeholder={t('auth.password')}
+          placeholder={t("auth.password")}
         />
         <Button
           onClick={() => {
@@ -78,7 +80,7 @@ export default function LoginAdminPage() {
           variant="default"
           className="w-full"
         >
-          {t('auth.login')}
+          {t("auth.login")}
         </Button>
       </div>
     </div>

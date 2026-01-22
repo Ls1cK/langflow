@@ -11,14 +11,14 @@ const FeatureToggles = ({
   const { t } = useTranslation();
   const toggles = [
     {
-      label: t('flow.sidebar.beta'),
+      label: t("flow.sidebar.beta"),
       checked: showBeta,
       onChange: setShowBeta,
       badgeVariant: "purpleStatic" as const,
       testId: "sidebar-beta-switch",
     },
     {
-      label: t('flow.sidebar.legacy'),
+      label: t("flow.sidebar.legacy"),
       checked: showLegacy,
       onChange: setShowLegacy,
       badgeVariant: "secondaryStatic" as const,
@@ -32,7 +32,7 @@ const FeatureToggles = ({
         <div key={toggle.label} className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="flex cursor-default gap-2 text-sm font-medium">
-              {t('common.show')}
+              {t("common.show")}
               <Badge variant={toggle.badgeVariant} size="xq">
                 {toggle.label}
               </Badge>

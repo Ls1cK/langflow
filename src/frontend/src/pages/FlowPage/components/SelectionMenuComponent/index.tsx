@@ -90,7 +90,7 @@ export default function SelectionMenu({
                   className="text-primary"
                   disabled={disable}
                 />
-{t('flow.selection.group')}
+                {t("flow.selection.group")}
               </Button>
             </ShadTooltip>
           ) : (
@@ -111,7 +111,7 @@ export default function SelectionMenu({
                 className="text-primary"
                 disabled={disable}
               />
-{t('flow.selection.group')}
+              {t("flow.selection.group")}
             </Button>
           )}
         </div>

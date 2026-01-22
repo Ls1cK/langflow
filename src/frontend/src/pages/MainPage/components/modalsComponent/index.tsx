@@ -19,7 +19,7 @@ const ModalsComponent = ({
   handleDeleteFolder = () => {},
 }: ModalsProps) => {
   const { t } = useTranslation();
-  
+
   return (
     <>
       {openModal && <TemplatesModal open={openModal} setOpen={setOpenModal} />}
@@ -31,8 +31,8 @@ const ModalsComponent = ({
             handleDeleteFolder();
             setOpenDeleteFolderModal(false);
           }}
-          description={t('pages.modals.folder')}
-          note={t('pages.modals.folderNote')}
+          description={t("pages.modals.folder")}
+          note={t("pages.modals.folderNote")}
         >
           <></>
         </DeleteConfirmationModal>

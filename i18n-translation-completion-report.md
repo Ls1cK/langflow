@@ -229,7 +229,7 @@ import { useTranslation } from 'react-i18next';
 
 function MyComponent() {
   const { t } = useTranslation();
-  
+
   return (
     <button>{t('modal:export.title')}</button>
   );
@@ -281,8 +281,8 @@ Langflow 现在拥有了一个完善的国际化系统，可以为全球用户�
 
 ---
 
-**完成状态**: ✅ 所有计划任务已完成  
-**总耗时**: 根据实际情况填写  
-**翻译键总数**: 550+  
+**完成状态**: ✅ 所有计划任务已完成
+**总耗时**: 根据实际情况填写
+**翻译键总数**: 550+
 **覆盖率**: 90%+ 用户可见UI文本
 

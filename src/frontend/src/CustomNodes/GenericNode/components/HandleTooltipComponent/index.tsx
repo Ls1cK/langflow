@@ -25,22 +25,25 @@ export default function HandleTooltipComponent({
   return (
     <div className="font-medium">
       {isSameNode ? (
-        t('customNodes.cantConnectToSameNode')
+        t("customNodes.cantConnectToSameNode")
       ) : (
         <div className="flex items-center gap-1.5">
           {isConnecting ? (
             isCompatible ? (
               <span>
-                <span className="font-semibold">{t('customNodes.connect')}</span> to
+                <span className="font-semibold">
+                  {t("customNodes.connect")}
+                </span>{" "}
+                to
               </span>
             ) : (
-              <span>{t('customNodes.incompatibleWith')}</span>
+              <span>{t("customNodes.incompatibleWith")}</span>
             )
           ) : (
             <span className="text-xs">
               {isInput
-                ? `${t('customNodes.inputTypes')}${plural}`
-                : `${t('customNodes.outputTypes')}${plural}`}
+                ? `${t("customNodes.inputTypes")}${plural}`
+                : `${t("customNodes.outputTypes")}${plural}`}
               :{" "}
             </span>
           )}
@@ -61,7 +64,11 @@ export default function HandleTooltipComponent({
               {word}
             </Badge>
           ))}
-          {isConnecting && <span>{isInput ? t('customNodes.input') : t('customNodes.output')}</span>}
+          {isConnecting && (
+            <span>
+              {isInput ? t("customNodes.input") : t("customNodes.output")}
+            </span>
+          )}
         </div>
       )}
       {!isConnecting && (

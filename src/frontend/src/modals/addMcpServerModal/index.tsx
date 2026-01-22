@@ -4,6 +4,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ForwardedIconComponent } from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import InputListComponent from "@/components/core/parameterRenderComponent/components/inputListComponent";
@@ -27,7 +28,6 @@ import type { MCPServerType } from "@/types/mcp";
 import { extractMcpServersFromJson } from "@/utils/mcpUtils";
 import { parseString } from "@/utils/stringManipulation";
 import { cn } from "@/utils/utils";
-import { useTranslation } from "react-i18next";
 
 //TODO IMPLEMENT FORM LOGIC
 
@@ -256,12 +256,14 @@ export default function AddMcpServerModal({
                 className="h-4 w-4 text-primary"
                 aria-hidden="true"
               />
-              {initialData ? t('modals.addMcpServer.updateTitle') : t('modals.addMcpServer.title')}
+              {initialData
+                ? t("modals.addMcpServer.updateTitle")
+                : t("modals.addMcpServer.title")}
             </div>
             <span className="text-mmd font-normal text-muted-foreground">
-              {t('modals.addMcpServer.description')}{" "}
+              {t("modals.addMcpServer.description")}{" "}
               <CustomLink className="underline" to="/settings/mcp-servers">
-                {t('common.settings')}
+                {t("common.settings")}
               </CustomLink>
               .
             </span>

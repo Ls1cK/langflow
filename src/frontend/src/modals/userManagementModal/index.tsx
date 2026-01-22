@@ -102,7 +102,7 @@ export default function UserManagementModal({
                 }}
               >
                 <Form.Label className="data-[invalid]:label-invalid">
-                  {t('auth.username')}{" "}
+                  {t("auth.username")}{" "}
                   <span className="font-medium text-destructive">*</span>
                 </Form.Label>
               </div>
@@ -115,11 +115,11 @@ export default function UserManagementModal({
                   value={username}
                   className="primary-input"
                   required
-                  placeholder={t('auth.username')}
+                  placeholder={t("auth.username")}
                 />
               </Form.Control>
               <Form.Message match="valueMissing" className="field-invalid">
-                {t('auth.pleaseEnterUsername')}
+                {t("auth.pleaseEnterUsername")}
               </Form.Message>
             </Form.Field>
 
@@ -137,7 +137,7 @@ export default function UserManagementModal({
                     }}
                   >
                     <Form.Label className="data-[invalid]:label-invalid flex">
-                      {t('auth.password')}{" "}
+                      {t("auth.password")}{" "}
                       <span className="ml-1 mr-1 font-medium text-destructive">
                         *
                       </span>
@@ -171,12 +171,12 @@ export default function UserManagementModal({
                   </Form.Control>
 
                   <Form.Message className="field-invalid" match="valueMissing">
-                    {t('auth.pleaseEnterPassword')}
+                    {t("auth.pleaseEnterPassword")}
                   </Form.Message>
 
                   {password != confirmPassword && (
                     <Form.Message className="field-invalid">
-                      {t('message.passwordMismatch')}
+                      {t("message.passwordMismatch")}
                     </Form.Message>
                   )}
                 </Form.Field>
@@ -195,7 +195,7 @@ export default function UserManagementModal({
                     }}
                   >
                     <Form.Label className="data-[invalid]:label-invalid flex">
-                      {t('auth.confirmPassword')}{" "}
+                      {t("auth.confirmPassword")}{" "}
                       <span className="ml-1 mr-1 font-medium text-destructive">
                         *
                       </span>
@@ -231,7 +231,7 @@ export default function UserManagementModal({
                     />
                   </Form.Control>
                   <Form.Message className="field-invalid" match="valueMissing">
-                    {t('auth.pleaseConfirmPassword')}
+                    {t("auth.pleaseConfirmPassword")}
                   </Form.Message>
                 </Form.Field>
               </div>
@@ -240,7 +240,7 @@ export default function UserManagementModal({
               <Form.Field name="is_active">
                 <div>
                   <Form.Label className="data-[invalid]:label-invalid mr-3">
-                    {t('pages.admin.active')}
+                    {t("pages.admin.active")}
                   </Form.Label>
                   <Form.Control asChild>
                     <Checkbox
@@ -260,7 +260,7 @@ export default function UserManagementModal({
                 <Form.Field name="is_superuser">
                   <div>
                     <Form.Label className="data-[invalid]:label-invalid mr-3">
-                      {t('pages.admin.superuser')}
+                      {t("pages.admin.superuser")}
                     </Form.Label>
                     <Form.Control asChild>
                       <Checkbox

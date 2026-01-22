@@ -99,22 +99,22 @@ export default function GlobalVariableModal({
         setOpen(false);
 
         setSuccessData({
-          title: initialData 
-            ? t('globalVariables.variableUpdatedSuccess', { name })
-            : t('globalVariables.variableCreatedSuccess', { name }),
+          title: initialData
+            ? t("globalVariables.variableUpdatedSuccess", { name })
+            : t("globalVariables.variableCreatedSuccess", { name }),
         });
       },
       onError: (error) => {
         const responseError = error as ResponseErrorDetailAPI;
         setErrorData({
-          title: initialData 
-            ? t('globalVariables.errorUpdatingVariable')
-            : t('globalVariables.errorCreatingVariable'),
+          title: initialData
+            ? t("globalVariables.errorUpdatingVariable")
+            : t("globalVariables.errorCreatingVariable"),
           list: [
             responseError?.response?.data?.detail ??
-              (initialData 
-                ? t('globalVariables.unexpectedErrorUpdating')
-                : t('globalVariables.unexpectedErrorCreating')),
+              (initialData
+                ? t("globalVariables.unexpectedErrorUpdating")
+                : t("globalVariables.unexpectedErrorCreating")),
           ],
         });
       },
@@ -143,13 +143,15 @@ export default function GlobalVariableModal({
       onSubmit={submitForm}
       disable={disabled}
     >
-      <BaseModal.Header description={t('globalVariables.variableDescription')}>
+      <BaseModal.Header description={t("globalVariables.variableDescription")}>
         <ForwardedIconComponent
           name="Globe"
           className="h-6 w-6 pr-1 text-primary"
           aria-hidden="true"
         />
-        {initialData ? t('globalVariables.updateVariable') : t('globalVariables.createVariable')}
+        {initialData
+          ? t("globalVariables.updateVariable")
+          : t("globalVariables.createVariable")}
       </BaseModal.Header>
       <BaseModal.Trigger disable={disabled} asChild={asChild}>
         {children}
@@ -157,7 +159,7 @@ export default function GlobalVariableModal({
       <BaseModal.Content>
         <div className="flex h-full w-full flex-col gap-4">
           <div className="space-y-2">
-            <Label>{t('globalVariables.type')}*</Label>
+            <Label>{t("globalVariables.type")}*</Label>
             <Tabs
               defaultValue={type}
               onValueChange={setType}
@@ -169,68 +171,70 @@ export default function GlobalVariableModal({
                   data-testid="credential-tab"
                   value="Credential"
                 >
-                  {t('globalVariables.credential')}
+                  {t("globalVariables.credential")}
                 </TabsTrigger>
                 <TabsTrigger
                   disabled={!!initialData?.type}
                   data-testid="generic-tab"
                   value="Generic"
                 >
-                  {t('globalVariables.generic')}
+                  {t("globalVariables.generic")}
                 </TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
 
           <div className="space-y-2" id="global-variable-modal-inputs">
-            <Label>{t('globalVariables.nameLabel')}</Label>
+            <Label>{t("globalVariables.nameLabel")}</Label>
             <Input
               value={key}
               onChange={(e) => setKey(e.target.value)}
-              placeholder={t('globalVariables.namePlaceholder')}
+              placeholder={t("globalVariables.namePlaceholder")}
             />
           </div>
 
           <div className="space-y-2">
-            <Label>{t('globalVariables.valueLabel')}</Label>
+            <Label>{t("globalVariables.valueLabel")}</Label>
             {type === "Credential" ? (
               <InputComponent
                 password
                 value={value}
                 onChange={(e) => setValue(e)}
-                placeholder={t('globalVariables.valuePlaceholder')}
+                placeholder={t("globalVariables.valuePlaceholder")}
                 nodeStyle
               />
             ) : (
               <Input
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                placeholder={t('globalVariables.valuePlaceholder')}
+                placeholder={t("globalVariables.valuePlaceholder")}
               />
             )}
           </div>
 
           <div className="space-y-2">
-            <Label>{t('globalVariables.applyToFieldsLabel')}</Label>
+            <Label>{t("globalVariables.applyToFieldsLabel")}</Label>
             <InputComponent
               setSelectedOptions={(value) => setFields(value)}
               selectedOptions={fields}
               options={availableFields}
               password={false}
-              placeholder={t('globalVariables.chooseFieldPlaceholder')}
+              placeholder={t("globalVariables.chooseFieldPlaceholder")}
               id="apply-to-fields"
               popoverWidth="29rem"
-              optionsPlaceholder={t('globalVariables.fieldsPlaceholder')}
+              optionsPlaceholder={t("globalVariables.fieldsPlaceholder")}
             />
             <div className="text-xs text-muted-foreground">
-              {t('globalVariables.selectedFieldsNote')}
+              {t("globalVariables.selectedFieldsNote")}
             </div>
           </div>
         </div>
       </BaseModal.Content>
       <BaseModal.Footer
         submit={{
-          label: initialData ? t('globalVariables.updateVariable') : t('globalVariables.saveVariable'),
+          label: initialData
+            ? t("globalVariables.updateVariable")
+            : t("globalVariables.saveVariable"),
           dataTestId: "save-variable-btn",
           disabled: !key || !value,
         }}

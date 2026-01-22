@@ -1,7 +1,7 @@
 import { cloneDeep } from "lodash";
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import {
   EDIT_PASSWORD_ALERT_LIST,
   EDIT_PASSWORD_ERROR_ALERT,
@@ -109,7 +109,7 @@ export const GeneralPage = () => {
 
   const { mutate } = usePostAddApiKey({
     onSuccess: () => {
-      setSuccessData({ title: t('pages.settings.apiKeySavedSuccess') });
+      setSuccessData({ title: t("pages.settings.apiKeySavedSuccess") });
       setHasApiKey(true);
       setValidApiKey(true);
       setLoadingApiKey(false);
@@ -117,7 +117,7 @@ export const GeneralPage = () => {
     },
     onError: (error) => {
       setErrorData({
-        title: t('pages.settings.apiKeySaveError'),
+        title: t("pages.settings.apiKeySaveError"),
         list: [(error as any)?.response?.data?.detail],
       });
       setHasApiKey(false);

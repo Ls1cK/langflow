@@ -1,5 +1,5 @@
-import { Outlet, type To } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Outlet, type To } from "react-router-dom";
 import SideBarButtonsComponent from "@/components/core/sidebarComponent";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { CustomStoreSidebar } from "@/customization/components/custom-store-sidebar";
@@ -28,7 +28,7 @@ export default function SettingsPage(): JSX.Element {
 
   if (showGeneralSettings) {
     sidebarNavItems.push({
-      title: t('pages.settings.general'),
+      title: t("pages.settings.general"),
       href: "/settings/general",
       icon: (
         <ForwardedIconComponent
@@ -41,7 +41,7 @@ export default function SettingsPage(): JSX.Element {
 
   sidebarNavItems.push(
     {
-      title: t('pages.settings.mcpServers'),
+      title: t("pages.settings.mcpServers"),
       href: "/settings/mcp-servers",
       icon: (
         <ForwardedIconComponent
@@ -51,7 +51,7 @@ export default function SettingsPage(): JSX.Element {
       ),
     },
     {
-      title: t('pages.settings.globalVariables'),
+      title: t("pages.settings.globalVariables"),
       href: "/settings/global-variables",
       icon: (
         <ForwardedIconComponent
@@ -62,7 +62,7 @@ export default function SettingsPage(): JSX.Element {
     },
 
     {
-      title: t('pages.settings.shortcuts'),
+      title: t("pages.settings.shortcuts"),
       href: "/settings/shortcuts",
       icon: (
         <ForwardedIconComponent
@@ -72,7 +72,7 @@ export default function SettingsPage(): JSX.Element {
       ),
     },
     {
-      title: t('pages.settings.messages'),
+      title: t("pages.settings.messages"),
       href: "/settings/messages",
       icon: (
         <ForwardedIconComponent
@@ -92,8 +92,8 @@ export default function SettingsPage(): JSX.Element {
   return (
     <PageLayout
       backTo={-1 as To}
-      title={t('pages.settings.title')}
-      description={t('pages.settings.description')}
+      title={t("pages.settings.title")}
+      description={t("pages.settings.description")}
     >
       <SidebarProvider width="15rem" defaultOpen={false}>
         <SideBarButtonsComponent items={sidebarNavItems} />

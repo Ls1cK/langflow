@@ -66,7 +66,7 @@ export const FilesPage = () => {
                   </SidebarTrigger>
                 </div>
               </div>
-              {t('pages.filesPage.title')}
+              {t("pages.filesPage.title")}
             </div>
             <div className="flex h-full flex-col">
               <FilesTab {...tabProps} />

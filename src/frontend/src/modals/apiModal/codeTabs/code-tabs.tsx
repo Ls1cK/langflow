@@ -96,7 +96,7 @@ export default function APITabsComponent() {
 
   const tabsList = [
     {
-      title: t('modals.api.tabs.python'),
+      title: t("modals.api.tabs.python"),
       icon: "BWPython",
       language: "python",
       code: getNewPythonApiCode({
@@ -105,7 +105,7 @@ export default function APITabsComponent() {
       }),
     },
     {
-      title: t('modals.api.tabs.javascript'),
+      title: t("modals.api.tabs.javascript"),
       icon: "javascript",
       language: "javascript",
       code: getNewJsApiCode({
@@ -114,7 +114,7 @@ export default function APITabsComponent() {
       }),
     },
     {
-      title: t('modals.api.tabs.curl'),
+      title: t("modals.api.tabs.curl"),
       icon: "TerminalSquare",
       language: selectedPlatform === "windows" ? "powershell" : "shell",
       code: getNewCurlCode({
@@ -125,7 +125,7 @@ export default function APITabsComponent() {
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState(t('modals.api.tabs.python'));
+  const [selectedTab, setSelectedTab] = useState(t("modals.api.tabs.python"));
 
   const copyToClipboard = (codeText?: string, stepId?: string) => {
     if (!navigator.clipboard || !navigator.clipboard.writeText) {

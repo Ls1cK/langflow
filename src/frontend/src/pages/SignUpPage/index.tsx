@@ -97,12 +97,13 @@ export default function SignUp(): JSX.Element {
             className="mb-4 h-10 w-10 scale-[1.5]"
           />
           <span className="mb-6 text-2xl font-semibold text-primary">
-            {t('auth.signUpForLangflow')}
+            {t("auth.signUpForLangflow")}
           </span>
           <div className="mb-3 w-full">
             <Form.Field name="username">
               <Form.Label className="data-[invalid]:label-invalid">
-                {t('auth.username')} <span className="font-medium text-destructive">*</span>
+                {t("auth.username")}{" "}
+                <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
               <Form.Control asChild>
@@ -114,19 +115,20 @@ export default function SignUp(): JSX.Element {
                   value={username}
                   className="w-full"
                   required
-                  placeholder={t('auth.username')}
+                  placeholder={t("auth.username")}
                 />
               </Form.Control>
 
               <Form.Message match="valueMissing" className="field-invalid">
-                {t('auth.pleaseEnterUsername')}
+                {t("auth.pleaseEnterUsername")}
               </Form.Message>
             </Form.Field>
           </div>
           <div className="mb-3 w-full">
             <Form.Field name="password" serverInvalid={password != cnfPassword}>
               <Form.Label className="data-[invalid]:label-invalid">
-                {t('auth.password')} <span className="font-medium text-destructive">*</span>
+                {t("auth.password")}{" "}
+                <span className="font-medium text-destructive">*</span>
               </Form.Label>
               <InputComponent
                 onChange={(value) => {
@@ -136,17 +138,17 @@ export default function SignUp(): JSX.Element {
                 isForm
                 password={true}
                 required
-                placeholder={t('auth.password')}
+                placeholder={t("auth.password")}
                 className="w-full"
               />
 
               <Form.Message className="field-invalid" match="valueMissing">
-                {t('auth.pleaseEnterPassword')}
+                {t("auth.pleaseEnterPassword")}
               </Form.Message>
 
               {password != cnfPassword && (
                 <Form.Message className="field-invalid">
-                  {t('message.passwordMismatch')}
+                  {t("message.passwordMismatch")}
                 </Form.Message>
               )}
             </Form.Field>
@@ -157,7 +159,7 @@ export default function SignUp(): JSX.Element {
               serverInvalid={password != cnfPassword}
             >
               <Form.Label className="data-[invalid]:label-invalid">
-                {t('auth.confirmPassword')}{" "}
+                {t("auth.confirmPassword")}{" "}
                 <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
@@ -169,12 +171,12 @@ export default function SignUp(): JSX.Element {
                 isForm
                 password={true}
                 required
-                placeholder={t('auth.confirmPassword')}
+                placeholder={t("auth.confirmPassword")}
                 className="w-full"
               />
 
               <Form.Message className="field-invalid" match="valueMissing">
-                {t('auth.pleaseConfirmPassword')}
+                {t("auth.pleaseConfirmPassword")}
               </Form.Message>
             </Form.Field>
           </div>
@@ -188,14 +190,14 @@ export default function SignUp(): JSX.Element {
                   handleSignup();
                 }}
               >
-                {t('auth.signUp')}
+                {t("auth.signUp")}
               </Button>
             </Form.Submit>
           </div>
           <div className="w-full">
             <CustomLink to="/login">
               <Button className="w-full" variant="outline">
-                {t('auth.alreadyHaveAccount')}&nbsp;<b>{t('auth.signIn')}</b>
+                {t("auth.alreadyHaveAccount")}&nbsp;<b>{t("auth.signIn")}</b>
               </Button>
             </CustomLink>
           </div>

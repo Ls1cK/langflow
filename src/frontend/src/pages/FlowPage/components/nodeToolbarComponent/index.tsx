@@ -468,7 +468,7 @@ const NodeToolbarComponent = memo(
             <ToolbarButton
               className={isCustomComponent ? "animate-pulse-pink" : ""}
               icon="Code"
-              label={t('flow.toolbar.code')}
+              label={t("flow.toolbar.code")}
               onClick={() => setOpenModal(true)}
               shortcut={shortcuts.find((s) =>
                 s.name.toLowerCase().startsWith("code"),
@@ -479,7 +479,7 @@ const NodeToolbarComponent = memo(
           {nodeLength > 0 && (
             <ToolbarButton
               icon="SlidersHorizontal"
-              label={t('flow.toolbar.controls')}
+              label={t("flow.toolbar.controls")}
               onClick={() => setShowModalAdvanced(true)}
               shortcut={shortcuts.find((s) =>
                 s.name.toLowerCase().startsWith("advanced"),
@@ -490,7 +490,7 @@ const NodeToolbarComponent = memo(
           {!hasToolMode && (
             <ToolbarButton
               icon="FreezeAll"
-              label={t('flow.toolbar.freeze')}
+              label={t("flow.toolbar.freeze")}
               dataTestId="freeze-all-button-modal"
               onClick={() => {
                 takeSnapshot();
@@ -537,7 +537,9 @@ const NodeToolbarComponent = memo(
                     toolMode ? "text-primary" : "",
                   )}
                 />
-                <span className="text-mmd font-medium">{t('flow.toolbar.toolMode')}</span>
+                <span className="text-mmd font-medium">
+                  {t("flow.toolbar.toolMode")}
+                </span>
                 <ToggleShadComponent
                   value={toolMode}
                   editNode={false}
@@ -582,7 +584,7 @@ const NodeToolbarComponent = memo(
               open={dropdownOpen}
             >
               <SelectTrigger className="w-62">
-                <ShadTooltip content={t('common.showMore')} side="top">
+                <ShadTooltip content={t("common.showMore")} side="top">
                   <div data-testid="more-options-modal">
                     <Button
                       className="node-toolbar-buttons h-[2rem] w-[2rem]"
@@ -608,7 +610,7 @@ const NodeToolbarComponent = memo(
                       shortcuts.find((obj) => obj.name === "Save Component")
                         ?.shortcut!
                     }
-                    value={t('common.save')}
+                    value={t("common.save")}
                     icon={"SaveAll"}
                     dataTestId="save-button-modal"
                   />
@@ -619,7 +621,7 @@ const NodeToolbarComponent = memo(
                       shortcuts.find((obj) => obj.name === "Duplicate")
                         ?.shortcut!
                     }
-                    value={t('flow.node.duplicate')}
+                    value={t("flow.node.duplicate")}
                     icon={"Copy"}
                     dataTestId="copy-button-modal"
                   />
@@ -629,7 +631,7 @@ const NodeToolbarComponent = memo(
                     shortcut={
                       shortcuts.find((obj) => obj.name === "Copy")?.shortcut!
                     }
-                    value={t('common.copy')}
+                    value={t("common.copy")}
                     icon={"Clipboard"}
                     dataTestId="copy-button-modal"
                   />
@@ -644,7 +646,9 @@ const NodeToolbarComponent = memo(
                       style={
                         hasBreakingChange ? "text-accent-amber-foreground" : ""
                       }
-                      value={isUserEdited ? t('common.restore') : t('common.update')}
+                      value={
+                        isUserEdited ? t("common.restore") : t("common.update")
+                      }
                       icon={isUserEdited ? "RefreshCcwDot" : "CircleArrowUp"}
                       dataTestId="update-button-modal"
                     />
@@ -660,7 +664,7 @@ const NodeToolbarComponent = memo(
                         shortcuts.find((obj) => obj.name === "Component Share")
                           ?.shortcut!
                       }
-                      value={t('common.share')}
+                      value={t("common.share")}
                       icon={"Share3"}
                       dataTestId="share-button-modal"
                     />
@@ -675,7 +679,7 @@ const NodeToolbarComponent = memo(
                     shortcut={
                       shortcuts.find((obj) => obj.name === "Docs")?.shortcut!
                     }
-                    value={t('common.docs')}
+                    value={t("common.docs")}
                     icon={"FileText"}
                     dataTestId="docs-button-modal"
                   />
@@ -692,7 +696,9 @@ const NodeToolbarComponent = memo(
                         shortcuts.find((obj) => obj.name === "Minimize")
                           ?.shortcut!
                       }
-                      value={showNode ? t('common.minimize') : t('common.expand')}
+                      value={
+                        showNode ? t("common.minimize") : t("common.expand")
+                      }
                       icon={showNode ? "Minimize2" : "Maximize2"}
                     />
                   </SelectItem>
@@ -703,7 +709,7 @@ const NodeToolbarComponent = memo(
                       shortcut={
                         shortcuts.find((obj) => obj.name === "Group")?.shortcut!
                       }
-                      value={t('flow.toolbar.ungroup')}
+                      value={t("flow.toolbar.ungroup")}
                       icon={"Ungroup"}
                       dataTestId="group-button-modal"
                     />
@@ -720,7 +726,7 @@ const NodeToolbarComponent = memo(
                           obj.name.toLowerCase().startsWith("freeze"),
                         )?.shortcut!
                       }
-                      value={t('flow.toolbar.freeze')}
+                      value={t("flow.toolbar.freeze")}
                       icon={"FreezeAll"}
                       dataTestId="freeze-path-button"
                       style={`${frozen ? " text-ice" : ""} transition-all`}
@@ -733,7 +739,7 @@ const NodeToolbarComponent = memo(
                       shortcuts.find((obj) => obj.name === "Download")
                         ?.shortcut!
                     }
-                    value={t('common.download')}
+                    value={t("common.download")}
                     icon={"Download"}
                     dataTestId="download-button-modal"
                   />
@@ -744,7 +750,7 @@ const NodeToolbarComponent = memo(
                       name="Trash2"
                       className="relative top-0.5 mr-2 h-4 w-4"
                     />{" "}
-                    <span className="">{t('common.delete')}</span>{" "}
+                    <span className="">{t("common.delete")}</span>{" "}
                     <span
                       className={`absolute right-2 top-2 flex items-center justify-center rounded-sm px-1 py-[0.2]`}
                     >

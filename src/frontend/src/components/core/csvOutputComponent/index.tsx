@@ -37,11 +37,11 @@ function CsvOutputComponent({
       <div className="align-center flex h-full w-full flex-col items-center justify-center gap-5">
         <div className="align-center flex w-full justify-center gap-2">
           <ForwardedIconComponent name="Table" />
-          {t('table.noData')}
+          {t("table.noData")}
         </div>
         <div className="align-center flex w-full justify-center">
           <div className="langflow-chat-desc align-center flex justify-center px-6 py-8">
-            <div className="langflow-chat-desc-span">{t('table.error')}</div>
+            <div className="langflow-chat-desc-span">{t("table.error")}</div>
           </div>
         </div>
       </div>
@@ -88,11 +88,11 @@ function CsvOutputComponent({
         <div className="align-center flex h-full w-full flex-col items-center justify-center gap-5">
           <div className="align-center flex w-full justify-center gap-2">
             <ForwardedIconComponent name="Table" />
-            {t('table.noData')}
+            {t("table.noData")}
           </div>
           <div className="align-center flex w-full justify-center">
             <div className="langflow-chat-desc align-center flex justify-center px-6 py-8">
-              <div className="langflow-chat-desc-span">{t('table.noData')}</div>
+              <div className="langflow-chat-desc-span">{t("table.noData")}</div>
             </div>
           </div>
         </div>
@@ -101,11 +101,11 @@ function CsvOutputComponent({
         <div className="align-center flex h-full w-full flex-col items-center justify-center gap-5">
           <div className="align-center flex w-full justify-center gap-2">
             <ForwardedIconComponent name="Table" />
-            {t('table.error')}
+            {t("table.error")}
           </div>
           <div className="align-center flex w-full justify-center">
             <div className="langflow-chat-desc align-center flex justify-center px-6 py-8">
-              <div className="langflow-chat-desc-span">{t('table.error')}</div>
+              <div className="langflow-chat-desc-span">{t("table.error")}</div>
             </div>
           </div>
         </div>

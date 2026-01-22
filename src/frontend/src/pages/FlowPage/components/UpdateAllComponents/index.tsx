@@ -72,7 +72,7 @@ export default function UpdateAllComponents() {
       edgesUpdateRef.current.updateComponent
     ) {
       useAlertStore.getState().setNoticeData({
-        title: t('updateComponents.edgesLost'),
+        title: t("updateComponents.edgesLost"),
       });
 
       resetEdgesUpdateRef();
@@ -158,8 +158,10 @@ export default function UpdateAllComponents() {
       })
       .catch((error) => {
         setErrorData({
-          title: t('updateComponents.errorUpdatingComponents'),
-          list: t('updateComponents.errorUpdatingComponentsList', { returnObjects: true }) as string[],
+          title: t("updateComponents.errorUpdatingComponents"),
+          list: t("updateComponents.errorUpdatingComponentsList", {
+            returnObjects: true,
+          }) as string[],
         });
         console.error(error);
       })
@@ -215,10 +217,18 @@ export default function UpdateAllComponents() {
             >
               <div className="flex items-center gap-3">
                 <span>
-                  {t('updateComponents.updateAvailable')}
-                  {componentsToUpdateFiltered.length > 1 ? t('updateComponents.areAvailable') : t('updateComponents.isAvailable')}{" "}
+                  {t("updateComponents.updateAvailable")}
+                  {componentsToUpdateFiltered.length > 1
+                    ? t("updateComponents.areAvailable")
+                    : t("updateComponents.isAvailable")}{" "}
                   {componentsToUpdateFiltered.length +
-                    " " + t('updateComponents.' + (componentsToUpdateFiltered.length > 1 ? 'components' : 'component'))}
+                    " " +
+                    t(
+                      "updateComponents." +
+                        (componentsToUpdateFiltered.length > 1
+                          ? "components"
+                          : "component"),
+                    )}
                 </span>
               </div>
               <div className="flex items-center gap-4">
@@ -228,7 +238,10 @@ export default function UpdateAllComponents() {
                   className="shrink-0 text-sm"
                   onClick={handleDismissAllComponents}
                 >
-                  {t('updateComponents.dismiss')} {componentsToUpdateFiltered.length > 1 ? t('updateComponents.dismissAll') : ""}
+                  {t("updateComponents.dismiss")}{" "}
+                  {componentsToUpdateFiltered.length > 1
+                    ? t("updateComponents.dismissAll")
+                    : ""}
                 </Button>
                 <Button
                   size="sm"
@@ -237,7 +250,9 @@ export default function UpdateAllComponents() {
                   loading={loadingUpdate}
                   data-testid="update-all-button"
                 >
-                  {breakingChanges.length > 0 ? t('updateComponents.reviewAll') : t('updateComponents.updateAll')}
+                  {breakingChanges.length > 0
+                    ? t("updateComponents.reviewAll")
+                    : t("updateComponents.updateAll")}
                 </Button>
               </div>
               <UpdateComponentModal
