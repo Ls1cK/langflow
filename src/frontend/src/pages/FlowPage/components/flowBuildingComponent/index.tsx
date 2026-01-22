@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { normalizeTimeString } from "@/CustomNodes/GenericNode/components/NodeStatus/utils/format-run-time";
@@ -19,6 +20,7 @@ import {
 } from "./helpers/visual-variants";
 
 export default function FlowBuildingComponent() {
+  const { t } = useTranslation();
   const isBuilding = useFlowStore((state) => state.isBuilding);
   const flowBuildStatus = useFlowStore((state) => state.flowBuildStatus);
   const buildInfo = useFlowStore((state) => state.buildInfo);
@@ -78,8 +80,8 @@ export default function FlowBuildingComponent() {
     return (
       <TextShimmer duration={1}>
         {statusBuilding.length > 0
-          ? `Running ${statusBuilding[0]?.id}`
-          : "Running flow"}
+          ? t('flow.toolbar.runningNode', { nodeId: statusBuilding[0]?.id })
+          : t('flow.toolbar.runningFlow')}
       </TextShimmer>
     );
   }, [isBuilding, statusBuilding]);

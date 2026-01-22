@@ -1,5 +1,6 @@
 import { DialogClose } from "@radix-ui/react-dialog";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import GenericIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "../../components/common/shadTooltipComponent";
 import { Button } from "../../components/ui/button";
@@ -45,6 +46,7 @@ function ConfirmationModal({
   onCancel,
   ...props
 }: ConfirmationModalType) {
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(open ?? false);
   const [flag, setFlag] = useState(false);
 

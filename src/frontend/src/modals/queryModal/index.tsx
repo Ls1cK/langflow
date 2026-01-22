@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Textarea } from "../../components/ui/textarea";
 import {
   EDIT_TEXT_PLACEHOLDER,
@@ -18,6 +19,7 @@ export default function QueryModal({
   children,
   disabled,
 }: queryModalPropsType): JSX.Element {
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState(value);
 
@@ -66,7 +68,7 @@ export default function QueryModal({
       </BaseModal.Content>
       <BaseModal.Footer
         submit={{
-          label: "Apply",
+          label: t('modal:query.apply'),
           dataTestId: "genericModalBtnSave",
           onClick: () => {
             setValue(inputValue);

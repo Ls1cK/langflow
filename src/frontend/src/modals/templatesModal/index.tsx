@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -17,6 +18,7 @@ export default function TemplatesModal({
   open,
   setOpen,
 }: newFlowModalPropsType): JSX.Element {
+  const { t } = useTranslation();
   const [currentTab, setCurrentTab] = useState("get-started");
   const addFlow = useAddFlow();
   const navigate = useCustomNavigate();
@@ -25,34 +27,34 @@ export default function TemplatesModal({
   // Define categories and their items
   const categories: Category[] = [
     {
-      title: "Templates",
+      title: t('modal:templates.categories.templates'),
       items: [
-        { title: "Get started", icon: "SquarePlay", id: "get-started" },
-        { title: "All templates", icon: "LayoutPanelTop", id: "all-templates" },
+        { title: t('modal:templates.categories.getStarted'), icon: "SquarePlay", id: "get-started" },
+        { title: t('modal:templates.categories.allTemplates'), icon: "LayoutPanelTop", id: "all-templates" },
       ],
     },
     {
-      title: "Use Cases",
+      title: t('modal:templates.categories.useCases'),
       items: [
-        { title: "Assistants", icon: "BotMessageSquare", id: "assistants" },
-        { title: "Classification", icon: "Tags", id: "classification" },
-        { title: "Coding", icon: "TerminalIcon", id: "coding" },
+        { title: t('modal:templates.categories.assistants'), icon: "BotMessageSquare", id: "assistants" },
+        { title: t('modal:templates.categories.classification'), icon: "Tags", id: "classification" },
+        { title: t('modal:templates.categories.coding'), icon: "TerminalIcon", id: "coding" },
         {
-          title: "Content Generation",
+          title: t('modal:templates.categories.contentGeneration'),
           icon: "Newspaper",
           id: "content-generation",
         },
-        { title: "Q&A", icon: "Database", id: "q-a" },
+        { title: t('modal:templates.categories.qa'), icon: "Database", id: "q-a" },
         // { title: "Summarization", icon: "Bot", id: "summarization" },
         // { title: "Web Scraping", icon: "CodeXml", id: "web-scraping" },
       ],
     },
     {
-      title: "Methodology",
+      title: t('modal:templates.categories.methodology'),
       items: [
-        { title: "Prompting", icon: "MessagesSquare", id: "chatbots" },
-        { title: "RAG", icon: "Database", id: "rag" },
-        { title: "Agents", icon: "Bot", id: "agents" },
+        { title: t('modal:templates.categories.prompting'), icon: "MessagesSquare", id: "chatbots" },
+        { title: t('modal:templates.categories.rag'), icon: "Database", id: "rag" },
+        { title: t('modal:templates.categories.agents'), icon: "Bot", id: "agents" },
       ],
     },
   ];
@@ -79,9 +81,9 @@ export default function TemplatesModal({
               <BaseModal.Footer>
                 <div className="flex w-full flex-col justify-between gap-4 pb-4 sm:flex-row sm:items-center">
                   <div className="flex flex-col items-start justify-center">
-                    <div className="font-semibold">Start from scratch</div>
+                    <div className="font-semibold">{t('modal:templates.startFromScratch')}</div>
                     <div className="text-sm text-muted-foreground">
-                      Begin with a fresh flow to build from scratch.
+                      {t('modal:templates.startFromScratchDescription')}
                     </div>
                   </div>
                   <Button
@@ -101,7 +103,7 @@ export default function TemplatesModal({
                       name="Plus"
                       className="h-4 w-4 shrink-0"
                     />
-                    Blank Flow
+                    {t('modal:templates.blankFlow')}
                   </Button>
                 </div>
               </BaseModal.Footer>

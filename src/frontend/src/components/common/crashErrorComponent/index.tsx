@@ -1,4 +1,5 @@
 import { XCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { crashComponentPropsType } from "../../../types/components";
 import { Button } from "../../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../../ui/card";
@@ -7,6 +8,7 @@ export default function CrashErrorComponent({
   error,
   resetErrorBoundary,
 }: crashComponentPropsType): JSX.Element {
+  const { t } = useTranslation();
   return (
     <div className="z-50 flex h-screen w-screen items-center justify-center bg-foreground bg-opacity-50">
       <div className="flex h-screen w-screen flex-col bg-background text-start shadow-lg">
@@ -18,7 +20,7 @@ export default function CrashErrorComponent({
               </div>
               <div>
                 <p className="mb-4 text-xl text-foreground">
-                  Sorry, we found an unexpected error!
+                  {t('components.errors.crash.title')}
                 </p>
               </div>
             </CardHeader>
@@ -26,7 +28,7 @@ export default function CrashErrorComponent({
             <CardContent className="grid">
               <div>
                 <p>
-                  Please report errors with detailed tracebacks on the{" "}
+                  {t('components.errors.crash.message')}{" "}
                   <a
                     href="https://github.com/langflow-ai/langflow/issues"
                     target="_blank"
@@ -35,16 +37,16 @@ export default function CrashErrorComponent({
                   >
                     GitHub Issues
                   </a>{" "}
-                  page.
+                  {t('components.errors.crash.page')}.
                   <br></br>
-                  Thank you!
+                  {t('components.errors.crash.thankYou')}!
                 </p>
               </div>
             </CardContent>
 
             <CardFooter>
               <div className="m-auto mt-4 flex justify-center">
-                <Button onClick={resetErrorBoundary}>Restart Langflow</Button>
+                <Button onClick={resetErrorBoundary}>{t('components.errors.crash.reload')}</Button>
 
                 <a
                   href="https://github.com/langflow-ai/langflow/issues/new"
@@ -52,7 +54,7 @@ export default function CrashErrorComponent({
                   rel="noopener noreferrer"
                 >
                   <Button className="ml-3" ignoreTitleCase variant={"outline"}>
-                    Report on GitHub
+                    {t('components.errors.crash.reportOnGitHub')}
                   </Button>
                 </a>
               </div>

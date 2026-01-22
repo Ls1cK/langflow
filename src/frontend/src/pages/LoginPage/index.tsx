@@ -1,6 +1,7 @@
 import * as Form from "@radix-ui/react-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import LangflowLogo from "@/assets/LangflowLogo.svg?react";
 import { useLoginUser } from "@/controllers/API/queries/auth";
 import { CustomLink } from "@/customization/components/custom-link";
@@ -19,6 +20,7 @@ import type {
 } from "../../types/components";
 
 export default function LoginPage(): JSX.Element {
+  const { t } = useTranslation();
   const [inputState, setInputState] =
     useState<loginInputStateType>(CONTROL_LOGIN_STATE);
 
@@ -78,12 +80,12 @@ export default function LoginPage(): JSX.Element {
             className="mb-4 h-10 w-10 scale-[1.5]"
           />
           <span className="mb-6 text-2xl font-semibold text-primary">
-            Sign in to Langflow
+            {t('ui:signInToLangflow')}
           </span>
           <div className="mb-3 w-full">
             <Form.Field name="username">
               <Form.Label className="data-[invalid]:label-invalid">
-                Username <span className="font-medium text-destructive">*</span>
+                {t('auth:username')} <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
               <Form.Control asChild>
@@ -95,19 +97,19 @@ export default function LoginPage(): JSX.Element {
                   value={username}
                   className="w-full"
                   required
-                  placeholder="Username"
+                  placeholder={t('auth:username')}
                 />
               </Form.Control>
 
               <Form.Message match="valueMissing" className="field-invalid">
-                Please enter your username
+                {t('validation:required')}
               </Form.Message>
             </Form.Field>
           </div>
           <div className="mb-3 w-full">
             <Form.Field name="password">
               <Form.Label className="data-[invalid]:label-invalid">
-                Password <span className="font-medium text-destructive">*</span>
+                {t('auth:password')} <span className="font-medium text-destructive">*</span>
               </Form.Label>
 
               <InputComponent
@@ -118,26 +120,26 @@ export default function LoginPage(): JSX.Element {
                 isForm
                 password={true}
                 required
-                placeholder="Password"
+                placeholder={t('auth:password')}
                 className="w-full"
               />
 
               <Form.Message className="field-invalid" match="valueMissing">
-                Please enter your password
+                {t('validation:required')}
               </Form.Message>
             </Form.Field>
           </div>
           <div className="w-full">
             <Form.Submit asChild>
               <Button className="mr-3 mt-6 w-full" type="submit">
-                Sign in
+                {t('auth:login')}
               </Button>
             </Form.Submit>
           </div>
           <div className="w-full">
             <CustomLink to="/signup">
               <Button className="w-full" variant="outline" type="button">
-                Don't have an account?&nbsp;<b>Sign Up</b>
+                {t('auth:dontHaveAccount')}&nbsp;<b>{t('auth:register')}</b>
               </Button>
             </CustomLink>
           </div>

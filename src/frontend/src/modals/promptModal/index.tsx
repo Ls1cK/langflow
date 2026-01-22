@@ -1,5 +1,6 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { usePostValidatePrompt } from "@/controllers/API/queries/nodes/use-post-validate-prompt";
 import IconComponent from "../../components/common/genericIconComponent";
 import SanitizedHTMLWrapper from "../../components/common/sanitizedHTMLWrapper";
@@ -37,6 +38,7 @@ export default function PromptModal({
   id = "",
   readonly = false,
 }: PromptModalType): JSX.Element {
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const [isEdit, setIsEdit] = useState(true);
@@ -239,7 +241,7 @@ export default function PromptModal({
               aria-hidden="true"
             />
             <span className="pl-2" data-testid="modal-title">
-              Edit Prompt
+              {t('modals.prompt.title')}
             </span>
           </div>
         </div>

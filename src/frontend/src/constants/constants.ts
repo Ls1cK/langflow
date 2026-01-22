@@ -186,13 +186,13 @@ export const IMPORT_DIALOG_SUBTITLE =
  */
 export const TOOLTIP_EMPTY = "No compatible components found.";
 
-export const CSVViewErrorTitle = "CSV output";
+export const CSVViewErrorTitle = "CSV output"; // Will be replaced with i18n
 
-export const CSVNoDataError = "No data available";
+export const CSVNoDataError = "No data available"; // Will be replaced with i18n
 
-export const PDFViewConstant = "Expand the output to see the PDF";
+export const PDFViewConstant = "Expand the output to see the PDF"; // Will be replaced with i18n
 
-export const CSVError = "Error loading CSV";
+export const CSVError = "Error loading CSV"; // Will be replaced with i18n
 
 export const PDFLoadErrorTitle = "Error loading PDF";
 
@@ -901,14 +901,14 @@ export const GRADIENT_CLASS =
 export const GRADIENT_CLASS_DISABLED =
   "linear-gradient(to right, hsl(var(--muted) / 0.3), hsl(var(--muted)))";
 
-export const RECEIVING_INPUT_VALUE = "Receiving input";
-export const SELECT_AN_OPTION = "Select an option";
+export const RECEIVING_INPUT_VALUE = "Receiving input"; // Will be replaced with i18n
+export const SELECT_AN_OPTION = "Select an option"; // Will be replaced with i18n
 
 export const ICON_STROKE_WIDTH = 1.5;
 
-export const DEFAULT_PLACEHOLDER = "Type something...";
+export const DEFAULT_PLACEHOLDER = "Type something..."; // Will be replaced with i18n
 
-export const DEFAULT_TOOLSET_PLACEHOLDER = "Used as a tool";
+export const DEFAULT_TOOLSET_PLACEHOLDER = "Used as a tool"; // Will be replaced with i18n
 
 export const SAVE_API_KEY_ALERT = "API key saved successfully";
 export const PLAYGROUND_BUTTON_NAME = "Playground";

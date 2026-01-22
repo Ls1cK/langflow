@@ -1,5 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import LangflowLogo from "@/assets/LangflowLogo.svg?react";
 import { useLoginUser } from "@/controllers/API/queries/auth";
 import { Button } from "../../../components/ui/button";
@@ -15,6 +16,7 @@ import type {
 } from "../../../types/components";
 
 export default function LoginAdminPage() {
+  const { t } = useTranslation();
   const [inputState, setInputState] =
     useState<loginInputStateType>(CONTROL_LOGIN_STATE);
   const { login } = useContext(AuthContext);
@@ -53,13 +55,13 @@ export default function LoginAdminPage() {
     <div className="flex h-full w-full flex-col items-center justify-center bg-muted">
       <div className="flex w-72 flex-col items-center justify-center gap-2">
         <LangflowLogo title="Langflow logo" className="h-10 w-10 scale-[1.5]" />
-        <span className="mb-6 text-2xl font-semibold text-primary">Admin</span>
+        <span className="mb-6 text-2xl font-semibold text-primary">{t('auth.admin')}</span>
         <Input
           onChange={({ target: { value } }) => {
             handleInput({ target: { name: "username", value } });
           }}
           className="bg-background"
-          placeholder="Username"
+          placeholder={t('auth.username')}
         />
         <Input
           type="password"
@@ -67,7 +69,7 @@ export default function LoginAdminPage() {
             handleInput({ target: { name: "password", value } });
           }}
           className="bg-background"
-          placeholder="Password"
+          placeholder={t('auth.password')}
         />
         <Button
           onClick={() => {
@@ -76,7 +78,7 @@ export default function LoginAdminPage() {
           variant="default"
           className="w-full"
         >
-          Login
+          {t('auth.login')}
         </Button>
       </div>
     </div>

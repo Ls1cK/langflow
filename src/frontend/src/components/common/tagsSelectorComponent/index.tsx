@@ -1,4 +1,5 @@
 import { cn } from "../../../utils/utils";
+import { useTranslation } from "react-i18next";
 import { Badge } from "../../ui/badge";
 import HorizontalScrollFadeComponent from "../horizontalScrollFadeComponent";
 
@@ -15,6 +16,7 @@ export function TagsSelector({
   selectedTags: any[];
   setSelectedTags: (tags: any[]) => void;
 }) {
+  const { t } = useTranslation();
   const updateTags = (tagName: string) => {
     const index = selectedTags.indexOf(tagName);
     const newArray =

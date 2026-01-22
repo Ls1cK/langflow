@@ -1,0 +1,41 @@
+{
+  "title": "Langflow 商店",
+  "description": "浏览和安装社区组件",
+  "filter": {
+    "all": "全部",
+    "popular": "热门",
+    "recent": "最近",
+    "trending": "趋势",
+    "alphabetical": "按字母顺序",
+    "createdByMe": "我创建的",
+    "likedByMe": "我喜欢的"
+  },
+  "tabs": {
+    "all": "全部",
+    "flows": "流程",
+    "components": "组件"
+  },
+  "search": {
+    "placeholder": "搜索组件...",
+    "noResults": "未找到结果"
+  },
+  "pagination": {
+    "rowsPerPage": "每页行数",
+    "page": "页面"
+  },
+  "install": {
+    "button": "安装",
+    "installing": "安装中...",
+    "installed": "已安装"
+  },
+  "results": "个结果",
+  "result": "个结果",
+  "actions": {
+    "created": "创建",
+    "liked": "喜欢"
+  },
+  "emptyState": {
+    "noItems": "您还没有{{action}}任何内容。",
+    "noItemsWithFilters": "没有{{type}}符合所选筛选条件。"
+  }
+}

@@ -27,6 +27,7 @@ import type { MCPServerType } from "@/types/mcp";
 import { extractMcpServersFromJson } from "@/utils/mcpUtils";
 import { parseString } from "@/utils/stringManipulation";
 import { cn } from "@/utils/utils";
+import { useTranslation } from "react-i18next";
 
 //TODO IMPLEMENT FORM LOGIC
 
@@ -43,6 +44,7 @@ export default function AddMcpServerModal({
   setOpen?: (a: boolean | ((o?: boolean) => boolean)) => void;
   onSuccess?: (server: string) => void;
 }): JSX.Element {
+  const { t } = useTranslation();
   const [open, setOpen] =
     mySetOpen !== undefined && myOpen !== undefined
       ? [myOpen, mySetOpen]
@@ -254,12 +256,12 @@ export default function AddMcpServerModal({
                 className="h-4 w-4 text-primary"
                 aria-hidden="true"
               />
-              {initialData ? "Update MCP Server" : "Add MCP Server"}
+              {initialData ? t('modals.addMcpServer.updateTitle') : t('modals.addMcpServer.title')}
             </div>
             <span className="text-mmd font-normal text-muted-foreground">
-              Save MCP Servers. Manage added servers in{" "}
+              {t('modals.addMcpServer.description')}{" "}
               <CustomLink className="underline" to="/settings/mcp-servers">
-                settings
+                {t('common.settings')}
               </CustomLink>
               .
             </span>

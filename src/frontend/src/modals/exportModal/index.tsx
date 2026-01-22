@@ -1,4 +1,5 @@
 import { forwardRef, type ReactNode, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { track } from "@/customization/utils/analytics";
 import useFlowStore from "@/stores/flowStore";
 import type { FlowType } from "@/types/flow";
@@ -26,6 +27,7 @@ const ExportModal = forwardRef(
     },
     ref,
   ): JSX.Element => {
+    const { t } = useTranslation();
     const version = useDarkStore((state) => state.version);
     const setSuccessData = useAlertStore((state) => state.setSuccessData);
     const setNoticeData = useAlertStore((state) => state.setNoticeData);
@@ -93,7 +95,7 @@ const ExportModal = forwardRef(
               );
 
               setSuccessData({
-                title: "Flow exported successfully",
+                title: t('alerts.success.flowExported'),
               });
               setOpen(false);
               track("Flow Exported", { flowId: currentFlow!.id });
@@ -104,8 +106,8 @@ const ExportModal = forwardRef(
         }}
       >
         <BaseModal.Trigger asChild>{props.children ?? <></>}</BaseModal.Trigger>
-        <BaseModal.Header description={EXPORT_DIALOG_SUBTITLE}>
-          <span className="pr-2">Export</span>
+        <BaseModal.Header description={t('modal:export.description')}>
+          <span className="pr-2">{t('modal:export.title')}</span>
           <IconComponent
             name="Download"
             className="h-6 w-6 pl-1 text-foreground"
@@ -128,17 +130,17 @@ const ExportModal = forwardRef(
               }}
             />
             <label htmlFor="terms" className="export-modal-save-api text-sm">
-              {SAVE_WITH_API_CHECKBOX}
+              {t('modal:export.saveWithApiKeys')}
             </label>
           </div>
           <span className="mt-1 text-xs text-destructive">
-            {ALERT_SAVE_WITH_API}
+            {t('modal:export.apiKeysWarning')}
           </span>
         </BaseModal.Content>
 
         <BaseModal.Footer
           submit={{
-            label: "Export",
+            label: t('modal:export.title'),
             loading: isBuilding,
             dataTestId: "modal-export-button",
           }}

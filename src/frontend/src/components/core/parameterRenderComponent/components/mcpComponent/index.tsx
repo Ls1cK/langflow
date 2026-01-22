@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useAddMCPServer } from "@/controllers/API/queries/mcp/use-add-mcp-server";
 import { useGetMCPServers } from "@/controllers/API/queries/mcp/use-get-mcp-servers";
 import AddMcpServerModal from "@/modals/addMcpServerModal";
@@ -16,6 +17,7 @@ export default function McpComponent({
   editNode = false,
   id = "",
 }: InputProps<string, any>): JSX.Element {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const { data: mcpServers } = useGetMCPServers({ withCounts: true });
   const { mutate: addMcpServer } = useAddMCPServer();
@@ -28,12 +30,12 @@ export default function McpComponent({
           server.toolsCount === null
             ? server.error
               ? server.error.startsWith("Timeout")
-                ? "Timeout"
-                : "Error"
-              : "Loading..."
+                ? t('mcp.timeout')
+                : t('mcp.error')
+              : t('mcp.loading')
             : !server.toolsCount
-              ? "No tools found"
-              : `${server.toolsCount} tool${server.toolsCount === 1 ? "" : "s"}`,
+              ? t('mcp.noToolsFound')
+              : `${server.toolsCount} ${server.toolsCount === 1 ? t('mcp.tool') : t('mcp.tools')}`,
       })),
     [mcpServers],
   );
@@ -101,7 +103,7 @@ export default function McpComponent({
         },
         onError: (error) => {
           setErrorData({
-            title: "Error adding MCP server",
+            title: t('mcp.errorAddingServer'),
             list: [error.message],
           });
         },
@@ -160,10 +162,10 @@ export default function McpComponent({
             >
               <span className="truncate">
                 {!options
-                  ? "Loading servers..."
+                  ? t('mcp.loadingServers')
                   : selectedItem[0]?.name
                     ? selectedItem[0]?.name
-                    : "Select a server..."}
+                    : t('mcp.selectServer')}
               </span>
               <ForwardedIconComponent
                 name={!showSaveButton ? "ChevronsUpDown" : "X"}
@@ -188,7 +190,7 @@ export default function McpComponent({
         </div>
       ) : (
         <Button size="sm" onClick={handleAddButtonClick}>
-          <span>Add MCP Server</span>
+          <span>{t('mcp.addMcpServer')}</span>
         </Button>
       )}
       {options && (

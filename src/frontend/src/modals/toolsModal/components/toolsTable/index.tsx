@@ -2,6 +2,7 @@ import type { ColDef } from "ag-grid-community";
 import type { AgGridReact } from "ag-grid-react";
 import { cloneDeep } from "lodash";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import type { handleOnNewValueType } from "@/CustomNodes/hooks/use-handle-new-value";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
@@ -37,6 +38,7 @@ export default function ToolsTable({
   isAction: boolean;
   placeholder: string;
 }) {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRows, setSelectedRows] = useState<any[] | null>(null);
   const agGrid = useRef<AgGridReact>(null);
@@ -282,7 +284,7 @@ export default function ToolsTable({
         <div className="flex-none px-4">
           <Input
             icon="Search"
-            placeholder="Search tools..."
+            placeholder={t('tools.searchPlaceholder')}
             inputClassName="h-8"
             value={searchQuery}
             onChange={handleSearchChange}
@@ -320,7 +322,7 @@ export default function ToolsTable({
                     className="text-mmd font-medium"
                     htmlFor="sidebar-name-input"
                   >
-                    {isAction ? "Tool name" : "Slug"}
+                    {isAction ? t('tools.toolName') : t('tools.slug')}
                   </label>
 
                   <Input
@@ -328,13 +330,13 @@ export default function ToolsTable({
                     value={sidebarName}
                     onChange={handleNameChange}
                     maxLength={46}
-                    placeholder="Edit name..."
+                    placeholder={t('tools.editNamePlaceholder')}
                     data-testid="input_update_name"
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? "Used as the function name when this flow is exposed to clients."
-                      : "Used as the function name when this tool is exposed to the agent."}
+                      ? t('tools.toolNameDescription')
+                      : t('tools.slugDescription')}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -342,21 +344,21 @@ export default function ToolsTable({
                     className="text-mmd font-medium"
                     htmlFor="sidebar-desc-input"
                   >
-                    {isAction ? "Tool description" : "Description"}
+                    {isAction ? t('tools.toolDescription') : t('tools.description')}
                   </label>
 
                   <Textarea
                     id="sidebar-desc-input"
                     value={sidebarDescription}
                     onChange={handleDescriptionChange}
-                    placeholder="Edit description..."
+                    placeholder={t('tools.editDescriptionPlaceholder')}
                     className="h-24"
                     data-testid="input_update_description"
                   />
                   <div className="text-xs text-muted-foreground">
                     {isAction
-                      ? "This is the description for the tool exposed to a client."
-                      : "This is the description for the tool exposed to the agents."}
+                      ? t('tools.toolDescriptionText')
+                      : t('tools.agentDescriptionText')}
                   </div>
                 </div>
               </div>
@@ -387,9 +389,9 @@ export default function ToolsTable({
                   <div className="flex h-full flex-col gap-4">
                     {actionArgs.length > 0 && (
                       <div className="flex flex-col gap-1.5">
-                        <h3 className="text-base font-medium">Parameters</h3>
+                        <h3 className="text-base font-medium">{t('tools.parameters')}</h3>
                         <p className="text-mmd text-muted-foreground">
-                          Manage inputs for this tool
+                          {t('tools.manageInputs')}
                         </p>
                       </div>
                     )}

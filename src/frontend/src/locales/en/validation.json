@@ -1,0 +1,18 @@
+{
+  "required": "This field is required",
+  "email": "Please enter a valid email address",
+  "url": "Please enter a valid URL",
+  "number": "Please enter a valid number",
+  "minLength": "Minimum {{min}} characters required",
+  "maxLength": "Maximum {{max}} characters allowed",
+  "min": "Minimum value is {{min}}",
+  "max": "Maximum value is {{max}}",
+  "pattern": "Invalid format",
+  "placeholder": "Type something...",
+  "searchOptions": "Search options...",
+  "key": "Key",
+  "receivingInput": "Receiving input",
+  "selectOption": "Select an option",
+  "usedAsTool": "Used as a tool",
+  "chooseOption": "Choose an option..."
+}

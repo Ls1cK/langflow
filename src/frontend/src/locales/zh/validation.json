@@ -1,0 +1,18 @@
+{
+  "required": "此字段为必填项",
+  "email": "请输入有效的邮箱地址",
+  "url": "请输入有效的 URL",
+  "number": "请输入有效的数字",
+  "minLength": "最少需要 {{min}} 个字符",
+  "maxLength": "最多允许 {{max}} 个字符",
+  "min": "最小值是 {{min}}",
+  "max": "最大值是 {{max}}",
+  "pattern": "格式不正确",
+  "placeholder": "输入内容...",
+  "searchOptions": "搜索选项...",
+  "key": "密钥",
+  "receivingInput": "接收输入中",
+  "selectOption": "选择一个选项",
+  "usedAsTool": "用作工具",
+  "chooseOption": "选择一个选项..."
+}

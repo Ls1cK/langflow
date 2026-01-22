@@ -1,5 +1,6 @@
 import * as Form from "@radix-ui/react-form";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Input } from "@/components/ui/input";
 import { ICON_STROKE_WIDTH } from "@/constants/constants";
@@ -20,7 +21,7 @@ export default function InputComponent({
   isForm = false,
   password,
   editNode = false,
-  placeholder = "Type something...",
+  placeholder = t('validation.placeholder'),
   className,
   id = "",
   blurOnEnter = false,
@@ -30,7 +31,7 @@ export default function InputComponent({
   selectedOptions = [],
   setSelectedOptions,
   options = [],
-  optionsPlaceholder = "Search options...",
+  optionsPlaceholder = t('validation.searchOptions'),
   optionsButton,
   optionButton,
   objectOptions,
@@ -45,6 +46,7 @@ export default function InputComponent({
   hasRefreshButton = false,
   allowCustomValue = true,
 }: InputComponentType): JSX.Element {
+  const { t } = useTranslation();
   const [pwdVisible, setPwdVisible] = useState(false);
   const [cursor, setCursor] = useState<number | null>(null);
   const refInput = useRef<HTMLInputElement>(null);
@@ -90,7 +92,7 @@ export default function InputComponent({
               password && !editNode ? "pr-10" : "",
               className!,
             )}
-            placeholder={password && editNode ? "Key" : placeholder}
+            placeholder={password && editNode ? t('validation.key') : placeholder}
             onChange={(e) => {
               setCursor(e.target.selectionStart);
               if (onChangeFolderName) {

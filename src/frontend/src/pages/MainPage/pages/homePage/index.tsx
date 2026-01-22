@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PaginatorComponent from "@/components/common/paginatorComponent";
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
 import { IS_MAC } from "@/constants/constants";
@@ -22,6 +23,7 @@ import useFileDrop from "../../hooks/use-on-file-drop";
 import EmptyFolder from "../emptyFolder";
 
 const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
+  const { t } = useTranslation();
   const [view, setView] = useState<"grid" | "list">(() => {
     const savedView = localStorage.getItem("view");
     return savedView === "grid" || savedView === "list" ? savedView : "list";
@@ -244,7 +246,7 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
   return (
     <CardsWrapComponent
       onFileDrop={flowType === "mcp" ? undefined : handleFileDrop}
-      dragMessage={`Drop your ${isEmptyFolder ? "flows or components" : flowType} here`}
+      dragMessage={t('pages.homePage.dropMessage', { type: isEmptyFolder ? t('pages.homePage.flowsOrComponents') : flowType })}
     >
       <div
         className="flex h-full w-full flex-col overflow-y-auto"
@@ -317,27 +319,27 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
                     )
                   ) : flowType === "flows" ? (
                     <div className="pt-24 text-center text-sm text-secondary-foreground">
-                      No flows in this project.{" "}
+                      {t('pages.homePage.noFlowsInProject')}{" "}
                       <a
                         onClick={() => setNewProjectModal(true)}
                         className="cursor-pointer underline"
                       >
-                        Create a new flow
+                        {t('pages.homePage.createNewFlow')}
                       </a>
-                      , or browse the store.
+                      {t('pages.homePage.orBrowseStore')}
                     </div>
                   ) : (
                     <div className="pt-24 text-center text-sm text-secondary-foreground">
-                      No saved or custom components. Learn more about{" "}
+                      {t('pages.homePage.noCustomComponents')}{" "}
                       <a
                         href="https://docs.langflow.org/components-custom-components"
                         target="_blank"
                         rel="noreferrer"
                         className="underline"
                       >
-                        creating custom components
+                        {t('pages.homePage.creatingCustomComponents')}
                       </a>
-                      , or browse the store.
+                      {t('pages.homePage.orBrowseStore')}
                     </div>
                   )}
                 </div>

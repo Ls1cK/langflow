@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useStickToBottomContext } from "use-stick-to-bottom";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -39,6 +40,7 @@ export function VoiceAssistant({
   flowId,
   setShowAudioInput,
 }: VoiceAssistantProps) {
+  const { t } = useTranslation();
   const [recordingTime, setRecordingTime] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [_status, setStatus] = useState("");
@@ -392,7 +394,7 @@ export function VoiceAssistant({
           )}
         >
           <ShadTooltip
-            content={isRecording ? "Mute" : "Unmute"}
+            content={isRecording ? t('voiceAssistant.mute') : t('voiceAssistant.unmute')}
             delayDuration={500}
           >
             <Button unstyled onClick={handleToggleRecording}>

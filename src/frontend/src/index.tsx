@@ -8,6 +8,9 @@ import "./style/index.css";
 import "./App.css";
 import "./style/applies.css";
 
+// 初始化国际化
+import "./i18n";
+
 // @ts-ignore
 import App from "./customization/custom-App";
 

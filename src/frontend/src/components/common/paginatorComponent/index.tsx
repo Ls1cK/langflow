@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   PAGINATION_PAGE,
   PAGINATION_ROWS_COUNT,
@@ -24,6 +25,7 @@ export default function PaginatorComponent({
   pages,
   isComponent,
 }: PaginatorComponentType) {
+  const { t } = useTranslation();
   const [size, setPageSize] = useState(pageSize);
   const [maxIndex, setMaxPageIndex] = useState(
     Math.ceil(totalRowsCount / pageSize),
@@ -48,12 +50,12 @@ export default function PaginatorComponent({
         {(pageIndex - 1) * pageSize + 1}-
         {Math.min(totalRowsCount, (pageIndex - 1) * pageSize + pageSize)}{" "}
         <span className="text-muted-foreground">
-          of {totalRowsCount}{" "}
+          {t('components.paginator.of')} {totalRowsCount}{" "}
           {isComponent === undefined
-            ? "items"
+            ? t('components.paginator.items')
             : isComponent
-              ? "components"
-              : "flows"}
+              ? t('ui.components')
+              : t('ui.flows')}
         </span>
       </div>
       <div className={"flex items-center gap-2"}>
@@ -76,7 +78,7 @@ export default function PaginatorComponent({
               ))}
             </SelectContent>
           </Select>
-          <span className="text-muted-foreground">of {maxIndex} pages</span>
+          <span className="text-muted-foreground">{t('components.paginator.of')} {maxIndex} {t('components.paginator.pages')}</span>
         </div>
         <div className="flex items-center gap-1">
           <Button

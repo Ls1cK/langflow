@@ -1,0 +1,284 @@
+{
+  "homePage": {
+    "dropMessage": "拖拽您的 {{type}} 到这里",
+    "flowsOrComponents": "流程或组件",
+    "noFlowsInProject": "此项目中没有流程。",
+    "createNewFlow": "创建新流程",
+    "orBrowseStore": "，或浏览商店。",
+    "noCustomComponents": "没有保存的或自定义组件。了解更多关于",
+    "creatingCustomComponents": "创建自定义组件"
+  },
+  "filesPage": {
+    "title": "文件"
+  },
+  "deleteAccount": {
+    "title": "删除您的账户",
+    "confirmPassword": "确认密码",
+    "warningMessage": "此操作不可逆，将永久删除您与该账户相关的所有数据和信息。",
+    "confirmTitle": "您确定吗？",
+    "deleteButton": "删除账户"
+  },
+  "globalVariables": {
+    "variableName": "变量名称",
+    "type": "类型",
+    "generic": "通用",
+    "credential": "凭证",
+    "applyToFields": "应用到字段",
+    "errorDeletingVariable": "删除变量时出错",
+    "idNotFound": "未找到变量的 ID：{{variable}}",
+    "description": "管理全局变量并将其分配给字段。",
+    "createVariable": "创建变量",
+    "updateVariable": "更新变量",
+    "variableDescription": "此变量将在您的流程中可用。",
+    "nameLabel": "名称*",
+    "valueLabel": "值*",
+    "namePlaceholder": "输入变量名称...",
+    "valuePlaceholder": "输入变量值...",
+    "applyToFieldsLabel": "应用到字段",
+    "chooseFieldPlaceholder": "选择变量的字段...",
+    "fieldsPlaceholder": "字段",
+    "selectedFieldsNote": "选中的字段将自动应用变量作为默认值。",
+    "saveVariable": "保存变量",
+    "updateVariable": "更新变量",
+    "variableCreatedSuccess": "变量 {{name}} 创建成功",
+    "variableUpdatedSuccess": "变量 {{name}} 更新成功",
+    "errorCreatingVariable": "创建变量时出错",
+    "errorUpdatingVariable": "更新变量时出错",
+    "unexpectedErrorCreating": "创建变量时发生意外错误。请重试。",
+    "unexpectedErrorUpdating": "更新变量时发生意外错误。请重试。"
+  },
+  "mcpServers": {
+    "title": "MCP 服务器",
+    "description": "管理在您的流程中使用的 MCP 服务器。",
+    "addServer": "添加 MCP 服务器",
+    "noServers": "未添加 MCP 服务器",
+    "addedServers": "已添加的 MCP 服务器",
+    "errorFetchingServer": "获取服务器时出错",
+    "errorDeletingServer": "删除服务器时出错"
+  },
+  "apiKeys": {
+    "untitled": "无标题",
+    "never": "从未",
+    "noData": "无可用数据"
+  },
+  "shortcuts": {
+    "functionality": "功能",
+    "keyboardShortcut": "键盘快捷键",
+    "title": "快捷键",
+    "description": "管理快捷键以快速访问常用操作。",
+    "restore": "恢复"
+  },
+  "modals": {
+    "folder": "文件夹",
+    "folderNote": "及所有相关的流程和组件"
+  },
+  "fileManager": {
+    "rename": "重命名",
+    "download": "下载",
+    "duplicate": "复制",
+    "delete": "删除",
+    "remove": "移除",
+    "deleteFile": "删除文件",
+    "removeFile": "移除文件",
+    "deleteFileConfirm": "确定要删除 \"{{fileName}}\" 吗？",
+    "removeFileConfirm": "确定要移除 \"{{fileName}}\" 吗？",
+    "deleteFileDescription": "此操作无法撤销。文件将被永久删除。",
+    "removeFileDescription": "这将从您的列表中移除文件。如果需要，您可以稍后重新添加。",
+    "fileDeletedSuccess": "文件已成功删除"
+  },
+  "voiceAssistant": {
+    "mute": "静音",
+    "unmute": "取消静音",
+    "settings": "设置",
+    "close": "关闭"
+  },
+  "templates": {
+    "searchPlaceholder": "搜索...",
+    "noTemplatesFound": "未找到模板。",
+    "clearSearch": "清除搜索",
+    "tryDifferentQuery": "并尝试不同的查询。"
+  },
+  "tools": {
+    "searchPlaceholder": "搜索工具...",
+    "toolName": "工具名称",
+    "slug": "标识符",
+    "toolDescription": "工具描述",
+    "description": "描述",
+    "editNamePlaceholder": "编辑名称...",
+    "editDescriptionPlaceholder": "编辑描述...",
+    "toolNameDescription": "当此流程暴露给客户端时用作函数名。",
+    "slugDescription": "当此工具暴露给代理时用作函数名。",
+    "toolDescriptionText": "这是暴露给客户端的工具描述。",
+    "agentDescriptionText": "这是暴露给代理的工具描述。",
+    "parameters": "参数",
+    "manageInputs": "管理此工具的输入"
+  },
+  "dictArea": {
+    "editDictionary": "编辑字典",
+    "viewDictionary": "查看字典",
+    "save": "保存",
+    "customizeDescription": "自定义您的字典，根据需要添加或编辑键值对。支持添加新的",
+    "objects": "对象 { }",
+    "arrays": "数组 []",
+    "errorGettingDictionary": "获取字典时出错",
+    "checkDictionaryFormat": "检查您的字典格式"
+  },
+  "mcp": {
+    "loadingServers": "加载服务器中...",
+    "selectServer": "选择服务器...",
+    "addMcpServer": "添加 MCP 服务器",
+    "errorAddingServer": "添加 MCP 服务器时出错",
+    "timeout": "超时",
+    "error": "错误",
+    "loading": "加载中...",
+    "noToolsFound": "未找到工具",
+    "tool": "工具",
+    "tools": "工具",
+    "noServersAdded": "未添加 MCP 服务器",
+    "addServer": "添加 MCP 服务器",
+    "servers": "MCP 服务器",
+    "manageServers": "管理服务器",
+    "newCustomComponent": "新建自定义组件"
+  },
+  "inputFile": {
+    "uploadFile": "上传文件...",
+    "selectFile": "选择文件",
+    "selectFiles": "选择文件",
+    "uploading": "上传中...",
+    "uploadSuccess": "文件上传成功",
+    "uploadError": "文件上传失败",
+    "invalidFileType": "不支持的文件类型",
+    "fileTooLarge": "文件过大",
+    "noFileSelected": "未选择文件"
+  },
+  "table": {
+    "openTable": "打开表格",
+    "importRowsSuccess": "成功导入 {{count}} 行",
+    "parseError": "无法解析剪贴板数据为表格格式",
+    "importError": "导入剪贴板数据时出错"
+  },
+  "folderButtons": {
+    "createNewProject": "创建新项目",
+    "uploadFlow": "上传流程"
+  },
+  "deploy": {
+    "share": "分享",
+    "apiAccess": "API 访问",
+    "export": "导出",
+    "mcpServer": "MCP 服务器",
+    "embedIntoSite": "嵌入到网站",
+    "shareablePlayground": "可分享的游乐场",
+    "activateToShare": "激活以分享此游乐场的公共版本",
+    "addChatInputOutput": "添加聊天输入或聊天输出来访问您的流程",
+    "failedToSaveFlow": "保存流程失败",
+    "flowsVariableUndefined": "流程变量未定义"
+  },
+  "sidebarNav": {
+    "search": "搜索",
+    "components": "组件",
+    "mcp": "MCP",
+    "bundles": "捆绑包",
+    "stickyNotes": "便签",
+    "addStickyNotes": "添加便签"
+  },
+  "updateComponents": {
+    "errorUpdatingComponents": "更新组件时出错",
+    "errorUpdatingComponentsList": [
+      "更新组件时出现错误。",
+      "如果错误持续存在，请在我们的 Discord 或 GitHub 上报告。"
+    ],
+    "edgesLost": "更新组件后丢失了一些边。请检查流程并重新连接它们。",
+    "updateAvailable": "更新",
+    "isAvailable": "可用于",
+    "areAvailable": "可用于",
+    "component": "组件",
+    "components": "组件",
+    "dismiss": "忽略",
+    "dismissAll": "忽略全部",
+    "reviewAll": "查看全部",
+    "updateAll": "更新全部"
+  },
+  "mcpServer": {
+    "generateApiKey": "生成 API 密钥",
+    "apiKeyGenerated": "API 密钥已生成",
+    "accessProjectFlows": "将您项目的流程作为 MCP 服务器中的工具访问。在我们的",
+    "projectsAsMcpServersGuide": "项目作为 MCP 服务器指南",
+    "flowsTools": "流程/工具",
+    "flowsInProjectCanBeExposed": "此项目中的流程可以作为可调用的 MCP 工具公开。",
+    "mcpServerTools": "MCP 服务器工具",
+    "selectToolsToAdd": "选择要添加到此服务器的工具",
+    "editTools": "编辑工具",
+    "auth": "认证",
+    "nonePublic": "无（公开）",
+    "mcpServerNotRunning": "MCP 服务器未运行",
+    "loading": "加载中...",
+    "autoInstall": "自动安装",
+    "json": "JSON"
+  },
+  "customNodes": {
+    "duplicate": "复制",
+    "copy": "复制",
+    "docs": "文档",
+    "delete": "删除",
+    "cantConnectToSameNode": "无法连接到同一节点",
+    "connect": "连接",
+    "incompatibleWith": "不兼容",
+    "inputTypes": "输入类型",
+    "outputTypes": "输出类型",
+    "input": "输入",
+    "output": "输出",
+    "legacy": "遗留",
+    "betaComponent": "测试版组件"
+  },
+  "emptyPage": {
+    "welcomeTitle": "欢迎使用 Langflow",
+    "description": "您构建智能体的新方式",
+    "githubDescription": "关注开发进度，为项目点赞，共同塑造未来。",
+    "discordDescription": "加入构建者社区，提问并展示您的智能体",
+    "dragAndDropText": "已有流程？拖拽上传即可。",
+    "emptyFolder": "空文件夹",
+    "createFirstFlow": "创建第一个流程",
+    "dropMessage": "拖拽您的流程或组件到这里"
+  },
+  "admin": {
+    "searchUsername": "搜索用户名",
+    "newUser": "新用户",
+    "addNewUser": "添加新用户",
+    "edit": "编辑",
+    "delete": "删除",
+    "deleteUser": "删除用户",
+    "attention": "注意！",
+    "confirmChanges": "您确定要对这个用户进行这些更改吗？",
+    "confirmDelete": "您确定要删除这个用户吗？此操作无法撤销。",
+    "noUsersRegistered": "没有注册用户。",
+    "id": "ID",
+    "username": "用户名",
+    "active": "激活",
+    "superuser": "超级用户",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间"
+  },
+  "settings": {
+    "title": "设置",
+    "description": "管理 Langflow 的常规设置。",
+    "general": "常规",
+    "generalDescription": "管理与 Langflow 和您的账户相关的设置。",
+    "mcpServers": "MCP 服务器",
+    "globalVariables": "全局变量",
+    "shortcuts": "快捷键",
+    "messages": "消息",
+    "langflowStore": "Langflow 商店",
+    "langflowStoreDescription": "管理对 Langflow 商店的访问。",
+    "apiKeySavedSuccess": "API 密钥保存成功",
+    "apiKeySaveError": "API 密钥保存错误"
+  },
+  "password": {
+    "title": "密码",
+    "description": "输入您的新密码并确认。",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "enterPassword": "请输入您的密码",
+    "confirmPasswordMessage": "请确认您的密码",
+    "save": "保存"
+  }
+}

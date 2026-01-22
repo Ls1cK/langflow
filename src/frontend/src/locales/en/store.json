@@ -1,0 +1,41 @@
+{
+  "title": "Langflow Store",
+  "description": "Browse and install community components",
+  "filter": {
+    "all": "All",
+    "popular": "Popular",
+    "recent": "Recent",
+    "trending": "Trending",
+    "alphabetical": "Alphabetical",
+    "createdByMe": "Created By Me",
+    "likedByMe": "Liked By Me"
+  },
+  "tabs": {
+    "all": "All",
+    "flows": "Flows",
+    "components": "Components"
+  },
+  "search": {
+    "placeholder": "Search components...",
+    "noResults": "No results found"
+  },
+  "pagination": {
+    "rowsPerPage": "Rows per page",
+    "page": "Page"
+  },
+  "install": {
+    "button": "Install",
+    "installing": "Installing...",
+    "installed": "Installed"
+  },
+  "results": "results",
+  "result": "result",
+  "actions": {
+    "created": "created",
+    "liked": "liked"
+  },
+  "emptyState": {
+    "noItems": "You haven't {{action}} anything with the selected filters yet.",
+    "noItemsWithFilters": "There are no {{type}} with the selected filters."
+  }
+}

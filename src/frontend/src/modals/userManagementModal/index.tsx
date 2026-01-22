@@ -1,6 +1,7 @@
 import * as Form from "@radix-ui/react-form";
 import { Eye, EyeOff } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import IconComponent from "@/components/common/genericIconComponent";
 import { Button } from "../../components/ui/button";
 import { Checkbox } from "../../components/ui/checkbox";
@@ -25,6 +26,7 @@ export default function UserManagementModal({
   onConfirm,
   asChild,
 }: UserManagementType) {
+  const { t } = useTranslation();
   const [pwdVisible, setPwdVisible] = useState(false);
   const [confirmPwdVisible, setConfirmPwdVisible] = useState(false);
   const [open, setOpen] = useState(false);
@@ -100,7 +102,7 @@ export default function UserManagementModal({
                 }}
               >
                 <Form.Label className="data-[invalid]:label-invalid">
-                  Username{" "}
+                  {t('auth.username')}{" "}
                   <span className="font-medium text-destructive">*</span>
                 </Form.Label>
               </div>
@@ -113,11 +115,11 @@ export default function UserManagementModal({
                   value={username}
                   className="primary-input"
                   required
-                  placeholder="Username"
+                  placeholder={t('auth.username')}
                 />
               </Form.Control>
               <Form.Message match="valueMissing" className="field-invalid">
-                Please enter your username
+                {t('auth.pleaseEnterUsername')}
               </Form.Message>
             </Form.Field>
 
@@ -135,7 +137,7 @@ export default function UserManagementModal({
                     }}
                   >
                     <Form.Label className="data-[invalid]:label-invalid flex">
-                      Password{" "}
+                      {t('auth.password')}{" "}
                       <span className="ml-1 mr-1 font-medium text-destructive">
                         *
                       </span>
@@ -169,12 +171,12 @@ export default function UserManagementModal({
                   </Form.Control>
 
                   <Form.Message className="field-invalid" match="valueMissing">
-                    Please enter a password
+                    {t('auth.pleaseEnterPassword')}
                   </Form.Message>
 
                   {password != confirmPassword && (
                     <Form.Message className="field-invalid">
-                      Passwords do not match
+                      {t('message.passwordMismatch')}
                     </Form.Message>
                   )}
                 </Form.Field>
@@ -193,7 +195,7 @@ export default function UserManagementModal({
                     }}
                   >
                     <Form.Label className="data-[invalid]:label-invalid flex">
-                      Confirm password{" "}
+                      {t('auth.confirmPassword')}{" "}
                       <span className="ml-1 mr-1 font-medium text-destructive">
                         *
                       </span>
@@ -229,7 +231,7 @@ export default function UserManagementModal({
                     />
                   </Form.Control>
                   <Form.Message className="field-invalid" match="valueMissing">
-                    Please confirm your password
+                    {t('auth.pleaseConfirmPassword')}
                   </Form.Message>
                 </Form.Field>
               </div>
@@ -238,7 +240,7 @@ export default function UserManagementModal({
               <Form.Field name="is_active">
                 <div>
                   <Form.Label className="data-[invalid]:label-invalid mr-3">
-                    Active
+                    {t('pages.admin.active')}
                   </Form.Label>
                   <Form.Control asChild>
                     <Checkbox
@@ -258,7 +260,7 @@ export default function UserManagementModal({
                 <Form.Field name="is_superuser">
                   <div>
                     <Form.Label className="data-[invalid]:label-invalid mr-3">
-                      Superuser
+                      {t('pages.admin.superuser')}
                     </Form.Label>
                     <Form.Control asChild>
                       <Checkbox

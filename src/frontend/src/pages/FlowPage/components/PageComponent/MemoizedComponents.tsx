@@ -1,5 +1,6 @@
 import { Background, Panel } from "@xyflow/react";
 import { memo } from "react";
+import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import CanvasControlButton from "@/components/core/canvasControlsComponent/CanvasControlButton";
@@ -11,7 +12,7 @@ import { ENABLE_NEW_SIDEBAR } from "@/customization/feature-flags";
 import useFlowStore from "@/stores/flowStore";
 import { cn } from "@/utils/utils";
 import { useSearchContext } from "../flowSidebarComponent";
-import { NAV_ITEMS } from "../flowSidebarComponent/components/sidebarSegmentedNav";
+import { getNavItems } from "../flowSidebarComponent/components/sidebarSegmentedNav";
 
 export const MemoizedBackground = memo(() => (
   <Background size={2} gap={20} className="" />
@@ -31,6 +32,7 @@ export const MemoizedCanvasControls = memo(
     shadowBoxWidth,
     shadowBoxHeight,
   }: MemoizedCanvasControlsProps) => {
+    const { t } = useTranslation();
     const isLocked = useFlowStore(
       useShallow((state) => state.currentFlow?.locked),
     );
@@ -43,7 +45,7 @@ export const MemoizedCanvasControls = memo(
           size="icon"
           data-testid="lock-status"
           className="flex items-center justify-center px-2 rounded-none gap-1 cursor-default"
-          title={`Lock status: ${isLocked ? "Locked" : "Unlocked"}`}
+          title={`${t('flow.lockStatus')}: ${isLocked ? t('flow.locked') : t('flow.unlocked')}`}
         >
           <ForwardedIconComponent
             name={isLocked ? "Lock" : "Unlock"}
@@ -53,7 +55,7 @@ export const MemoizedCanvasControls = memo(
             )}
           />
           {isLocked && (
-            <span className="text-xs text-destructive">Flow Locked</span>
+            <span className="text-xs text-destructive">{t('flow.flowLocked')}</span>
           )}
         </Button>
       </CanvasControls>
@@ -62,8 +64,10 @@ export const MemoizedCanvasControls = memo(
 );
 
 export const MemoizedSidebarTrigger = memo(() => {
+  const { t } = useTranslation();
   const { open, toggleSidebar, setActiveSection } = useSidebar();
   const { focusSearch, isSearchFocused } = useSearchContext();
+  const navItems = getNavItems(t);
   if (ENABLE_NEW_SIDEBAR) {
     return (
       <Panel
@@ -73,7 +77,7 @@ export const MemoizedSidebarTrigger = memo(() => {
         )}
         position="top-left"
       >
-        {NAV_ITEMS.map((item) => (
+        {navItems.map((item) => (
           <CanvasControlButton
             data-testid={`sidebar-trigger-${item.id}`}
             iconName={item.icon}
@@ -106,7 +110,7 @@ export const MemoizedSidebarTrigger = memo(() => {
     >
       <SidebarTrigger className="h-fit w-fit px-3 py-1.5">
         <ForwardedIconComponent name="PanelRightClose" className="h-4 w-4" />
-        <span className="text-foreground">Components</span>
+        <span className="text-foreground">{t('sidebarNav.components')}</span>
       </SidebarTrigger>
     </Panel>
   );

@@ -1,0 +1,67 @@
+{
+  "add": "Add Component",
+  "remove": "Remove Component",
+  "edit": "Edit Component",
+  "configure": "Configure Component",
+  "duplicate": "Duplicate Component",
+  "delete": "Delete Component",
+  "move": "Move Component",
+  "resize": "Resize Component",
+  "connect": "Connect Component",
+  "disconnect": "Disconnect Component",
+  "properties": "Properties",
+  "settings": "Settings",
+  "help": "Help",
+  "documentation": "Documentation",
+  "examples": "Examples",
+  "tutorial": "Tutorial",
+  "storeCard": {
+    "install": "Install",
+    "installing": "Installing...",
+    "installed": "Installed",
+    "rating": "Rating",
+    "downloads": "Downloads",
+    "installLocally": "Install Locally",
+    "reviewApiKey": "Please review your API key."
+  },
+  "paginator": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "rowsPerPage": "Rows per page",
+    "items": "items",
+    "pages": "pages"
+  },
+  "tagsSelector": {
+    "placeholder": "Select tags...",
+    "addTag": "Add Tag",
+    "removeTag": "Remove Tag"
+  },
+  "loading": {
+    "text": "Loading...",
+    "pleaseWait": "Please wait"
+  },
+  "errors": {
+    "crash": {
+      "title": "Sorry, we found an unexpected error!",
+      "message": "Please report errors with detailed tracebacks on the",
+      "page": "page",
+      "thankYou": "Thank you",
+      "reload": "Restart Langflow",
+      "reportOnGitHub": "Report on GitHub"
+    },
+    "fetch": {
+      "title": "Network Error",
+      "message": "Unable to connect to server",
+      "retry": "Retry"
+    },
+    "timeout": {
+      "title": "Request Timeout",
+      "message": "Request took too long",
+      "retry": "Retry"
+    },
+    "reason": "Reason",
+    "solution": "Solution"
+  }
+}

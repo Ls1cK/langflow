@@ -1,5 +1,6 @@
 import { cloneDeep } from "lodash";
 import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useSaveFlow from "@/hooks/flows/use-save-flow";
 import { useUtilityStore } from "@/stores/utilityStore";
 import IconComponent from "../../components/common/genericIconComponent";
@@ -41,6 +42,7 @@ export default function ShareModal({
   setOpen?: (open: boolean) => void;
   disabled?: boolean;
 }): JSX.Element {
+  const { t } = useTranslation();
   const version = useDarkStore((state) => state.version);
   const hasStore = useStoreStore((state) => state.hasStore);
   const hasApiKey = useStoreStore((state) => state.hasApiKey);
@@ -107,7 +109,7 @@ export default function ShareModal({
         saveFlow(flow);
       }
       setSuccessData({
-        title: `${is_component ? "Component" : "Flow"} shared successfully!`,
+        title: t('alerts.success.shared', { type: is_component ? t('flow.component') : t('flow.name') }),
       });
     }
 
@@ -118,7 +120,7 @@ export default function ShareModal({
         sharePublic,
       ).then(successShare, (err) => {
         setErrorData({
-          title: "Error sharing " + (is_component ? "component" : "flow"),
+          title: t('alerts.error.sharingError', { type: is_component ? t('flow.component') : t('flow.name') }),
           list: [err["response"]["data"]["detail"]],
         });
       });
@@ -130,7 +132,7 @@ export default function ShareModal({
         unavaliableNames.find((e) => e.name === name)!.id,
       ).then(successShare, (err) => {
         setErrorData({
-          title: "Error sharing " + is_component ? "component" : "flow",
+          title: t('alerts.error.sharingError', { type: is_component ? t('flow.component') : t('flow.name') }),
           list: [err["response"]["data"]["detail"]],
         });
       });
@@ -209,11 +211,11 @@ export default function ShareModal({
           {children ? children : <></>}
         </BaseModal.Trigger>
         <BaseModal.Header
-          description={`Publish ${
-            is_component ? "your component" : "workflow"
-          } to the Langflow Store.`}
+          description={t('modal:share.publishDescription', {
+            type: is_component ? t('modal:share.component') : t('modal:share.workflow')
+          })}
         >
-          <span className="pr-2">Share</span>
+          <span className="pr-2">{t('modal:share.title')}</span>
           <IconComponent
             name="Share3"
             className="-m-0.5 h-6 w-6 text-foreground"
@@ -248,12 +250,11 @@ export default function ShareModal({
                   htmlFor="public"
                   className="export-modal-save-api text-sm"
                 >
-                  Set {nameComponent} status to public
+                  {t('modal:share.setPublicStatus', { type: nameComponent })}
                 </label>
               </div>
               <span className="text-xs text-destructive">
-                <b>Attention:</b> API keys in specified fields are automatically
-                removed upon sharing.
+                <b>{t('modal:share.attention')}:</b> {t('modal:share.apiKeysRemoved')}
               </span>
             </>
           )}
@@ -261,7 +262,9 @@ export default function ShareModal({
 
         <BaseModal.Footer
           submit={{
-            label: `Share ${is_component ? "Component" : "Flow"}`,
+            label: t('modal:share.shareButton', {
+              type: is_component ? t('modal:share.component') : t('modal:share.flow')
+            }),
             loading: loadingNames,
             dataTestId: "share-modal-button-flow",
           }}
@@ -278,7 +281,7 @@ export default function ShareModal({
                   }}
                 >
                   <IconComponent name="Download" className="h-4 w-4" />
-                  Export
+                  {t('modal:export.title')}
                 </Button>
               </ExportModal>
             )}
@@ -293,7 +296,7 @@ export default function ShareModal({
                 }}
               >
                 <IconComponent name="Download" className="h-4 w-4" />
-                Export
+                {t('modal:export.title')}
               </Button>
             )}
           </>

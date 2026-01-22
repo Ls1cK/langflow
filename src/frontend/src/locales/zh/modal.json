@@ -1,0 +1,203 @@
+{
+  "confirm": "确认",
+  "cancel": "取消",
+  "close": "关闭",
+  "save": "保存",
+  "delete": {
+    "confirmMessage": "这将永久删除 {{item}}{{note}}。",
+    "cannotUndo": "此操作无法撤销。"
+  },
+  "edit": "编辑",
+  "create": "创建",
+  "update": "更新",
+  "submit": "提交",
+  "reset": "重置",
+  "clear": "清空",
+  "select": "选择",
+  "upload": "上传",
+  "download": "下载",
+  "export": "导出",
+  "import": "导入",
+  "share": "分享",
+  "copy": "复制",
+  "paste": "粘贴",
+  "api": {
+    "title": "API 代码",
+    "subtitle": "生成代码以将您的流程集成到外部应用程序中。",
+    "description": "API 访问需要 API 密钥。您可以",
+    "createApiKey": "创建 API 密钥",
+    "inSettings": "在设置中",
+    "inputSchema": "输入架构",
+    "endpointName": "端点名称",
+    "endpointNameValidation": "仅使用字母、数字、连字符和下划线（最多 {{maxLength}} 个字符）。",
+    "endpointNamePlaceholder": "运行端点的替代名称",
+    "exposeApi": "公开 API",
+    "exposeApiDescription": "选择要在此流程的 API 架构中公开为输入的组件字段。",
+    "tabs": {
+      "curl": "cURL",
+      "pythonApi": "Python API",
+      "jsApi": "JavaScript API",
+      "pythonCode": "Python 代码",
+      "chatWidget": "聊天小部件 HTML",
+      "python": "Python",
+      "javascript": "JavaScript"
+    }
+  },
+  "templates": {
+    "title": "模板",
+    "getStarted": "开始使用",
+    "categories": "分类",
+    "search": "搜索模板...",
+    "noTemplates": "未找到模板",
+    "startFromScratch": "从头开始",
+    "startFromScratchDescription": "从空白流程开始构建。",
+    "blankFlow": "空白流程",
+    "categories": {
+      "templates": "模板",
+      "getStarted": "开始使用",
+      "allTemplates": "所有模板",
+      "useCases": "用例",
+      "assistants": "助手",
+      "classification": "分类",
+      "coding": "编程",
+      "contentGeneration": "内容生成",
+      "qa": "问答",
+      "methodology": "方法论",
+      "prompting": "提示",
+      "rag": "RAG",
+      "agents": "智能体"
+    }
+  },
+  "fileManager": {
+    "title": "文件管理器",
+    "myFiles": "我的文件",
+    "selectFiles": "选择文件",
+    "selectAtLeastOneFile": "请至少选择一个文件",
+    "upload": "上传文件",
+    "recent": "最近文件",
+    "dragFiles": "拖拽文件到这里",
+    "supportedFormats": "支持的文件格式"
+  },
+  "share": {
+    "title": "分享",
+    "publishDescription": "将您的 {{type}} 发布到 Langflow 商店。",
+    "component": "组件",
+    "workflow": "工作流",
+    "setPublicStatus": "将 {{type}} 状态设置为公开",
+    "attention": "注意",
+    "apiKeysRemoved": "指定字段中的 API 密钥在分享时会被自动移除。",
+    "shareButton": "分享 {{type}}",
+    "flow": "流程",
+    "public": "公开",
+    "private": "私有",
+    "link": "分享链接",
+    "embed": "嵌入代码"
+  },
+  "export": {
+    "title": "导出",
+    "description": "将流程导出为 JSON 文件。",
+    "saveWithApiKeys": "使用我的 API 密钥保存",
+    "apiKeysWarning": "注意：取消勾选此框只会从专门指定用于 API 密钥的字段中移除 API 密钥。",
+    "format": "格式",
+    "includeData": "包含数据",
+    "download": "下载"
+  },
+  "editNode": {
+    "title": "编辑节点",
+    "properties": "属性",
+    "advanced": "高级",
+    "save": "保存",
+    "cancel": "取消",
+    "fieldName": "字段名称",
+    "currentValue": "当前值",
+    "value": "值"
+  },
+  "codeArea": {
+    "title": "代码编辑器",
+    "description": "编辑和验证您的代码。",
+    "checkAndSave": "检查并保存",
+    "discardChanges": "丢弃更改",
+    "caution": "注意",
+    "exitWithoutSaving": "您确定要不保存更改就退出吗？",
+    "language": "语言",
+    "save": "保存",
+    "cancel": "取消"
+  },
+  "textArea": {
+    "title": "文本编辑器",
+    "save": "保存",
+    "cancel": "取消"
+  },
+  "prompt": {
+    "title": "提示编辑器",
+    "variables": "变量",
+    "save": "保存",
+    "cancel": "取消"
+  },
+  "confirmation": {
+    "title": "确认",
+    "message": "您确定要执行此操作吗？",
+    "confirm": "确认",
+    "cancel": "取消"
+  },
+  "secretKey": {
+    "title": "密钥管理",
+    "add": "添加密钥",
+    "edit": "编辑密钥",
+    "delete": "删除密钥"
+  },
+  "userManagement": {
+    "title": "用户管理",
+    "addUser": "添加用户",
+    "editUser": "编辑用户",
+    "deleteUser": "删除用户"
+  },
+  "flowLogs": {
+    "title": "日志",
+    "description": "检查组件执行情况。",
+    "level": "级别",
+    "timestamp": "时间戳",
+    "message": "消息"
+  },
+  "tools": {
+    "title": "工具管理",
+    "addTool": "添加工具",
+    "editTool": "编辑工具",
+    "deleteTool": "删除工具"
+  },
+  "addMcpServer": {
+    "title": "添加 MCP 服务器",
+    "updateTitle": "更新 MCP 服务器",
+    "name": "服务器名称",
+    "url": "服务器 URL",
+    "description": "描述",
+    "saveDescription": "保存 MCP 服务器。在设置中管理已添加的服务器"
+  },
+  "editMessage": {
+    "description": "编辑消息将更新内存但不会重新启动对话。"
+  },
+  "saveChanges": {
+    "hasUnsavedChanges": "有未保存的更改",
+    "exitAnyway": "仍然退出",
+    "saveAndExit": "保存并退出",
+    "savingChanges": "正在保存您的更改...",
+    "lastSaved": "最后保存",
+    "unsavedChangesLost": "未保存的更改将永久丢失。",
+    "enableAutoSaving": "启用自动保存",
+    "toAvoidLosingProgress": "以避免丢失进度"
+  },
+  "flowSettings": {
+    "title": "流程详情"
+  },
+  "query": {
+    "apply": "应用"
+  },
+  "updateComponent": {
+    "component": "组件",
+    "updateType": "更新类型",
+    "breaking": "破坏性",
+    "standard": "标准",
+    "createBackupFlow": "更新前创建备份流程",
+    "updateComponent": "更新组件"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "projects": "Projects",
+  "knowledge": "Knowledge",
+  "myFiles": "My Files",
+  "mcpServer": "MCP Server",
+  "flows": "Flows",
+  "components": "Components",
+  "templates": "Templates",
+  "store": "Store",
+  "apiKey": "API Key",
+  "signInToLangflow": "Sign in to Langflow",
+  "flowsDownloadedSuccessfully": "Flows downloaded successfully",
+  "flowsDeletedSuccessfully": "Flows deleted successfully",
+  "chat": {
+    "steps": "Steps",
+    "finished": "Finished",
+    "input": "Input",
+    "output": "Output",
+    "media": "Media {{index}}"
+  }
+}

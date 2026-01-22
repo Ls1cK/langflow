@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { convertTestName } from "@/components/common/storeCardComponent/utils/convert-test-name";
 import { Badge } from "@/components/ui/badge";
 import { nodeColorsName } from "@/utils/styleUtils";
@@ -17,28 +18,29 @@ export default function HandleTooltipComponent({
   isSameNode: boolean;
   left: boolean;
 }) {
+  const { t } = useTranslation();
   const tooltips = tooltipTitle.split("\n");
   const plural = tooltips.length > 1 ? "s" : "";
 
   return (
     <div className="font-medium">
       {isSameNode ? (
-        "Can't connect to the same node"
+        t('customNodes.cantConnectToSameNode')
       ) : (
         <div className="flex items-center gap-1.5">
           {isConnecting ? (
             isCompatible ? (
               <span>
-                <span className="font-semibold">Connect</span> to
+                <span className="font-semibold">{t('customNodes.connect')}</span> to
               </span>
             ) : (
-              <span>Incompatible with</span>
+              <span>{t('customNodes.incompatibleWith')}</span>
             )
           ) : (
             <span className="text-xs">
               {isInput
-                ? `Input${plural} type${plural}`
-                : `Output${plural} type${plural}`}
+                ? `${t('customNodes.inputTypes')}${plural}`
+                : `${t('customNodes.outputTypes')}${plural}`}
               :{" "}
             </span>
           )}
@@ -59,7 +61,7 @@ export default function HandleTooltipComponent({
               {word}
             </Badge>
           ))}
-          {isConnecting && <span>{isInput ? `input` : `output`}</span>}
+          {isConnecting && <span>{isInput ? t('customNodes.input') : t('customNodes.output')}</span>}
         </div>
       )}
       {!isConnecting && (

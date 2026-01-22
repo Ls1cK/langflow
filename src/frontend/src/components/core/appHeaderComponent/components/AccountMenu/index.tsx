@@ -1,4 +1,5 @@
 import { FaDiscord, FaGithub } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import { ForwardedIconComponent } from "@/components/common/genericIconComponent";
 import {
   DATASTAX_DOCS_URL,
@@ -24,6 +25,7 @@ import {
 import ThemeButtons from "../ThemeButtons";
 
 export const AccountMenu = () => {
+  const { t } = useTranslation();
   const version = useDarkStore((state) => state.version);
   const latestVersion = useDarkStore((state) => state.latestVersion);
   const navigate = useCustomNavigate();
@@ -93,7 +95,7 @@ export const AccountMenu = () => {
                 data-testid="menu_settings_button"
                 id="menu_settings_button"
               >
-                Settings
+                {t('common.settings')}
               </span>
             </HeaderMenuItemButton>
 
@@ -108,7 +110,7 @@ export const AccountMenu = () => {
                     data-testid="menu_admin_page_button"
                     id="menu_admin_page_button"
                   >
-                    Admin Page
+                    {t('auth.admin')}
                   </span>
                 </HeaderMenuItemButton>
               </div>
@@ -118,7 +120,7 @@ export const AccountMenu = () => {
               href={ENABLE_DATASTAX_LANGFLOW ? DATASTAX_DOCS_URL : DOCS_URL}
             >
               <span data-testid="menu_docs_button" id="menu_docs_button">
-                Docs
+                {t('common.docs')}
               </span>
             </HeaderMenuItemLink>
           </div>

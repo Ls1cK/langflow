@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import rehypeMathjax from "rehype-mathjax";
 import remarkGfm from "remark-gfm";
@@ -16,6 +17,7 @@ export default function ContentDisplay({
   chatId: string;
   playgroundPage?: boolean;
 }) {
+  const { t } = useTranslation();
   // First render the common BaseContent elements if they exist
   const renderHeader = content.header && (
     <>
@@ -132,8 +134,8 @@ export default function ContentDisplay({
     case "error":
       contentData = (
         <div className="text-red-500">
-          {content.reason && <div>Reason: {content.reason}</div>}
-          {content.solution && <div>Solution: {content.solution}</div>}
+          {content.reason && <div>{t('components.errors.reason')}: {content.reason}</div>}
+          {content.solution && <div>{t('components.errors.solution')}: {content.solution}</div>}
           {content.traceback && (
             <SimplifiedCodeTabComponent
               language="text"
@@ -205,7 +207,7 @@ export default function ContentDisplay({
             rehypePlugins={[rehypeMathjax]}
             className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
           >
-            **Input:**
+            **{t('chat.input')}:**
           </Markdown>
           <SimplifiedCodeTabComponent
             language="json"
@@ -218,7 +220,7 @@ export default function ContentDisplay({
                 rehypePlugins={[rehypeMathjax]}
                 className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
               >
-                **Output:**
+                **{t('chat.output')}:**
               </Markdown>
               <div className="mt-1">{formatToolOutput(content.output)}</div>
             </>
@@ -230,7 +232,7 @@ export default function ContentDisplay({
                 rehypePlugins={[rehypeMathjax]}
                 className="markdown prose max-w-full text-sm font-normal dark:prose-invert"
               >
-                **Error:**
+                **{t('common.error')}:**
               </Markdown>
               <SimplifiedCodeTabComponent
                 language="json"
@@ -250,7 +252,7 @@ export default function ContentDisplay({
             <img
               key={index}
               src={url}
-              alt={content.caption || `Media ${index}`}
+              alt={content.caption || t('chat.media', { index })}
             />
           ))}
           {content.caption && <div>{content.caption}</div>}

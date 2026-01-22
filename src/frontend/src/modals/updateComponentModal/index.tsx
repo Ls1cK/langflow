@@ -1,6 +1,7 @@
 import type { ColDef } from "ag-grid-community";
 import type { AgGridReact } from "ag-grid-react";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import TableComponent from "@/components/core/parameterRenderComponent/components/tableComponent";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -25,6 +26,7 @@ export default function UpdateComponentModal({
   components: ComponentsToUpdateType[];
   isMultiple?: boolean;
 }) {
+  const { t } = useTranslation();
   const [backupFlow, setBackupFlow] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedComponents, setSelectedComponents] = useState<Set<string>>(
@@ -61,7 +63,7 @@ export default function UpdateComponentModal({
   const columnDefs: ColDef[] = [
     { field: "id", hide: true },
     {
-      headerName: "Component",
+      headerName: t('modal:updateComponent.component'),
       field: "display_name",
       headerClass: "!text-mmd !font-normal",
       flex: 1,
@@ -83,7 +85,7 @@ export default function UpdateComponentModal({
       },
     },
     {
-      headerName: "Update Type",
+      headerName: t('modal:updateComponent.updateType'),
       field: "breakingChange",
       headerClass: "!text-mmd !font-normal",
       resizable: false,
@@ -92,10 +94,10 @@ export default function UpdateComponentModal({
       cellRenderer: (params) => {
         return params.value ? (
           <span className="font-semibold text-accent-amber-foreground">
-            Breaking
+            {t('modal:updateComponent.breaking')}
           </span>
         ) : (
-          <span>Standard</span>
+          <span>{t('modal:updateComponent.standard')}</span>
         );
       },
     },
@@ -209,14 +211,14 @@ export default function UpdateComponentModal({
               data-testid="backup-flow-checkbox"
             />
             <label htmlFor="backupFlow" className="cursor-pointer select-none">
-              Create backup flow before updating
+              {t('modal:updateComponent.createBackupFlow')}
             </label>
           </div>
         </div>
       </BaseModal.Content>
       <BaseModal.Footer
         submit={{
-          label: "Update Component" + (components.length > 1 ? "s" : ""),
+          label: t('modal:updateComponent.updateComponent') + (components.length > 1 ? "s" : ""),
           onClick: handleUpdate,
           disabled: isMultiple && selectedComponents.size === 0,
           loading,

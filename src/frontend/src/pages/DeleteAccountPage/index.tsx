@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import LangflowLogo from "@/assets/LangflowLogo.svg?react";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import BaseModal from "../../modals/baseModal";
 
 export default function DeleteAccountPage() {
+  const { t } = useTranslation();
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleDeleteAccount = () => {
@@ -23,17 +25,17 @@ export default function DeleteAccountPage() {
           className="mb-4 h-10 w-10 scale-[1.5]"
         />
         <span className="mb-4 text-center text-2xl font-semibold text-primary">
-          Delete your account
+          {t('pages.deleteAccount.title')}
         </span>
-        <Input className="bg-background" placeholder="Confirm password" />
+        <Input className="bg-background" placeholder={t('pages.deleteAccount.confirmPassword')} />
 
         <BaseModal
           open={showConfirmation}
           setOpen={setShowConfirmation}
           size="x-small"
         >
-          <BaseModal.Header description="This action is irreversible and will permanently erase all your data and information associated with the account. ">
-            <h3>Are you sure ?</h3>
+          <BaseModal.Header description={t('pages.deleteAccount.warningMessage')}>
+            <h3>{t('pages.deleteAccount.confirmTitle')}</h3>
           </BaseModal.Header>
           <BaseModal.Trigger>
             <Button
@@ -41,7 +43,7 @@ export default function DeleteAccountPage() {
               className="w-full hover:bg-status-red"
               onClick={() => setShowConfirmation(true)}
             >
-              Delete account
+              {t('pages.deleteAccount.deleteButton')}
             </Button>
           </BaseModal.Trigger>
           <BaseModal.Content>
@@ -51,7 +53,7 @@ export default function DeleteAccountPage() {
                 className="w-full hover:bg-status-red"
                 onClick={() => handleDeleteAccount()}
               >
-                Delete account
+                {t('pages.deleteAccount.deleteButton')}
               </Button>
             </div>
           </BaseModal.Content>

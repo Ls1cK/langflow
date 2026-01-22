@@ -5,6 +5,7 @@ import type {
 } from "ag-grid-community";
 import type { AgGridReact } from "ag-grid-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import CardsWrapComponent from "@/components/core/cardsWrapComponent";
@@ -46,6 +47,7 @@ const FilesTab = ({
   setQuantitySelected,
   isShiftPressed,
 }: FilesTabProps) => {
+  const { t } = useTranslation();
   const tableRef = useRef<AgGridReact<any>>(null);
   const { data: files } = useGetFilesV2();
   const setErrorData = useAlertStore((state) => state.setErrorData);
@@ -80,12 +82,12 @@ const FilesTab = ({
         files: files,
       });
       setSuccessData({
-        title: `File${filesIds.length > 1 ? "s" : ""} uploaded successfully`,
+        title: t('alerts.success.filesUploaded', { count: filesIds.length }),
       });
     } catch (error: any) {
       setErrorData({
-        title: "Error uploading file",
-        list: [error.message || "An error occurred while uploading the file"],
+        title: t('alerts.error.uploadError'),
+        list: [error.message || t('alerts.error.uploadError')],
       });
     }
   };
@@ -269,9 +271,9 @@ const FilesTab = ({
         },
         onError: (error) => {
           setErrorData({
-            title: "Error deleting files",
+            title: t('alerts.error.deleteFilesError'),
             list: [
-              error.message || "An error occurred while deleting the files",
+              error.message || t('alerts.error.deleteFilesError'),
             ],
           });
         },
@@ -281,7 +283,7 @@ const FilesTab = ({
 
   const UploadButtonComponent = useMemo(() => {
     return (
-      <ShadTooltip content="Upload File" side="bottom">
+      <ShadTooltip content={t('file.upload')} side="bottom">
         <Button
           className="!px-3 md:!px-4 md:!pl-3.5"
           onClick={async () => {
@@ -296,7 +298,7 @@ const FilesTab = ({
             className="h-4 w-4"
           />
           <span className="hidden whitespace-nowrap font-semibold md:inline">
-            Upload Files
+            {t('file.upload')}
           </span>
         </Button>
       </ShadTooltip>

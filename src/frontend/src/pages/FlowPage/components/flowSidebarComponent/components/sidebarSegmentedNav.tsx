@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Separator } from "@/components/ui/separator";
@@ -21,43 +22,47 @@ interface NavItem {
   tooltip: string;
 }
 
-export const NAV_ITEMS: NavItem[] = [
+export const getNavItems = (t: (key: string) => string): NavItem[] => [
   {
-    id: "search",
+    id: "search" as SidebarSection,
     icon: "search",
-    label: "Search",
-    tooltip: "Search",
+    label: t('sidebarNav.search'),
+    tooltip: t('sidebarNav.search'),
   },
   {
-    id: "components",
+    id: "components" as SidebarSection,
     icon: "component",
-    label: "Components",
-    tooltip: "Components",
+    label: t('sidebarNav.components'),
+    tooltip: t('sidebarNav.components'),
   },
   {
-    id: "mcp",
+    id: "mcp" as SidebarSection,
     icon: "Mcp",
-    label: "MCP",
-    tooltip: "MCP",
+    label: t('sidebarNav.mcp'),
+    tooltip: t('sidebarNav.mcp'),
   },
   {
-    id: "bundles",
+    id: "bundles" as SidebarSection,
     icon: "blocks",
-    label: "Bundles",
-    tooltip: "Bundles",
+    label: t('sidebarNav.bundles'),
+    tooltip: t('sidebarNav.bundles'),
   },
   {
-    id: "add_note",
+    id: "add_note" as SidebarSection,
     icon: "sticky-note",
-    label: "Sticky Notes",
-    tooltip: "Add Sticky Notes",
+    label: t('sidebarNav.stickyNotes'),
+    tooltip: t('sidebarNav.addStickyNotes'),
   },
 ];
 
+
 const SidebarSegmentedNav = () => {
+  const { t } = useTranslation();
   const { activeSection, setActiveSection, toggleSidebar, open } = useSidebar();
   const { focusSearch, setSearch } = useSearchContext();
   const [isAddNoteActive, setIsAddNoteActive] = useState(false);
+  
+  const navItems = getNavItems(t);
   const handleAddNote = () => {
     window.dispatchEvent(new Event("lf:start-add-note"));
     setIsAddNoteActive(true);
@@ -72,7 +77,7 @@ const SidebarSegmentedNav = () => {
   return (
     <div className="flex h-full flex-col border-r border-border bg-background">
       <SidebarMenu className="gap-2 py-1">
-        {NAV_ITEMS.map((item) => (
+        {navItems.map((item) => (
           <div key={item.id}>
             {item.id === "add_note" && <Separator className="w-full" />}
             <SidebarMenuItem className="px-1">

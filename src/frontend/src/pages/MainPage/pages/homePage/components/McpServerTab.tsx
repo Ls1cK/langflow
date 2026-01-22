@@ -1,6 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { memo, type ReactNode, useCallback, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { ForwardedIconComponent } from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
@@ -53,7 +54,7 @@ const MemoizedApiKeyButton = memo(
         className="h-4 w-4"
         aria-hidden="true"
       />
-      <span>{apiKey === "" ? "Generate API key" : "API key generated"}</span>
+      <span>{apiKey === "" ? t('mcpServer.generateApiKey') : t('mcpServer.apiKeyGenerated')}</span>
     </Button>
   ),
 );
@@ -148,6 +149,7 @@ const operatingSystemTabs = [
 ];
 
 const McpServerTab = ({ folderName }: { folderName: string }) => {
+  const { t } = useTranslation();
   const isDarkMode = useTheme().dark;
   const { folderId } = useParams();
   const myCollectionId = useFolderStore((state) => state.myCollectionId);
@@ -207,7 +209,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
   const isLocalConnection = useCustomIsLocalConnection();
 
   const [selectedMode, setSelectedMode] = useState(
-    isLocalConnection ? "Auto install" : "JSON",
+    isLocalConnection ? "autoInstall" : "json",
   );
 
   const handleOnNewValue = (value: any) => {
@@ -399,8 +401,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
             MCP Server
           </div>
           <div className="pb-4 text-mmd text-muted-foreground">
-            Access your Project's flows as Tools within a MCP Server. Learn more
-            in our
+            {t('mcpServer.accessProjectFlows')}
             <a
               className="text-accent-pink-foreground"
               href={MCP_SERVER_DEPLOY_TUTORIAL_LINK}
@@ -408,7 +409,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
               rel="noreferrer"
             >
               {" "}
-              Projects as MCP Servers guide.
+              {t('mcpServer.projectsAsMcpServersGuide')}
             </a>
           </div>
         </div>
@@ -417,11 +418,11 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
         <div className="w-full xl:w-2/5">
           <div className="flex flex-row justify-between pt-1">
             <ShadTooltip
-              content="Flows in this project can be exposed as callable MCP tools."
+              content={t('mcpServer.flowsInProjectCanBeExposed')}
               side="right"
             >
               <div className="flex items-center text-sm font-medium hover:cursor-help">
-                Flows/Tools
+                {t('mcpServer.flowsTools')}
                 <ForwardedIconComponent
                   name="info"
                   className="ml-1.5 h-4 w-4 text-muted-foreground"
@@ -433,11 +434,11 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
           <div className="flex flex-row flex-wrap gap-2 pt-2">
             <ToolsComponent
               value={flowsMCPData}
-              title="MCP Server Tools"
-              description="Select tools to add to this server"
+              title={t('mcpServer.mcpServerTools')}
+              description={t('mcpServer.selectToolsToAdd')}
               handleOnNewValue={handleOnNewValue}
               id="mcp-server-tools"
-              button_description="Edit Tools"
+              button_description={t('mcpServer.editTools')}
               editNode={false}
               isAction
               disabled={false}
@@ -448,21 +449,21 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
           {ENABLE_MCP_COMPOSER && (
             <div className="flex justify-between">
               <span className="flex gap-2 items-center text-sm cursor-default">
-                <span className=" font-medium">Auth:</span>
+                <span className=" font-medium">{t('mcpServer.auth')}</span>
                 {!hasAuthentication ? (
                   <span className="text-accent-amber-foreground flex gap-2 text-mmd items-center">
                     <ForwardedIconComponent
                       name="AlertTriangle"
                       className="h-4 w-4 shrink-0"
                     />
-                    None (public)
+                    {t('mcpServer.nonePublic')}
                   </span>
                 ) : (
                   <ShadTooltip
                     content={
                       !composerUrlData?.error_message
                         ? undefined
-                        : `MCP Server is not running: ${composerUrlData?.error_message}`
+                        : `${t('mcpServer.mcpServerNotRunning')}: ${composerUrlData?.error_message}`
                     }
                   >
                     <span
@@ -489,7 +490,7 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
                         )}
                       />
                       {isLoadingMCPProjectAuth
-                        ? "Loading..."
+                        ? t('mcpServer.loading')
                         : AUTH_METHODS[
                             currentAuthSettings.auth_type as keyof typeof AUTH_METHODS
                           ]?.label || currentAuthSettings.auth_type}
@@ -507,29 +508,29 @@ const McpServerTab = ({ folderName }: { folderName: string }) => {
                   name="Fingerprint"
                   className="h-4 w-4 shrink-0"
                 />
-                {hasAuthentication ? "Edit Auth" : "Add Auth"}
+                {hasAuthentication ? t('common.edit') + " " + t('mcpServer.auth') : t('common.add') + " " + t('mcpServer.auth')}
               </Button>
             </div>
           )}
           <div className={cn("flex flex-col", !ENABLE_MCP_COMPOSER && "mt-2")}>
             <div className="flex flex-row justify-start border-b border-border">
-              {[{ name: "Auto install" }, { name: "JSON" }].map((item) => (
+              {[{ key: "autoInstall", name: t('mcpServer.autoInstall') }, { key: "json", name: t('mcpServer.json') }].map((item) => (
                 <Button
                   unstyled
-                  key={item.name}
+                  key={item.key}
                   className={`flex h-6 flex-row items-end gap-2 text-nowrap border-b-2 border-border border-b-transparent !py-1 font-medium ${
-                    selectedMode === item.name
+                    selectedMode === item.key
                       ? "border-b-2 border-black dark:border-b-white"
                       : "text-muted-foreground hover:text-foreground"
                   } px-3 py-2 text-[13px]`}
-                  onClick={() => setSelectedMode(item.name)}
+                  onClick={() => setSelectedMode(item.key)}
                 >
                   <span>{item.name}</span>
                 </Button>
               ))}
             </div>
           </div>
-          {selectedMode === "JSON" && (
+          {selectedMode === "json" && (
             <>
               <div className="flex flex-col gap-4">
                 <Tabs

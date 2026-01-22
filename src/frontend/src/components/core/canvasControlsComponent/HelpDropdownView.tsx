@@ -5,6 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
 import { Separator } from "@/components/ui/separator";
 import DropdownControlButton from "./DropdownControlButton";
 
@@ -31,6 +32,7 @@ export const HelpDropdownView = ({
   openLink,
   urls,
 }: HelpDropdownViewProps) => {
+  const { t } = useTranslation();
   return (
     <DropdownMenu open={isOpen} onOpenChange={onOpenChange}>
       <DropdownMenuTrigger asChild>
@@ -38,7 +40,7 @@ export const HelpDropdownView = ({
           variant="ghost"
           size="icon"
           className="group flex items-center justify-center px-2 rounded-none"
-          title="Help"
+          title={t('common.help')}
         >
           <IconComponent
             name="Circle-Help"
@@ -55,28 +57,28 @@ export const HelpDropdownView = ({
         <DropdownControlButton
           iconName="book-open"
           testId="canvas_controls_dropdown_docs"
-          label="Docs"
+          label={t('common.docs')}
           externalLink
           onClick={() => openLink(urls.docs)}
         />
         <DropdownControlButton
           iconName="keyboard"
           testId="canvas_controls_dropdown_shortcuts"
-          label="Shortcuts"
+          label={t('common.shortcuts')}
           onClick={() => navigateTo("/settings/shortcuts")}
         />
         <DropdownControlButton
           iconName="bug"
           testId="canvas_controls_dropdown_report_a_bug"
           externalLink
-          label="Report a bug"
+          label={t('common.reportBug')}
           onClick={() => openLink(urls.bugReport)}
         />
         <Separator />
         <DropdownControlButton
           iconName="download"
           testId="canvas_controls_dropdown_get_langflow_desktop"
-          label="Get Langflow Desktop"
+          label={t('common.getDesktop')}
           externalLink
           onClick={() => openLink(urls.desktop)}
         />

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { ICON_STROKE_WIDTH } from "@/constants/constants";
 import { useGetFilesV2 } from "@/controllers/API/queries/file-management";
 import { usePostUploadFile } from "@/controllers/API/queries/files/use-post-upload-file";
@@ -31,6 +32,7 @@ export default function InputFileComponent({
   editNode = false,
   id,
 }: InputProps<string, FileComponentType>): JSX.Element {
+  const { t } = useTranslation();
   const currentFlowId = useFlowsManagerStore((state) => state.currentFlowId);
   const setErrorData = useAlertStore((state) => state.setErrorData);
   const { validateFileSize } = useFileSizeValidator();
@@ -268,7 +270,7 @@ export default function InputFileComponent({
                             strokeWidth={ICON_STROKE_WIDTH}
                           />
                         ) : (
-                          <div>Select file{isList ? "s" : ""}</div>
+                          <div>{isList ? t('inputFile.selectFiles') : t('inputFile.selectFile')}</div>
                         )}
                       </Button>
                     </div>
@@ -287,7 +289,7 @@ export default function InputFileComponent({
                     !value && "text-placeholder-foreground",
                     editNode && "h-6",
                   )}
-                  value={value || "Upload a file..."}
+                  value={value || t('inputFile.uploadFile')}
                   readOnly
                   disabled={isDisabled}
                   onClick={handleButtonClick}

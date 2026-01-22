@@ -4,6 +4,7 @@ import type {
   SelectionChangedEvent,
 } from "ag-grid-community";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Dropdown from "@/components/core/dropdownComponent";
 import GlobalVariableModal from "@/components/core/GlobalVariableModal/GlobalVariableModal";
@@ -21,6 +22,7 @@ import { Button } from "../../../../components/ui/button";
 import useAlertStore from "../../../../stores/alertStore";
 
 export default function GlobalVariablesPage() {
+  const { t } = useTranslation();
   const setErrorData = useAlertStore((state) => state.setErrorData);
   const [openModal, setOpenModal] = useState(false);
   const initialData = useRef<GlobalVariable | undefined>(undefined);
@@ -46,17 +48,17 @@ export default function GlobalVariablesPage() {
   // Column Definitions: Defines the columns to be displayed.
   const colDefs: ColDef[] = [
     {
-      headerName: "Variable Name",
+      headerName: t('pages.globalVariables.variableName'),
       field: "name",
       flex: 2,
     }, //This column will be twice as wide as the others
     {
-      headerName: "Type",
+      headerName: t('pages.globalVariables.type'),
       field: "type",
       cellRenderer: BadgeRenderer,
       cellEditor: DropdownEditor,
       cellEditorParams: {
-        options: ["Generic", "Credential"],
+        options: [t('pages.globalVariables.generic'), t('pages.globalVariables.credential')],
       },
       flex: 1,
     },
@@ -64,7 +66,7 @@ export default function GlobalVariablesPage() {
       field: "value",
     },
     {
-      headerName: "Apply To Fields",
+      headerName: t('pages.globalVariables.applyToFields'),
       field: "default_fields",
       valueFormatter: (params) => {
         return params.value?.join(", ") ?? "";
@@ -87,8 +89,8 @@ export default function GlobalVariablesPage() {
         {
           onError: () => {
             setErrorData({
-              title: `Error deleting variable`,
-              list: [`ID not found for variable: ${row}`],
+              title: t('pages.globalVariables.errorDeletingVariable'),
+              list: [t('pages.globalVariables.idNotFound', { variable: row })],
             });
           },
         },
@@ -109,21 +111,21 @@ export default function GlobalVariablesPage() {
             className="flex items-center text-lg font-semibold tracking-tight"
             data-testid="settings_menu_header"
           >
-            Global Variables
+            {t('pages.settings.globalVariables')}
             <ForwardedIconComponent
               name="Globe"
               className="ml-2 h-5 w-5 text-primary"
             />
           </h2>
           <p className="text-sm text-muted-foreground">
-            Manage global variables and assign them to fields.
+            {t('pages.globalVariables.description')}
           </p>
         </div>
         <div className="flex flex-shrink-0 items-center gap-2">
           <GlobalVariableModal asChild>
             <Button data-testid="api-key-button-store" variant="primary">
               <IconComponent name="Plus" className="w-4" />
-              Add New
+              {t('common.add')}
             </Button>
           </GlobalVariableModal>
         </div>

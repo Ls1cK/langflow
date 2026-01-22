@@ -1,0 +1,151 @@
+{
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "close": "Close",
+  "save": "Save",
+  "delete": {
+    "confirmMessage": "This will permanently delete {{item}}{{note}}.",
+    "cannotUndo": "This can't be undone."
+  },
+  "edit": "Edit",
+  "create": "Create",
+  "update": "Update",
+  "submit": "Submit",
+  "reset": "Reset",
+  "clear": "Clear",
+  "select": "Select",
+  "upload": "Upload",
+  "download": "Download",
+  "export": "Export",
+  "import": "Import",
+  "share": "Share",
+  "copy": "Copy",
+  "paste": "Paste",
+  "api": {
+    "title": "API Code",
+    "subtitle": "Generate the code to integrate your flow into an external application.",
+    "description": "API access requires an API key. You can",
+    "createApiKey": "create an API key",
+    "inSettings": "in settings",
+    "inputSchema": "Input Schema",
+    "endpointName": "Endpoint Name",
+    "endpointNameValidation": "Use only letters, numbers, hyphens, and underscores ({{maxLength}} characters max).",
+    "endpointNamePlaceholder": "An alternative name to run the endpoint",
+    "exposeApi": "Expose API",
+    "exposeApiDescription": "Select which component fields to expose as inputs in this flow's API schema.",
+    "tabs": {
+      "curl": "cURL",
+      "pythonApi": "Python API",
+      "jsApi": "JavaScript API",
+      "pythonCode": "Python Code",
+      "chatWidget": "Chat Widget HTML",
+      "python": "Python",
+      "javascript": "JavaScript"
+    }
+  },
+  "templates": {
+    "title": "Templates",
+    "getStarted": "Get Started",
+    "categories": "Categories",
+    "search": "Search templates...",
+    "noTemplates": "No templates found"
+  },
+  "fileManager": {
+    "title": "File Manager",
+    "upload": "Upload File",
+    "recent": "Recent Files",
+    "dragFiles": "Drag files here",
+    "supportedFormats": "Supported file formats"
+  },
+  "share": {
+    "title": "Share Flow",
+    "public": "Public",
+    "private": "Private",
+    "link": "Share Link",
+    "embed": "Embed Code"
+  },
+  "export": {
+    "title": "Export Flow",
+    "format": "Format",
+    "includeData": "Include Data",
+    "download": "Download"
+  },
+  "editNode": {
+    "title": "Edit Node",
+    "properties": "Properties",
+    "advanced": "Advanced",
+    "save": "Save",
+    "cancel": "Cancel",
+    "fieldName": "Field Name",
+    "currentValue": "Current Value",
+    "value": "Value"
+  },
+  "codeArea": {
+    "title": "Code Editor",
+    "language": "Language",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "textArea": {
+    "title": "Text Editor",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "prompt": {
+    "title": "Prompt Editor",
+    "variables": "Variables",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "confirmation": {
+    "title": "Confirm",
+    "message": "Are you sure you want to perform this action?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "secretKey": {
+    "title": "Secret Key Management",
+    "add": "Add Key",
+    "edit": "Edit Key",
+    "delete": "Delete Key"
+  },
+  "userManagement": {
+    "title": "User Management",
+    "addUser": "Add User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User"
+  },
+  "flowLogs": {
+    "title": "Flow Logs",
+    "level": "Level",
+    "timestamp": "Timestamp",
+    "message": "Message"
+  },
+  "tools": {
+    "title": "Tools Management",
+    "addTool": "Add Tool",
+    "editTool": "Edit Tool",
+    "deleteTool": "Delete Tool"
+  },
+  "addMcpServer": {
+    "title": "Add MCP Server",
+    "updateTitle": "Update MCP Server",
+    "name": "Server Name",
+    "url": "Server URL",
+    "description": "Description",
+    "saveDescription": "Save MCP Servers. Manage added servers in settings"
+  },
+  "editMessage": {
+    "description": "Editing messages will update the memory but won't restart the conversation."
+  },
+  "saveChanges": {
+    "hasUnsavedChanges": "has unsaved changes",
+    "exitAnyway": "Exit anyway",
+    "saveAndExit": "Save and Exit",
+    "savingChanges": "Saving your changes...",
+    "lastSaved": "Last saved",
+    "unsavedChangesLost": "Unsaved changes will be permanently lost.",
+    "enableAutoSaving": "Enable auto-saving",
+    "toAvoidLosingProgress": "to avoid losing progress"
+  }
+}

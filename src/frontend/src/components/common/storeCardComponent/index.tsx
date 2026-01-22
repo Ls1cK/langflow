@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { usePostLikeComponent } from "@/controllers/API/queries/store";
 import { getComponent } from "../../../controllers/API";
 import useAlertStore from "../../../stores/alertStore";
@@ -32,6 +33,7 @@ export default function StoreCardComponent({
   authorized?: boolean;
   disabled?: boolean;
 }) {
+  const { t } = useTranslation();
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
   const setErrorData = useAlertStore((state) => state.setErrorData);
   const setValidApiKey = useStoreStore((state) => state.updateValidApiKey);
@@ -42,7 +44,7 @@ export default function StoreCardComponent({
     data?.downloads_count ?? 0,
   );
 
-  const name = data.is_component ? "Component" : "Flow";
+  const name = data.is_component ? t('flow.component') : t('flow.name');
 
   async function _getFlowData() {
     const res = await getComponent(data.id);
@@ -231,8 +233,8 @@ export default function StoreCardComponent({
                 <ShadTooltip
                   content={
                     authorized
-                      ? "Install Locally"
-                      : "Please review your API key."
+                      ? t('components.storeCard.installLocally')
+                      : t('components.storeCard.reviewApiKey')
                   }
                 >
                   <Button

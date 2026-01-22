@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 import rehypeMathjax from "rehype-mathjax";
 import remarkGfm from "remark-gfm";
@@ -28,6 +29,7 @@ export function ContentBlockDisplay({
   chatId,
   playgroundPage,
 }: ContentBlockDisplayProps) {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const totalDuration = isLoading
@@ -46,7 +48,7 @@ export function ContentBlockDisplay({
     state === "partial" ? lastContent?.header?.icon || "Bot" : "Check";
 
   const headerTitle =
-    state === "partial" ? (lastContent?.header?.title ?? "Steps") : "Finished";
+    state === "partial" ? (lastContent?.header?.title ?? t('chat.steps')) : t('chat.finished');
   // show the block title only if state === "partial"
   const showBlockTitle = state === "partial";
 

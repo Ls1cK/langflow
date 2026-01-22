@@ -1,12 +1,14 @@
 import FlowSettingsComponent from "@/components/core/flowSettingsComponent";
 import type { FlowSettingsPropsType } from "../../types/components";
 import BaseModal from "../baseModal";
+import { useTranslation } from "react-i18next";
 
 export default function FlowSettingsModal({
   open,
   setOpen,
   flowData,
 }: FlowSettingsPropsType): JSX.Element {
+  const { t } = useTranslation();
   if (!open) return <></>;
   return (
     <BaseModal
@@ -16,7 +18,7 @@ export default function FlowSettingsModal({
       className="p-4"
     >
       <BaseModal.Header>
-        <span className="text-base font-semibold">Flow Details</span>
+        <span className="text-base font-semibold">{t('modal:flowSettings.title')}</span>
       </BaseModal.Header>
       <BaseModal.Content>
         <FlowSettingsComponent

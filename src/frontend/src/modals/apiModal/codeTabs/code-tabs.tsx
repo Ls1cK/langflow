@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneDark,
@@ -35,6 +36,7 @@ const operatingSystemTabs = [
 ];
 
 export default function APITabsComponent() {
+  const { t } = useTranslation();
   const [isCopied, setIsCopied] = useState<Boolean>(false);
   const [copiedStep, setCopiedStep] = useState<string | null>(null);
   const endpointName = useFlowStore(
@@ -94,7 +96,7 @@ export default function APITabsComponent() {
 
   const tabsList = [
     {
-      title: "Python",
+      title: t('modals.api.tabs.python'),
       icon: "BWPython",
       language: "python",
       code: getNewPythonApiCode({
@@ -103,7 +105,7 @@ export default function APITabsComponent() {
       }),
     },
     {
-      title: "JavaScript",
+      title: t('modals.api.tabs.javascript'),
       icon: "javascript",
       language: "javascript",
       code: getNewJsApiCode({
@@ -112,7 +114,7 @@ export default function APITabsComponent() {
       }),
     },
     {
-      title: "cURL",
+      title: t('modals.api.tabs.curl'),
       icon: "TerminalSquare",
       language: selectedPlatform === "windows" ? "powershell" : "shell",
       code: getNewCurlCode({
@@ -123,7 +125,7 @@ export default function APITabsComponent() {
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState("Python");
+  const [selectedTab, setSelectedTab] = useState(t('modals.api.tabs.python'));
 
   const copyToClipboard = (codeText?: string, stepId?: string) => {
     if (!navigator.clipboard || !navigator.clipboard.writeText) {

@@ -1,5 +1,6 @@
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ const HeaderComponent = ({
   isEmptyFolder,
   selectedFlows,
 }: HeaderComponentProps) => {
+  const { t } = useTranslation();
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const isMCPEnabled = ENABLE_MCP;
   const setSuccessData = useAlertStore((state) => state.setSuccessData);
@@ -77,7 +79,7 @@ const HeaderComponent = ({
 
   const handleDownload = () => {
     downloadFlows({ ids: selectedFlows });
-    setSuccessData({ title: "Flows downloaded successfully" });
+    setSuccessData({ title: t('ui:flowsDownloadedSuccessfully') });
   };
 
   const handleDelete = () => {
@@ -85,7 +87,7 @@ const HeaderComponent = ({
       { flow_ids: selectedFlows },
       {
         onSuccess: () => {
-          setSuccessData({ title: "Flows deleted successfully" });
+          setSuccessData({ title: t('ui:flowsDeletedSuccessfully') });
         },
       },
     );
@@ -131,8 +133,10 @@ const HeaderComponent = ({
               >
                 <div className={flowType === type ? "-mb-px" : ""}>
                   {type === "mcp"
-                    ? "MCP Server"
-                    : type.charAt(0).toUpperCase() + type.slice(1)}
+                    ? t('ui:mcpServer')
+                    : type === "flows"
+                    ? t('ui:flows')
+                    : t('ui:components')}
                 </div>
               </Button>
             ))}
@@ -222,7 +226,7 @@ const HeaderComponent = ({
                     </Button>
                   </DeleteConfirmationModal>
                 </div>
-                <ShadTooltip content="New Flow" side="bottom">
+                <ShadTooltip content={t('flow:create')} side="bottom">
                   <Button
                     variant="default"
                     size="iconMd"
@@ -237,7 +241,7 @@ const HeaderComponent = ({
                       className="h-4 w-4"
                     />
                     <span className="hidden whitespace-nowrap font-semibold md:inline">
-                      New Flow
+                      {t('flow:create')}
                     </span>
                   </Button>
                 </ShadTooltip>
